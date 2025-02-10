@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:powergen_edu/src/features/home/home_page.dart';
 import 'package:powergen_edu/src/features/register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,6 +13,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: _usernameController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'NIS',
                   filled: true,
                   fillColor: Colors.grey[100],
                   border: OutlineInputBorder(
@@ -61,7 +72,10 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
-                  // Implementasi logika login
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrange,
@@ -75,24 +89,18 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: () {
+              const SizedBox(height: 24),
+              GestureDetector(
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const RegisterPage()));
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepOrange,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  'Register',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                child: Text(
+                  'Daftar akun',
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],

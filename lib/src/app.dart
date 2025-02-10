@@ -85,8 +85,7 @@
 // }
 
 import 'package:flutter/material.dart';
-
-import 'features/login/login_page.dart';
+import 'package:powergen_edu/src/features/setup_access/setup_access_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -95,7 +94,56 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const SetupAccessPage(),
+      color: Colors.orange,
+      theme: ThemeData(
+        indicatorColor: Colors.deepOrange,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepOrange,
+          accentColor: Colors.deepOrange,
+          brightness: Brightness.light,
+        ),
+        primarySwatch: Colors.orange,
+        primaryColor: Colors.orange,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
+          bodyMedium: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+          ),
+          bodySmall: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.deepOrange,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

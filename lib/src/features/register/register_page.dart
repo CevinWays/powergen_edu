@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:powergen_edu/src/features/home/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -89,7 +90,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 32),
                     ElevatedButton(
                       onPressed: () {
-                        // Implementasi logika register
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepOrange,
