@@ -19,7 +19,7 @@ class ProgressPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             const Text(

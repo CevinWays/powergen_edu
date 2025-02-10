@@ -105,7 +105,7 @@ class ModuleDetailPage extends StatelessWidget {
                             width: double.infinity,
                             height: 200,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) => Icon(
+                            errorBuilder: (context, error, stackTrace) => const Icon(
                               Icons.image_not_supported,
                               color: Colors.red,
                               size: 50,

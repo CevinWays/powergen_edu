@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                   LinearProgressIndicator(
                     value: 0.5,
                     minHeight: 10,
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                     backgroundColor: Colors.grey[200],
                     valueColor: AlwaysStoppedAnimation<Color>(
                       Colors.deepOrange[500]!,

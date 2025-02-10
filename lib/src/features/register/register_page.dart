@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:powergen_edu/src/features/home/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -29,12 +29,12 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: GestureDetector(
                         onTap: () => Navigator.pop(context),
-                        child: Icon(Icons.arrow_back, color: Colors.black)),
+                        child: const Icon(Icons.arrow_back, color: Colors.black)),
                   ),
                 ),
                 Column(

@@ -7,7 +7,7 @@ class ModulesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Contoh data progress (nantinya bisa diambil dari state management/API)
-    final double progressPercentage = 50.0;
+    const double progressPercentage = 50.0;
 
     // Data modul (nantinya bisa diambil dari API)
     final List<Map<String, dynamic>> modules = [

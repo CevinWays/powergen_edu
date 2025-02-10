@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                       MaterialPageRoute(
                           builder: (context) => const RegisterPage()));
                 },
-                child: Text(
+                child: const Text(
                   'Daftar akun',
                   style: TextStyle(fontSize: 16, color: Colors.black),
                   textAlign: TextAlign.center,
