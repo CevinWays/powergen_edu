@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:powergen_edu/src/features/home/home_page.dart';
+import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -93,7 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()),
+                              builder: (context) => const PretestPage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(

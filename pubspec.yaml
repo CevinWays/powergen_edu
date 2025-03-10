@@ -10,12 +10,17 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  bloc: ^8.1.4
+  cached_network_image: ^3.4.1
+  flutter_bloc: ^8.1.6
   change_app_package_name: ^1.4.0
   fl_chart: ^0.66.2
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  youtube_player_flutter: ^9.1.1
+  flutter_inappwebview: ^6.1.5
 
 dev_dependencies:
   flutter_test:

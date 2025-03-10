@@ -136,15 +136,11 @@ class ProgressPage extends StatelessWidget {
             icon: Icon(
               Icons.home_outlined,
             ),
-            label: 'Home',
+            label: 'Beranda',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.trending_up_outlined),
             label: 'Progres',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profil',
           ),
         ],
       ),

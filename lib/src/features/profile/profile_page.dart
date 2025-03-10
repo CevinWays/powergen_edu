@@ -1,145 +1,150 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../home/home_page.dart';
 import '../progress/progress_page.dart';
+import 'bloc/profile_bloc.dart';
+import 'bloc/profile_event.dart';
+import 'bloc/profile_state.dart';
+import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
-              // Profile Picture
-              Center(
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.grey[200],
-                      child: Icon(
-                        Icons.person,
-                        size: 80,
-                        color: Colors.grey[400],
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.deepOrange[100],
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.edit,
-                          size: 20,
-                          color: Colors.deepOrange[900],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 32),
-              // Profile Information
-              _buildProfileInfo(
-                title: 'Full Name',
-                value: 'John Doe',
-                icon: Icons.person_outline,
-              ),
-              _buildDivider(),
-              _buildProfileInfo(
-                title: 'Email',
-                value: 'john.doe@email.com',
-                icon: Icons.email_outlined,
-              ),
-              _buildDivider(),
-              _buildProfileInfo(
-                title: 'NIS',
-                value: '2024001',
-                icon: Icons.badge_outlined,
-              ),
-              _buildDivider(),
-              _buildProfileInfo(
-                title: 'Class',
-                value: 'Power Generation - Class A',
-                icon: Icons.class_outlined,
-              ),
-              _buildDivider(),
-              const SizedBox(height: 32),
-              // Edit Profile Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // TODO: Implement edit profile functionality
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepOrange[100],
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                      color: Colors.deepOrange[900],
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              );
-              break;
-            case 1:
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ProgressPage(),
-                ),
-              );
-              break;
-            case 2:
-              // Already on profile page
-              break;
+    return BlocProvider(
+      create: (context) => ProfileBloc()..add(LoadProfile()),
+      child: BlocConsumer<ProfileBloc, ProfileState>(
+        listener: (context, state) {
+          if (state is LogoutSuccess) {
+            // TODO: Navigate to login page
           }
         },
-        currentIndex: 2,
-        selectedItemColor: Colors.deepOrange[300],
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.trending_up_outlined),
-            label: 'Progres',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profil',
-          ),
-        ],
+        builder: (context, state) {
+          if (state is ProfileLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (state is ProfileLoaded) {
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Profile'),
+                backgroundColor: Colors.white,
+              ),
+              body: SafeArea(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      // Profile Picture
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EditProfilePage(),
+                            ),
+                          );
+                        },
+                        child: Center(
+                          child: Stack(
+                            children: [
+                              CircleAvatar(
+                                radius: 60,
+                                backgroundColor: Colors.grey[200],
+                                child: Icon(
+                                  Icons.person,
+                                  size: 80,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  padding: const EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                    color: Colors.deepOrange[100],
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.edit,
+                                    size: 20,
+                                    color: Colors.deepOrange[900],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      _buildProfileInfo(
+                        title: 'Full Name',
+                        value: state.fullName,
+                        icon: Icons.person_outline,
+                      ),
+                      _buildDivider(),
+                      _buildProfileInfo(
+                        title: 'Email',
+                        value: state.email,
+                        icon: Icons.email_outlined,
+                      ),
+                      _buildDivider(),
+                      _buildProfileInfo(
+                        title: 'NIS',
+                        value: state.nis,
+                        icon: Icons.badge_outlined,
+                      ),
+                      _buildDivider(),
+                      _buildProfileInfo(
+                        title: 'Class',
+                        value: state.className,
+                        icon: Icons.class_outlined,
+                      ),
+                      _buildDivider(),
+                      const SizedBox(height: 32),
+                      // Logout Button
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            context.read<ProfileBloc>().add(LogoutRequested());
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.logout,
+                                color: Colors.deepOrange[900],
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                'Logout',
+                                style: TextStyle(
+                                  color: Colors.deepOrange[900],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+          return const Center(child: Text('Something went wrong'));
+        },
       ),
     );
   }

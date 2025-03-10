@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:powergen_edu/src/features/home/home_page.dart';
+import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
 import 'package:powergen_edu/src/features/register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -74,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(builder: (context) => const PretestPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

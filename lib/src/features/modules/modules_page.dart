@@ -45,7 +45,7 @@ class ModulesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Modules'),
+        title: const Text('Semua Modul'),
       ),
       body: Column(
         children: [
@@ -96,7 +96,7 @@ class ModulesPage extends StatelessWidget {
                       ),
                     ),
                     title: Text(
-                      'Chapter ${module['id']}: ${module['title']}',
+                      'Bab ${module['id']}: ${module['title']}',
                       style: TextStyle(
                         color: module['isLocked'] ? Colors.grey : Colors.black,
                       ),
