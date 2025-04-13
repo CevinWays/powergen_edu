@@ -1,0 +1,2 @@
+D:/Projects/powergen_edu/android/app/.cxx/Debug/4ro1r02q/x86/CMakeFiles/edit_cache.dir
+D:/Projects/powergen_edu/android/app/.cxx/Debug/4ro1r02q/x86/CMakeFiles/rebuild_cache.dir
