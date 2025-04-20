@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:powergen_edu/src/features/login/login_page.dart';
+import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
+import 'package:powergen_edu/src/features/splash/bloc/splash_bloc.dart';
+
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SplashBloc()..add(SplashCheckToken()),
+      child: Scaffold(
+        body: BlocListener<SplashBloc, SplashState>(
+          listener: (context, state) {
+            if (state is SplashAuthenticated) {
+              Navigator.pushReplacement(context, 
+                  MaterialPageRoute(builder: (context) => const PretestPage()));
+            } else if (state is SplashUnauthenticated) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+              );
+            }
+          },
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                FlutterLogo(size: 100),
+                SizedBox(height: 20),
+                Text(
+                  'PowerGen Edu',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

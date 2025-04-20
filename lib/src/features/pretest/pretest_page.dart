@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/home/home_page.dart';
 import 'package:powergen_edu/src/features/pretest/bloc/pretest_bloc.dart';
-import 'package:powergen_edu/src/features/pretest/widgets/question_card.dart';
+import 'package:powergen_edu/src/features/pretest/widgets/pretest_question_card.dart';
 
 class PretestPage extends StatelessWidget {
   const PretestPage({super.key});
@@ -53,7 +53,7 @@ class PretestView extends StatelessWidget {
                     itemBuilder: (context, questionIndex) {
                       final questionNumber = questionIndex;
                       final question = state.questions[questionNumber];
-                      return QuestionCard(
+                      return PretestQuestionCard(
                         question: question,
                         onAnswerSelected: (answer) {
                           context.read<PretestBloc>().add(

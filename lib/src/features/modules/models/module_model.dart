@@ -1,3 +1,5 @@
+import 'package:powergen_edu/src/features/modules/models/content_model.dart';
+
 class ModuleModel {
   final int id;
   final String title;
@@ -5,6 +7,7 @@ class ModuleModel {
   final int estimatedHours;
   final bool isCompleted;
   final bool isLocked;
+  final List<ContentModel>? content;
 
   ModuleModel({
     required this.id,
@@ -13,6 +16,7 @@ class ModuleModel {
     required this.estimatedHours,
     this.isCompleted = false,
     this.isLocked = false,
+    this.content,
   });
 
   factory ModuleModel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +27,9 @@ class ModuleModel {
       estimatedHours: json['estimatedHours'],
       isCompleted: json['isCompleted'] ?? false,
       isLocked: json['isLocked'] ?? false,
-    );
+      content: (json['content'] as List?)
+          ?.map((item) => ContentModel.fromJson(item))
+          .toList(),
+        );
   }
 }

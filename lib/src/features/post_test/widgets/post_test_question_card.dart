@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:powergen_edu/src/features/post_test/models/post_test_question_model.dart';
 import 'package:powergen_edu/src/features/pretest/models/pretest_question.dart';
 
-class QuestionCard extends StatefulWidget {
-  final PretestQuestion question;
+class PostTestQuestionCard extends StatefulWidget {
+  final PostTestQuestionModel question;
   final Function(String) onAnswerSelected;
 
-  const QuestionCard({
+  const PostTestQuestionCard({
     super.key,
     required this.question,
     required this.onAnswerSelected,
   });
 
   @override
-  State<QuestionCard> createState() => _QuestionCardState();
+  State<PostTestQuestionCard> createState() => _PostTestQuestionCardState();
 }
 
-class _QuestionCardState extends State<QuestionCard> {
+class _PostTestQuestionCardState extends State<PostTestQuestionCard> {
   String? selectedAnswer;
 
   @override
@@ -52,7 +53,7 @@ class _QuestionCardState extends State<QuestionCard> {
                   }
                 },
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

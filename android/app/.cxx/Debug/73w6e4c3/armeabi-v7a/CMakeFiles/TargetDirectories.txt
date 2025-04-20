@@ -1,0 +1,2 @@
+/home/cevinways/Developer/powergen_edu/android/app/.cxx/Debug/73w6e4c3/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/cevinways/Developer/powergen_edu/android/app/.cxx/Debug/73w6e4c3/armeabi-v7a/CMakeFiles/rebuild_cache.dir

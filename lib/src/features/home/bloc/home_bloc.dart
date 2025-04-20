@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../features/modules/models/module_model.dart';
 
 // Events
@@ -26,11 +27,12 @@ class HomeLoading extends HomeState {}
 
 class HomeLoaded extends HomeState {
   final List<ModuleModel> modules;
+  final String username;
 
-  const HomeLoaded(this.modules);
+  const HomeLoaded(this.modules,this.username);
 
   @override
-  List<Object> get props => [modules];
+  List<Object> get props => [modules,username];
 }
 
 class HomeError extends HomeState {
@@ -49,6 +51,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(HomeLoading());
       try {
         // Simulate API call
+
+        final prefs = await SharedPreferences.getInstance();
+        final username = prefs.getString('userName') ?? 'Guest';
         await Future.delayed(const Duration(seconds: 1));
         final modules = [
           ModuleModel(
@@ -74,7 +79,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             isLocked: true,
           ),
         ];
-        emit(HomeLoaded(modules));
+        emit(HomeLoaded(modules,username));
       } catch (e) {
         emit(HomeError(e.toString()));
       }

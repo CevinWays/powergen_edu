@@ -1,8 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'profile_event.dart';
 import 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   ProfileBloc() : super(ProfileInitial()) {
     on<LoadProfile>(_onLoadProfile);
     on<LogoutRequested>(_onLogoutRequested);
@@ -14,12 +18,18 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ) async {
     emit(ProfileLoading());
     try {
-      // TODO: Implement load profile logic
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      final String fullName = prefs.getString('userName') ?? '';
+      final String email = prefs.getString('email') ?? '';
+      final String nis = prefs.getString('nis') ?? '';
+      final String className = prefs.getString('className') ?? '';
+
       emit(ProfileLoaded(
-        fullName: 'John Doe',
-        email: 'john.doe@email.com',
-        nis: '2024001',
-        className: 'Power Generation - Class A',
+        fullName: fullName,
+        email: email,
+        nis: nis,
+        className: className,
       ));
     } catch (e) {
       emit(ProfileError(e.toString()));
@@ -31,7 +41,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     Emitter<ProfileState> emit,
   ) async {
     try {
-      // TODO: Implement logout logic
+      // Sign out from Firebase
+      await _auth.signOut();
+
+      // Clear SharedPreferences
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.clear();
+
       emit(LogoutSuccess());
     } catch (e) {
       emit(ProfileError(e.toString()));

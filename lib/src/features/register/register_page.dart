@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:powergen_edu/src/features/home/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
+import 'package:powergen_edu/src/features/register/bloc/register_bloc.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -21,103 +22,172 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: const Icon(Icons.arrow_back, color: Colors.black)),
-                  ),
+    return BlocProvider(
+      create: (context) => RegisterBloc(),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: BlocConsumer<RegisterBloc, RegisterState>(
+          listener: (context, state) {
+            if (state is RegisterSuccess && state.userCredential.user != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Registration successful!'),
+                  backgroundColor: Colors.green,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 40),
-                    const Text(
-                      'Register',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 32),
-                    _buildTextField(
-                      controller: _emailController,
-                      label: 'Email',
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _usernameController,
-                      label: 'Username',
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _nisController,
-                      label: 'NIS',
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _namaLengkapController,
-                      label: 'Nama Lengkap',
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _kelasController,
-                      label: 'Kelas',
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _passwordController,
-                      label: 'Password',
-                      isPassword: true,
-                    ),
-                    const SizedBox(height: 16),
-                    _buildTextField(
-                      controller: _repeatPasswordController,
-                      label: 'Repeat Password',
-                      isPassword: true,
-                    ),
-                    const SizedBox(height: 32),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PretestPage()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+              );
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const PretestPage()),
+              );
+            } else if (state is RegisterFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.error),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16.0),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: GestureDetector(
+                              onTap: () => Navigator.pop(context),
+                              child: const Icon(Icons.arrow_back,
+                                  color: Colors.black)),
                         ),
                       ),
-                      child: const Text(
-                        'Register',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const SizedBox(height: 40),
+                          const Text(
+                            'Register',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 32),
+                          _buildTextField(
+                            controller: _emailController,
+                            label: 'Email',
+                            autofocus: true,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: _usernameController,
+                            label: 'Username',
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: _nisController,
+                            label: 'NIS/NISN/NUPTK',
+                            keyboardType: TextInputType.number,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: _namaLengkapController,
+                            label: 'Nama Lengkap',
+                          ),
+                          // const SizedBox(height: 16),
+                          // _buildTextField(
+                          //   controller: _kelasController,
+                          //   label: 'Kelas',
+                          // ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: _passwordController,
+                            label: 'Password',
+                            isPassword: true,
+                          ),
+                          const SizedBox(height: 16),
+                          _buildTextField(
+                            controller: _repeatPasswordController,
+                            label: 'Repeat Password',
+                            isPassword: true,
+                          ),
+                          const SizedBox(height: 32),
+                          if (state is RegisterLoading)
+                            const Center(child: CircularProgressIndicator())
+                          else
+                            ElevatedButton(
+                              onPressed: () => _validateAndSubmit(context),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.deepOrange,
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              child: const Text(
+                                'Register',
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                              ),
+                            ),
+                          const SizedBox(height: 24),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                  ],
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         ),
       ),
     );
+  }
+
+  void _validateAndSubmit(BuildContext context) {
+    if (_emailController.text.isEmpty ||
+        _passwordController.text.isEmpty ||
+        _repeatPasswordController.text.isEmpty ||
+        _usernameController.text.isEmpty ||
+        _nisController.text.isEmpty ||
+        _namaLengkapController.text.isEmpty 
+        // || _kelasController.text.isEmpty
+        ) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Harap isi semua field'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    if (_passwordController.text != _repeatPasswordController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Password tidak cocok'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    context.read<RegisterBloc>().add(
+          RegisterSubmitted(
+            email: _emailController.text,
+            password: _passwordController.text,
+            username: _usernameController.text,
+            nis: _nisController.text,
+            namaLengkap: _namaLengkapController.text,
+            // kelas: _kelasController.text,
+          ),
+        );
   }
 
   Widget _buildTextField({
@@ -125,8 +195,10 @@ class _RegisterPageState extends State<RegisterPage> {
     required String label,
     bool isPassword = false,
     TextInputType? keyboardType,
+    bool autofocus = false,
   }) {
     return TextField(
+      autofocus: autofocus,
       controller: controller,
       obscureText: isPassword,
       keyboardType: keyboardType,

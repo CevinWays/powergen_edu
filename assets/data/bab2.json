@@ -1,0 +1,23 @@
+{
+  "id" : 1,
+  "title" : "Bab 2",
+  "description" : "Prosedur Pengoperasian Mesin Listrik Pembangkit",
+  "estimatedHours" : 3, 
+  "content" : [
+    {
+      "type": "text",
+      "content": "<p><strong>Prosedur Pengoperasian Mesin Listrik Pembangkit</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>Langkah Awal: Persiapan Operasi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p>Sebelum mesin listrik pembangkit dinyalakan, teknisi wajib melakukan serangkaian pemeriksaan menyeluruh untuk memastikan bahwa seluruh sistem berada dalam kondisi siap operasi. Langkah ini mencakup pengecekan visual terhadap kondisi fisik mesin dan instalasi, verifikasi level pelumas dan pendingin, pemeriksaan sistem bahan bakar, serta pengujian fungsi kontrol dan perlindungan otomatis. Selain itu, sistem kelistrikan seperti koneksi grounding, kabel daya, serta panel kontrol harus dipastikan bebas dari gangguan dan dalam kondisi aman. Tekanan fluida, suhu, dan parameter lain yang relevan juga harus berada dalam rentang normal sesuai dengan spesifikasi teknis. Prosedur ini tidak hanya penting untuk menjamin keandalan mesin saat start-up, tetapi juga merupakan bagian dari langkah preventif untuk mencegah kerusakan komponen akibat beban mendadak atau kondisi operasi yang tidak stabil. Pemeriksaan menyeluruh sebelum menyalakan mesin memastikan proses pembangkitan dapat berjalan optimal, aman, dan efisien. Berikut merupakan tahapan untuk persiapan operasi mesin listrik:</p>",
+      "isTitle": false
+    }
+  ]
+}

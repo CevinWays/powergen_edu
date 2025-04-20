@@ -1,0 +1,20 @@
+                        -H/home/cevinways/Developer/development/flutter/packages/flutter_tools/gradle/src/main/groovy
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=21
+-DANDROID_PLATFORM=android-21
+-DANDROID_ABI=armeabi-v7a
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DANDROID_NDK=/home/cevinways/Android/Sdk/ndk/26.3.11579264
+-DCMAKE_ANDROID_NDK=/home/cevinways/Android/Sdk/ndk/26.3.11579264
+-DCMAKE_TOOLCHAIN_FILE=/home/cevinways/Android/Sdk/ndk/26.3.11579264/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/home/cevinways/Android/Sdk/cmake/3.22.1/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/cevinways/Developer/powergen_edu/build/app/intermediates/cxx/Debug/73w6e4c3/obj/armeabi-v7a
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/cevinways/Developer/powergen_edu/build/app/intermediates/cxx/Debug/73w6e4c3/obj/armeabi-v7a
+-DCMAKE_BUILD_TYPE=Debug
+-B/home/cevinways/Developer/powergen_edu/android/app/.cxx/Debug/73w6e4c3/armeabi-v7a
+-GNinja
+-Wno-dev
+--no-warn-unused-cli
+                        Build command args: []
+                        Version: 2

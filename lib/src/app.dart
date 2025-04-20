@@ -85,7 +85,9 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:powergen_edu/src/features/login/login_page.dart';
 import 'package:powergen_edu/src/features/setup_access/setup_access_page.dart';
+import 'package:powergen_edu/src/features/splash/splash_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -94,7 +96,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SetupAccessPage(),
+      home: const SplashPage(),
       color: Colors.orange,
       theme: ThemeData(
         indicatorColor: Colors.deepOrange,

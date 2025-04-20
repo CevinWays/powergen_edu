@@ -13,31 +13,29 @@ class ModulesPage extends StatelessWidget {
     final List<Map<String, dynamic>> modules = [
       {
         'id': 1,
-        'title': 'Fundamentals of Power Plant Machinery',
+        'title':
+            'Konsep Dasar Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit',
         'isCompleted': true,
         'isLocked': false,
       },
       {
         'id': 2,
-        'title': 'Structure and Components of Power Plant Machinery',
+        'title':
+            'Pengoperasian Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit',
         'isCompleted': false,
         'isLocked': false,
       },
       {
         'id': 3,
-        'title': 'Working Principles of Power Plant Machinery',
+        'title':
+            'Pemeliharaan Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit',
         'isCompleted': false,
         'isLocked': true,
       },
       {
         'id': 4,
-        'title': 'Maintenance and Safety',
-        'isCompleted': false,
-        'isLocked': true,
-      },
-      {
-        'id': 5,
-        'title': 'Final Evaluation and Practical Project',
+        'title':
+            'Sistem Pemeliharaan dan Pengoperasian Mesin Listrik Pembangkit',
         'isCompleted': false,
         'isLocked': true,
       },
@@ -96,7 +94,9 @@ class ModulesPage extends StatelessWidget {
                       ),
                     ),
                     title: Text(
-                      'Bab ${module['id']}: ${module['title']}',
+                      index == 3
+                          ? 'Final Project: ${module['title']}'
+                          : 'Bab ${module['id']}: ${module['title']}',
                       style: TextStyle(
                         color: module['isLocked'] ? Colors.grey : Colors.black,
                       ),
