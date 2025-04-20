@@ -107,13 +107,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           const SizedBox(height: 16),
                           _buildTextField(
                             controller: _passwordController,
-                            label: 'Password',
+                            label: 'Kata Sandi',
                             isPassword: true,
                           ),
                           const SizedBox(height: 16),
                           _buildTextField(
                             controller: _repeatPasswordController,
-                            label: 'Repeat Password',
+                            label: 'Ulangi Kata Sandi',
                             isPassword: true,
                           ),
                           const SizedBox(height: 32),
@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                               child: const Text(
-                                'Register',
+                                'Daftar Sekarang',
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white),
                               ),
@@ -152,11 +152,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _validateAndSubmit(BuildContext context) {
     if (_emailController.text.isEmpty ||
-        _passwordController.text.isEmpty ||
-        _repeatPasswordController.text.isEmpty ||
-        _usernameController.text.isEmpty ||
-        _nisController.text.isEmpty ||
-        _namaLengkapController.text.isEmpty 
+            _passwordController.text.isEmpty ||
+            _repeatPasswordController.text.isEmpty ||
+            _usernameController.text.isEmpty ||
+            _nisController.text.isEmpty ||
+            _namaLengkapController.text.isEmpty
         // || _kelasController.text.isEmpty
         ) {
       ScaffoldMessenger.of(context).showSnackBar(

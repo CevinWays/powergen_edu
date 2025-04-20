@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             }
           },
           builder: (context, state) {
-            if(state is LoginLoading) {
+            if (state is LoginLoading) {
               return const Center(child: CircularProgressIndicator());
             }
             return SafeArea(
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 16),
                       _buildTextField(
                         controller: _passwordController,
-                        label: 'Password',
+                        label: 'Kata Sandi',
                         isPassword: true,
                       ),
                       const SizedBox(height: 32),
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           child: const Text(
-                            'Login',
+                            'Masuk',
                             style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ),
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                           );
                         },
                         child: const Text(
-                          'Don\'t have an account? Register',
+                          'Belum punya akun? Daftar sekarang',
                           style: TextStyle(color: Colors.deepOrange),
                         ),
                       ),

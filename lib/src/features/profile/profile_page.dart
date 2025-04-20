@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
           if (state is LogoutSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content: Text('Logout successful!'),
+                content: Text('Logout Berhasil!'),
                 backgroundColor: Colors.green,
               ),
             );
@@ -39,7 +39,7 @@ class ProfilePage extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is ProfileLoading) {
-            return Scaffold(body: const Center(child: CircularProgressIndicator()));
+            return const Scaffold(body: Center(child: CircularProgressIndicator()));
           }
           if (state is ProfileLoaded) {
             return Scaffold(
