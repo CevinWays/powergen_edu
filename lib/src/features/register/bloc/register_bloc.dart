@@ -90,12 +90,14 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
       if (userCredential.user != null) {
         final idToken = await userCredential.user!.getIdToken() ?? '';
+        final isTeacher = event.nis.length == 16 ? true : false;
         await prefs.setString('token', idToken);
         await prefs.setString('email', event.email);
         await prefs.setString('userName', event.username);
         await prefs.setString('nis', event.nis);
         await prefs.setString('fullName', event.namaLengkap);
         await prefs.setString('uid', userCredential.user?.uid ?? '');
+        await prefs.setBool('isTeacher', isTeacher);
         // Store additional user data in Firestore
         await _firestore.collection('users').doc(userCredential.user!.uid).set({
           'username': event.username,
@@ -105,6 +107,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           'email': event.email,
           'createdAt': DateTime.now(),
           'uid': userCredential.user?.uid ?? '',
+          'isTeacher': isTeacher,
+          'total_progress': 0,
         });
 
         emit(RegisterSuccess(userCredential));

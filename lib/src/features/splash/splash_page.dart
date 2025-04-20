@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/login/login_page.dart';
 import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
 import 'package:powergen_edu/src/features/splash/bloc/splash_bloc.dart';
+import 'package:powergen_edu/src/features/teacher/teacher_home/teacher_home_page.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -15,8 +16,17 @@ class SplashPage extends StatelessWidget {
         body: BlocListener<SplashBloc, SplashState>(
           listener: (context, state) {
             if (state is SplashAuthenticated) {
-              Navigator.pushReplacement(context, 
-                  MaterialPageRoute(builder: (context) => const PretestPage()));
+              if(state.isTeacher) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TeacherHomePage()),
+                );
+              } else {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PretestPage()),
+                );
+              }
             } else if (state is SplashUnauthenticated) {
               Navigator.pushReplacement(
                 context,

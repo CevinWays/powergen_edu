@@ -38,9 +38,6 @@ class ProfilePage extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          if (state is ProfileLoading) {
-            return const Scaffold(body: Center(child: CircularProgressIndicator()));
-          }
           if (state is ProfileLoaded) {
             return Scaffold(
               appBar: AppBar(
@@ -160,7 +157,8 @@ class ProfilePage extends StatelessWidget {
               ),
             );
           }
-          return const Center(child: Text('Something went wrong'));
+          return const Scaffold(
+              body: Center(child: CircularProgressIndicator()));
         },
       ),
     );

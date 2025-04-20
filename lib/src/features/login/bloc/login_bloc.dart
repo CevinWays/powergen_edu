@@ -43,8 +43,10 @@ class LoginLoading extends LoginState {}
 class LoginSuccess extends LoginState {
   final UserCredential userCredential;
   final Map<String, dynamic>? userData;
+  final bool isTeacher;
 
-  const LoginSuccess(this.userCredential, {this.userData});
+  const LoginSuccess(
+      {required this.userCredential, this.userData, this.isTeacher = false});
 
   @override
   List<Object?> get props => [userCredential, userData];
@@ -108,6 +110,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await prefs.setString('uid', userCredential.user?.uid ?? '');
       await prefs.setString('nis', userData?['nis'] ?? '');
       await prefs.setString('fullName', userData?['fullName'] ?? '');
+      await prefs.setInt('totalProgress', userData?['total_progress'] ?? 0);
 
       // Store additional user data from Firestore if available
       if (userData != null) {
@@ -115,7 +118,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         // You can store more user data from Firestore here
       }
 
-      emit(LoginSuccess(userCredential, userData: userData));
+      bool isTeacher = false;
+      final nis = userData?['nis'] ?? '';
+      if (nis.length == 16) {
+        isTeacher = true;
+      }
+      await prefs.setBool('isTeacher', isTeacher);
+
+      emit(LoginSuccess(
+        userCredential: userCredential,
+        userData: userData,
+        isTeacher: isTeacher,
+      ));
     } on FirebaseAuthException catch (e) {
       String errorMessage = 'Login failed';
       if (e.code == 'user-not-found') {

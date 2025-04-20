@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/login/bloc/login_bloc.dart';
 import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
 import 'package:powergen_edu/src/features/register/register_page.dart';
+import 'package:powergen_edu/src/features/teacher/teacher_home/teacher_home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,10 +31,17 @@ class _LoginPageState extends State<LoginPage> {
                   backgroundColor: Colors.green,
                 ),
               );
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const PretestPage()),
-              );
+              if (state.isTeacher) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TeacherHomePage()),
+                );
+              } else {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PretestPage()),
+                );
+              }
             } else if (state is LoginFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

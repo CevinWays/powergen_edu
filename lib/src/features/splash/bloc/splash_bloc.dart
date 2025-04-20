@@ -28,11 +28,15 @@ class SplashAuthenticated extends SplashState {
   final String token;
   final String email;
   final String userName;
+  final String nis;
+  final bool isTeacher;
 
   const SplashAuthenticated({
     required this.token,
     required this.email,
     required this.userName,
+    required this.nis,
+    this.isTeacher = false,
   });
 
   @override
@@ -61,12 +65,18 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       final token = prefs.getString('token');
       final email = prefs.getString('email');
       final userName = prefs.getString('userName');
+      final nis = prefs.getString('nis');
+      final className = prefs.getString('className');
+      final isTeacher = prefs.getBool('isTeacher') ?? false;
+      final fullName = prefs.getString('fullName') ?? false;
 
       if (token != null && token.isNotEmpty) {
         emit(SplashAuthenticated(
           token: token,
           email: email ?? '',
           userName: userName ?? '',
+          nis: nis ?? '',
+          isTeacher: isTeacher,
         ));
       } else {
         emit(SplashUnauthenticated());
