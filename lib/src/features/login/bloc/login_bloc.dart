@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,9 +43,13 @@ class LoginSuccess extends LoginState {
   final UserCredential userCredential;
   final Map<String, dynamic>? userData;
   final bool isTeacher;
+  final bool isDonePretest;
 
   const LoginSuccess(
-      {required this.userCredential, this.userData, this.isTeacher = false});
+      {required this.userCredential,
+      this.userData,
+      this.isTeacher = false,
+      this.isDonePretest = false});
 
   @override
   List<Object?> get props => [userCredential, userData];
@@ -124,11 +127,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         isTeacher = true;
       }
       await prefs.setBool('isTeacher', isTeacher);
+      final isDonePretest = prefs.getBool('isDonePretest') ?? false;
+      final pointPretest = prefs.getInt('pointPretest') ?? 0;
 
       emit(LoginSuccess(
         userCredential: userCredential,
         userData: userData,
         isTeacher: isTeacher,
+        isDonePretest: isDonePretest,
       ));
     } on FirebaseAuthException catch (e) {
       String errorMessage = 'Login failed';

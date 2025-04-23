@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:powergen_edu/src/features/home/home_page.dart';
 import 'package:powergen_edu/src/features/login/bloc/login_bloc.dart';
 import 'package:powergen_edu/src/features/pretest/pretest_page.dart';
 import 'package:powergen_edu/src/features/register/register_page.dart';
@@ -34,13 +35,23 @@ class _LoginPageState extends State<LoginPage> {
               if (state.isTeacher) {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const TeacherHomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const TeacherHomePage()),
                 );
               } else {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PretestPage()),
-                );
+                if (state.isDonePretest) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomePage()),
+                  );
+                } else {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PretestPage()),
+                  );
+                }
               }
             } else if (state is LoginFailure) {
               ScaffoldMessenger.of(context).showSnackBar(

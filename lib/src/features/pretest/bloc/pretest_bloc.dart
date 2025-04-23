@@ -1,12 +1,17 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/pretest/models/pretest_question.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'pretest_event.dart';
 part 'pretest_state.dart';
 
 class PretestBloc extends Bloc<PretestEvent, PretestState> {
   final PageController pageController = PageController();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<PretestQuestion> questions = [];
   Map<int, String> answers = {};
 
@@ -239,7 +244,8 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
     }
   }
 
-  void _onSubmitTest(SubmitTest event, Emitter<PretestState> emit) {
+  FutureOr<void> _onSubmitTest(
+      SubmitTest event, Emitter<PretestState> emit) async {
     if (state is PretestLoaded) {
       int correctAnswers = 0;
       answers.forEach((index, answer) {
@@ -249,6 +255,37 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       });
 
       final score = (correctAnswers / questions.length) * 100;
+
+      //TODO send point to firestore (table user -> point_pretest, is_done_pretest, and total_progress)
+      // and create all 4 module data in table module
+      final prefs = await SharedPreferences.getInstance();
+      final uid = prefs.getString('uid') ?? '';
+      final userRef = _firestore.collection('users').doc(uid);
+
+      _firestore.runTransaction((transaction) async {
+        final userSnapshot = await transaction.get(userRef);
+
+        if (userSnapshot.exists) {
+          transaction.update(userRef, {
+            'point_pretest': int.tryParse(score.toString()) ?? 0,
+            'is_done_pretest': true,
+            'total_progress': int.tryParse(score.toString()) ?? 0,
+          });
+        }
+      });
+
+      final moduleRef = _firestore.collection('module');
+
+      for (int i = 1; i <= 4; i++) {
+        moduleRef.doc('$uid-module-$i').set({
+          'uid': uid,
+          'id_module': i,
+          'is_locked': false,
+          'point': 0,
+          // 'is_locked': i <= (score == 100 ? 4 : score >= 85 ? 3 : score >= 50 ? 2 : 1),
+          // 'point': i <= (score == 100 ? 4 : score >= 85 ? 3 : score >= 50 ? 2 : 1) ? score : 0,
+        });
+      }
 
       if (score == 100) {
         emit(PretestComplete(moduleToUnlock: 4)); // Skip to module 4

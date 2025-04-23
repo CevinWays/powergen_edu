@@ -27,18 +27,21 @@ class PretestView extends StatelessWidget {
         actions: [
           ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
-              );
-              debugPrint('Selesai');
-              // context.read<PretestBloc>().add(SubmitPretest());
+              context.read<PretestBloc>().add(SubmitTest());
             },
             child: const Text('Selesai'),
           )
         ],
       ),
-      body: BlocBuilder<PretestBloc, PretestState>(
+      body: BlocConsumer<PretestBloc, PretestState>(
+        listener: (context, state) {
+          if(state is PretestComplete){
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+          }
+        },
         builder: (context, state) {
           if (state is PretestLoading) {
             return const Center(child: CircularProgressIndicator());
