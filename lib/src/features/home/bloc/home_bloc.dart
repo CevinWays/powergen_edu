@@ -72,12 +72,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           'isDonePretest', userData?['is_done_pretest'] ?? false);
 
       final querySnapshot = await _firestore
-          .collection('module')
+          .collection('modules')
           .where('uid', isEqualTo: uid)
           .get();
       final modules = querySnapshot.docs.map((doc) {
         final data = doc.data();
-        return ModuleModel.fromJson(jsonDecode(jsonEncode(data)));
+        return ModuleModel.fromJson(data);
       }).toList();
 
       for (var module in modules) {
@@ -88,18 +88,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           module.estimatedHours = 2;
           module.isLocked = module.isLocked;
         } else if (module.idModule == 2) {
-          module.title = 'Title for module ${module.idModule}';
-          module.description = 'Description for module ${module.idModule}';
+          module.title = 'Bab ${module.idModule}';
+          module.description = 'Pengoperasian Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
           module.estimatedHours = 2;
           module.isLocked = module.isLocked;
         } else if (module.idModule == 3) {
-          module.title = 'Title for module ${module.idModule}';
-          module.description = 'Description for module ${module.idModule}';
+          module.title = 'Bab ${module.idModule}';
+          module.description = 'Pemeliharaan Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
           module.estimatedHours = 3;
           module.isLocked = module.isLocked;
         } else if (module.idModule == 4) {
-          module.title = 'Title for module ${module.idModule}';
-          module.description = 'Description for module ${module.idModule}';
+          module.title = 'Final Project';
+          module.description = 'Sistem Pemeliharaan dan Pengoperasian Mesin Listrik Pembangkit';
           module.estimatedHours = 2;
           module.isLocked = module.isLocked;
         }

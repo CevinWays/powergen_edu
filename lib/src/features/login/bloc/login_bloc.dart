@@ -55,7 +55,11 @@ class LoginSuccess extends LoginState {
   List<Object?> get props => [userCredential, userData];
 }
 
-class LoginCheckTokenSuccess extends LoginState {}
+class LoginCheckTokenSuccess extends LoginState {
+  final bool isDonePretest;
+
+  const LoginCheckTokenSuccess({required this.isDonePretest});
+}
 
 class LoginFailure extends LoginState {
   final String error;
@@ -83,8 +87,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoginLoading());
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
+    final isDonePretest = prefs.getBool('isDonePretest') ?? false;
     if (token != null && token.isNotEmpty) {
-      emit(LoginCheckTokenSuccess());
+      emit(LoginCheckTokenSuccess(isDonePretest: isDonePretest));
     }
   }
 

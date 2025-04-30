@@ -7,6 +7,7 @@ import 'package:powergen_edu/src/features/pretest/models/pretest_question.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'pretest_event.dart';
+
 part 'pretest_state.dart';
 
 class PretestBloc extends Bloc<PretestEvent, PretestState> {
@@ -26,203 +27,306 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
     final questions = <PretestQuestion>[
       PretestQuestion(
         id: 1,
-        question: 'Apa yang dimaksud dengan torsi?',
+        question:
+            'Mengapa generator sinkron lebih banyak digunakan pada pembangkit listrik skala besar dibandingkan generator asinkron?',
         options: [
-          'Gaya yang menyebabkan benda berputar',
-          'Kecepatan putaran mesin',
-          'Tekanan dalam silinder',
-          'Daya mesin'
+          'Karena lebih murah biaya produksinya',
+          'Karena tidak memerlukan sistem pendingin',
+          'Karena dapat beroperasi tanpa sinkronisasi',
+          'Karena mampu menjaga stabilitas frekuensi dan tegangan',
+          'Karena lebih ringan bobotnya'
         ],
-        correctAnswer: 'Gaya yang menyebabkan benda berputar',
+        correctAnswer: '3',
+        point: 6,
+        module: 1,
       ),
       PretestQuestion(
         id: 2,
         question:
-            'Komponen apa yang berfungsi untuk mengubah gerak translasi menjadi gerak rotasi pada mesin?',
-        options: ['Piston', 'Crankshaft', 'Camshaft', 'Connecting rod'],
-        correctAnswer: 'Crankshaft',
+            'Apa alasan utama penggunaan transformator step-up pada awal sistem transmisi tenaga listrik?',
+        options: [
+          'Untuk menurunkan rugi daya akibat arus tinggi',
+          'Agar tegangan tetap konstan di gardu induk',
+          'Karena generator menghasilkan tegangan sangat tinggi',
+          'Untuk menghemat biaya instalasi kabel',
+          'Untuk mengurangi kecepatan arus listri'
+        ],
+        correctAnswer: '0',
+        point: 6,
+        module: 1,
       ),
       PretestQuestion(
         id: 3,
-        question: 'Apa fungsi utama dari radiator pada mesin?',
+        question:
+            'Bagaimana hubungan prinsip kerja generator dengan hukum Faraday tentang induksi elektromagnetik?',
         options: [
-          'Menghasilkan listrik',
-          'Mendinginkan mesin',
-          'Menyaring udara',
-          'Mengatur bahan bakar'
+          'Medan magnet memutus arus dalam rangkaian tertutup',
+          'Arus listrik menggerakkan medan magnet untuk menghasilkan gerak',
+          'Perubahan medan magnet dalam konduktor menghasilkan arus listrik',
+          'Konduktor selalu menghasilkan medan magnet saat diberi arus tetap',
+          'Medan magnet menyebabkan hambatan listrik meningkat'
         ],
-        correctAnswer: 'Mendinginkan mesin',
+        correctAnswer: '2',
+        point: 6,
+        module: 1,
       ),
       PretestQuestion(
         id: 4,
         question:
-            'Satuan tekanan yang umum digunakan dalam sistem mesin adalah?',
-        options: ['Pascal (Pa)', 'Watt (W)', 'Volt (V)', 'Ampere (A)'],
-        correctAnswer: 'Pascal (Pa)',
+            'Jika terjadi ketidakseimbangan beban pada sistem pembangkit, dampak yang paling mungkin terjadi adalah...',
+        options: [
+          'Penurunan daya reaktif secara drastis',
+          'Overheating pada sistem kontrol',
+          'Distorsi bentuk gelombang arus dan tegangan',
+          'Percepatan putaran turbin',
+          'Meningkatnya efisiensi sistem'
+        ],
+        correctAnswer: '2',
+        point: 6,
+        module: 1,
       ),
       PretestQuestion(
         id: 5,
-        question: 'Apa fungsi dari karburator pada mesin konvensional?',
+        question:
+            'Salah satu indikator efisiensi operasional pembangkit adalah kemampuan...',
         options: [
-          'Mencampur udara dan bahan bakar',
-          'Menyaring oli',
-          'Mengatur timing pengapian',
-          'Mendinginkan mesin'
+          'Menghasilkan tegangan konstan tanpa fluktuasi beban',
+          'Menurunkan arus dan menaikkan suhu sistem',
+          'Menyimpan energi lebih lama saat shutdown',
+          'Mengabaikan faktor cos φ (faktor daya)',
+          'Menstabilkan suhu ruangan di ruang kontrol'
         ],
-        correctAnswer: 'Mencampur udara dan bahan bakar',
+        correctAnswer: '0',
+        point: 6,
+        module: 1,
       ),
       PretestQuestion(
         id: 6,
         question:
-            'Komponen apa yang berfungsi untuk menyekat ruang bakar pada mesin?',
-        options: ['Piston ring', 'Valve spring', 'Timing belt', 'Oil filter'],
-        correctAnswer: 'Piston ring',
+            'Mengapa pemeliharaan preventif lebih disarankan dibandingkan menunggu kerusakan terjadi?',
+        options: [
+          'Karena mengurangi kebutuhan akan dokumentasi',
+          'Karena mempercepat proses shutdown sistem',
+          'Karena dapat menurunkan biaya operasional jangka panjang',
+          'Karena tidak memerlukan teknisi ahli',
+          'Karena hanya dilakukan saat mesin dalam keadaan mati total'
+        ],
+        correctAnswer: '2',
+        point: 6,
+        module: 2,
       ),
       PretestQuestion(
         id: 7,
-        question: 'Apa yang dimaksud dengan RPM?',
+        question:
+            'Bagaimana cara kerja sinkronoskop dalam proses sinkronisasi generator?',
         options: [
-          'Rotasi Per Menit',
-          'Rasio Perbandingan Mesin',
-          'Rate Power Machine',
-          'Relative Position Measurement'
+          'Mengukur suhu dan tekanan dalam stator',
+          'Membandingkan tegangan output dengan input jaringan',
+          'Mendeteksi perbedaan frekuensi dan sudut fase antara generator dan jaringan',
+          'Menstabilkan arus dan tegangan secara otomatis',
+          'Mendeteksi arus bocor pada sistem grounding'
         ],
-        correctAnswer: 'Rotasi Per Menit',
+        correctAnswer: '2',
+        point: 6,
+        module: 2,
       ),
       PretestQuestion(
         id: 8,
         question:
-            'Sistem pengapian pada mesin bensin modern umumnya menggunakan?',
+            'Ketika sistem pendingin generator gagal berfungsi, dampak paling kritis yang harus dihindari adalah...',
         options: [
-          'Sistem karburator',
-          'Sistem injeksi elektronik',
-          'Sistem manual',
-          'Sistem hybrid'
+          'Hilangnya data pemantauan beban',
+          'Meledaknya transformator akibat arus lebih',
+          'Kegagalan sinkronisasi generator',
+          'Terjadinya overheating pada gulungan stator',
+          'Gangguan komunikasi antara panel kontrol dan HMI'
         ],
-        correctAnswer: 'Sistem injeksi elektronik',
+        correctAnswer: '3',
+        point: 6,
+        module: 2,
       ),
       PretestQuestion(
         id: 9,
-        question: 'Apa fungsi dari timing belt/timing chain?',
+        question:
+            'Apa peran sistem SCADA dalam pengoperasian sistem pembangkit modern?',
         options: [
-          'Mensinkronkan putaran crankshaft dan camshaft',
-          'Mengatur kecepatan mesin',
-          'Mengatur suhu mesin',
-          'Mengatur tekanan oli'
+          'Menyimpan daya cadangan untuk beban puncak',
+          'Menyinkronkan semua generator secara otomatis',
+          'Mengontrol dan memantau sistem pembangkit secara terpusat dan real-time',
+          'Menjaga tekanan bahan bakar agar tetap rendah',
+          'Mengatur rotasi turbin agar konstan'
         ],
-        correctAnswer: 'Mensinkronkan putaran crankshaft dan camshaft',
+        correctAnswer: '2',
+        point: 6,
+        module: 2,
       ),
       PretestQuestion(
         id: 10,
         question:
-            'Komponen apa yang mengatur masuk dan keluarnya gas pada ruang bakar?',
-        options: ['Katup (valve)', 'Piston', 'Connecting rod', 'Spark plug'],
-        correctAnswer: 'Katup (valve)',
+            'Apa yang seharusnya dilakukan teknisi saat alarm suhu tinggi aktif pada sistem generator?',
+        options: [
+          'Melanjutkan operasi hingga batas maksimal dicapai',
+          'Segera melakukan shutdown darurat dan pendinginan',
+          'Menurunkan beban dan menunggu suhu turun otomatis',
+          'Mengatur ulang setelan sensor suhu',
+          'Menghidupkan kembali sistem pendingin cadangan tanpa inspeksi'
+        ],
+        correctAnswer: '1',
+        point: 6,
+        module: 2,
       ),
       PretestQuestion(
         id: 11,
-        question: 'Apa fungsi dari sistem pelumasan pada mesin?',
+        question:
+            'Mengapa dokumentasi pemeliharaan sangat penting dalam sistem pembangkit?',
         options: [
-          'Mengurangi gesekan antar komponen',
-          'Meningkatkan tenaga mesin',
-          'Mengatur suhu mesin',
-          'Mengatur bahan bakar'
+          'Sebagai bukti hukum jika terjadi kerusakan',
+          'Untuk keperluan pelaporan ke dinas lingkungan',
+          'Untuk mengevaluasi efektivitas pemeliharaan dan menganalisis pola gangguan',
+          'Untuk menyimpan riwayat karyawan yang melakukan tugas',
+          'Agar teknisi dapat mengganti jadwal operasional'
         ],
-        correctAnswer: 'Mengurangi gesekan antar komponen',
+        correctAnswer: '2',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 12,
-        question: 'Apa yang dimaksud dengan kompresi pada mesin?',
+        question:
+            'Apa penyebab umum terjadinya ketidakseimbangan arus pada transformator?',
         options: [
-          'Pemampatan campuran udara-bahan bakar',
-          'Pembakaran bahan bakar',
-          'Pembuangan gas sisa',
-          'Pemasukan udara bersih'
+          'Gangguan sistem grounding',
+          'Kelebihan beban pada salah satu fasa',
+          'Efek kapasitansi reaktif',
+          'Frekuensi terlalu tinggi',
+          'Tegangan output tidak disetel'
         ],
-        correctAnswer: 'Pemampatan campuran udara-bahan bakar',
+        correctAnswer: '1',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 13,
-        question: 'Berapakah siklus langkah pada mesin 4 tak?',
+        question:
+            'Jika salah satu parameter monitoring menunjukkan lonjakan abnormal, apa langkah pertama yang harus dilakukan?',
         options: [
-          'Hisap-Kompresi-Usaha-Buang',
-          'Hisap-Kompresi-Buang',
-          'Kompresi-Usaha-Buang',
-          'Hisap-Usaha-Buang'
+          'Meningkatkan beban secara bertahap',
+          'Menghentikan sistem SCADA',
+          'Menganalisis penyebab lonjakan dan lakukan pengamatan lebih lanjut',
+          'Melakukan bypass sistem untuk menghindari alarm',
+          'Menonaktifkan semua sensor untuk menghindari false alarm'
         ],
-        correctAnswer: 'Hisap-Kompresi-Usaha-Buang',
+        correctAnswer: '2',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 14,
-        question: 'Apa fungsi dari flywheel (roda gila)?',
+        question:
+            'Bagaimana prinsip kerja sistem pelumasan otomatis pada generator?',
         options: [
-          'Menyimpan momentum putar',
-          'Mengatur kecepatan mesin',
-          'Mendinginkan mesin',
-          'Mengatur bahan bakar'
+          'Mengaktifkan pompa manual setiap 2 jam',
+          'Mengukur getaran dan tekanan, lalu menyesuaikan aliran pelumas',
+          'Menyemprotkan pelumas hanya saat shutdown',
+          'Menyalakan sistem pelumas saat suhu menurun',
+          'Mengisi ulang pelumas setiap 500 jam kerja'
         ],
-        correctAnswer: 'Menyimpan momentum putar',
+        correctAnswer: '1',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 15,
         question:
-            'Komponen apa yang mengubah energi listrik menjadi percikan api pada mesin bensin?',
-        options: ['Busi (spark plug)', 'Alternator', 'Starter', 'Battery'],
-        correctAnswer: 'Busi (spark plug)',
+            'Kapan waktu terbaik melakukan pemeliharaan tahunan sistem pembangkit?',
+        options: [
+          'Saat musim hujan',
+          'Saat beban puncak tinggi',
+          'Saat sistem bekerja dalam kapasitas penuh',
+          'Saat beban sistem sedang rendah',
+          'Saat gangguan jaringan terjadi'
+        ],
+        correctAnswer: '3',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 16,
-        question: 'Apa yang dimaksud dengan displacement mesin?',
+        question:
+            'Apa tujuan penggunaan vibration sensor dalam predictive maintenance?',
         options: [
-          'Volume total silinder mesin',
-          'Kecepatan maksimum mesin',
-          'Tekanan kompresi mesin',
-          'Konsumsi bahan bakar'
+          'Mendeteksi tegangan arus tidak seimbang',
+          'Mengukur suhu lingkungan',
+          'Mendeteksi getaran abnormal yang menandakan kerusakan mekanis awal',
+          'Mengatur kecepatan turbin',
+          'Mengontrol kelembaban di ruang generator'
         ],
-        correctAnswer: 'Volume total silinder mesin',
+        correctAnswer: '2',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 17,
         question:
-            'Sistem pendinginan pada mesin umumnya menggunakan media apa?',
-        options: ['Air dan coolant', 'Oli', 'Udara', 'Bahan bakar'],
-        correctAnswer: 'Air dan coolant',
+            'Dalam situasi darurat saat sistem bahan bakar bocor, langkah pertama yang dilakukan adalah...',
+        options: [
+          'Menyalakan kipas tambahan untuk mengurangi tekanan',
+          'Melaporkan ke divisi pemeliharaan untuk ditindaklanjuti',
+          'Melakukan prosedur pemadaman dan mengisolasi area bocor',
+          'Melanjutkan operasi hingga bahan bakar habis',
+          'Mencatat kejadian dan menunggu audit'
+        ],
+        correctAnswer: '2',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 18,
-        question: 'Apa fungsi dari gasket pada mesin?',
+        question:
+            'Mengapa sistem kontrol digital lebih efektif dalam monitoring sistem pembangkit?',
         options: [
-          'Mencegah kebocoran',
-          'Mengatur timing',
-          'Menyaring oli',
-          'Mengatur bahan bakar'
+          'Karena tidak membutuhkan operator manusia',
+          'Karena lebih cepat dan akurat dalam pengolahan data real-time',
+          'Karena dapat menggantikan semua fungsi transformator',
+          'Karena hanya bekerja saat malam hari',
+          'Karena tidak membutuhkan sensor sama sekali'
         ],
-        correctAnswer: 'Mencegah kebocoran',
+        correctAnswer: '1',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 19,
-        question: 'Apa yang dimaksud dengan firing order?',
+        question:
+            'Apa manfaat melakukan analisis termal dengan thermal camera pada peralatan pembangkit?',
         options: [
-          'Urutan pembakaran silinder',
-          'Urutan pemasangan busi',
-          'Urutan pergantian oli',
-          'Urutan starter mesin'
+          'Menentukan kelembaban udara',
+          'Mengidentifikasi titik panas yang berpotensi kerusakan',
+          'Menurunkan suhu ambient ruangan',
+          'Meningkatkan kecepatan sistem pendingin',
+          'Mengukur level oli pelumas'
         ],
-        correctAnswer: 'Urutan pembakaran silinder',
+        correctAnswer: '1',
+        point: 4,
+        module: 3,
       ),
       PretestQuestion(
         id: 20,
-        question: 'Apa fungsi dari turbocharger pada mesin?',
+        question:
+            'Jika terdapat kebocoran pelumas pada motor penggerak, maka yang paling mungkin terjadi adalah...',
         options: [
-          'Meningkatkan tenaga mesin dengan memampatkan udara masuk',
-          'Mengurangi konsumsi bahan bakar',
-          'Mendinginkan mesin',
-          'Mengurangi emisi gas buang'
+          'Peningkatan efisiensi sistem',
+          'Penurunan suhu operasional',
+          'Kerusakan pada bantalan dan peningkatan gesekan',
+          'Penurunan tekanan udara dalam sistem',
+          'Gangguan pada sistem alarm'
         ],
-        correctAnswer:
-            'Meningkatkan tenaga mesin dengan memampatkan udara masuk',
+        correctAnswer: '2',
+        point: 4,
+        module: 3,
       ),
     ];
+    this.questions = questions;
     emit(PretestLoaded(
       questions: questions,
       currentPage: 0,
@@ -247,15 +351,28 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
   FutureOr<void> _onSubmitTest(
       SubmitTest event, Emitter<PretestState> emit) async {
     if (state is PretestLoaded) {
-      int correctAnswers = 0;
+      int totalPoint = 0;
+      int totalScoreBab1 = 0;
+      int totalScoreBab2 = 0;
+      int totalScoreBab3 = 0;
+
       answers.forEach((index, answer) {
         if (answer == questions[index].correctAnswer) {
-          correctAnswers++;
+          if (questions[index].module == 1) {
+            // totalScoreBab1 += questions[index].point;
+          } else if (questions[index].module == 2) {
+            // totalScoreBab2 += questions[index].point;
+          } else if (questions[index].module == 3) {
+            // totalScoreBab3 += questions[index].point;
+          }
+
+          totalPoint += questions[index].point;
         }
       });
 
-      final score = (correctAnswers / questions.length) * 100;
-
+      totalScoreBab1 = 18;
+      totalScoreBab2 = 24;
+      totalScoreBab3 = 20;
       //TODO send point to firestore (table user -> point_pretest, is_done_pretest, and total_progress)
       // and create all 4 module data in table module
       final prefs = await SharedPreferences.getInstance();
@@ -267,35 +384,50 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
 
         if (userSnapshot.exists) {
           transaction.update(userRef, {
-            'point_pretest': int.tryParse(score.toString()) ?? 0,
+            'point_pretest': totalPoint,
             'is_done_pretest': true,
-            'total_progress': int.tryParse(score.toString()) ?? 0,
+            'total_progress': totalPoint,
           });
         }
       });
 
-      final moduleRef = _firestore.collection('module');
+      final moduleRef = _firestore.collection('modules');
 
-      for (int i = 1; i <= 4; i++) {
-        moduleRef.doc('$uid-module-$i').set({
-          'uid': uid,
-          'id_module': i,
-          'is_locked': false,
-          'point': 0,
-          // 'is_locked': i <= (score == 100 ? 4 : score >= 85 ? 3 : score >= 50 ? 2 : 1),
-          // 'point': i <= (score == 100 ? 4 : score >= 85 ? 3 : score >= 50 ? 2 : 1) ? score : 0,
-        });
-      }
+      moduleRef.doc('$uid-module-1').set({
+        'uid': uid,
+        'id_module': 1,
+        'is_locked': totalScoreBab1 > 22
+            ? false
+            : totalScoreBab2 >= 22
+                ? false
+                : true,
+        'point': totalScoreBab1,
+      });
 
-      if (score == 100) {
-        emit(PretestComplete(moduleToUnlock: 4)); // Skip to module 4
-      } else if (score >= 85) {
-        emit(PretestComplete(moduleToUnlock: 3));
-      } else if (score >= 50) {
-        emit(PretestComplete(moduleToUnlock: 2));
-      } else {
-        emit(PretestComplete(moduleToUnlock: 1));
-      }
+      moduleRef.doc('$uid-module-2').set({
+        'uid': uid,
+        'id_module': 2,
+        'is_locked': totalScoreBab2 > 22
+            ? false
+            : true,
+        'point': totalScoreBab2,
+      });
+
+      moduleRef.doc('$uid-module-3').set({
+        'uid': uid,
+        'id_module': 3,
+        'is_locked': true,
+        'point': totalScoreBab3,
+      });
+
+      moduleRef.doc('$uid-module-4').set({
+        'uid': uid,
+        'id_module': 4,
+        'is_locked': true,
+        'point': 0,
+      });
+
+      emit(PretestComplete());
     }
   }
 }

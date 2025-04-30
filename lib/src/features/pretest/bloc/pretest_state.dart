@@ -32,7 +32,4 @@ class PretestLoaded extends PretestState {
   }
 }
 
-class PretestComplete extends PretestState {
-  final int moduleToUnlock;
-  PretestComplete({required this.moduleToUnlock});
-}
+class PretestComplete extends PretestState {}

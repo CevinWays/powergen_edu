@@ -61,11 +61,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               );
             } else if (state is LoginCheckTokenSuccess) {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const PretestPage(),
-                ),
-              );
+              if (state.isDonePretest) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const HomePage()),
+                );
+              } else {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PretestPage()),
+                );
+              }
             }
           },
           builder: (context, state) {

@@ -6,6 +6,7 @@ class ModuleModel {
   String? description;
   int? estimatedHours;
   bool isLocked;
+  int? point;
   List<ContentModel>? content;
 
   ModuleModel({
@@ -15,6 +16,7 @@ class ModuleModel {
     this.estimatedHours,
     this.isLocked = false,
     this.content,
+    this.point,
   });
 
   factory ModuleModel.fromJson(Map<String, dynamic> json) {
@@ -23,7 +25,8 @@ class ModuleModel {
       title: json['title'] as String?,
       description: json['description'] as String?,
       estimatedHours: json['estimatedHours'] as int?,
-      isLocked: json['isLocked'] as bool? ?? false,
+      isLocked: json['is_locked'] as bool? ?? false,
+      point: json['point'] as int?,
       content: (json['content'] as List<dynamic>?)
           ?.map((item) => ContentModel.fromJson(item as Map<String, dynamic>))
           .toList(),
