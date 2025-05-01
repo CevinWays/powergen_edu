@@ -29,8 +29,8 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
   late YoutubePlayerController _controller;
   late PlayerState _playerState;
   late YoutubeMetaData _videoMetaData;
-  bool _muted = false;
-  bool _isPlayerReady = false;
+  final bool _muted = false;
+  final bool _isPlayerReady = false;
   ModuleBloc moduleBloc = ModuleBloc();
 
   @override

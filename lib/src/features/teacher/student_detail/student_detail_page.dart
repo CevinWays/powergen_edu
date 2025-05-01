@@ -47,22 +47,22 @@ class StudentDetailPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Card(
+            const Card(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Learning Progress',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     // TODO: Implement learning progress visualization
-                    const Center(
+                    Center(
                       child:
                           Text('Learning progress details will be shown here'),
                     ),
@@ -71,22 +71,22 @@ class StudentDetailPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Card(
+            const Card(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Recent Assessments',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     // TODO: Implement recent assessments list
-                    const Center(
+                    Center(
                       child: Text('Recent assessments will be shown here'),
                     ),
                   ],

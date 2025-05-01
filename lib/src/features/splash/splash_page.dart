@@ -7,7 +7,7 @@ import 'package:powergen_edu/src/features/splash/bloc/splash_bloc.dart';
 import 'package:powergen_edu/src/features/teacher/teacher_home/teacher_home_page.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +46,10 @@ class SplashPage extends StatelessWidget {
               );
             }
           },
-          child: Center(
+          child: const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 FlutterLogo(size: 100),
                 SizedBox(height: 20),
                 Text(
