@@ -54,9 +54,11 @@ class ModulesPage extends StatelessWidget {
                     leading: CircleAvatar(
                       backgroundColor: module.isLocked
                           ? Colors.grey
-                          : Colors.deepOrange[300],
+                          : module.isFinish
+                          ? Colors.green[300] : Colors.deepOrange[300],
                       child: Icon(
-                        module.isLocked ? Icons.lock : Icons.play_arrow,
+                        module.isLocked ? Icons.lock : module.isFinish
+                            ? Icons.check : Icons.play_arrow,
                         color: Colors.white,
                       ),
                     ),
@@ -83,6 +85,8 @@ class ModulesPage extends StatelessWidget {
                                 builder: (context) => ModuleDetailPage(
                                   id: module.idModule ?? 0,
                                   title: module.title ?? '',
+                                  isFinish: module.isFinish,
+                                  pointPostTest: module.pointPostTest ?? 0,
                                 ),
                               ),
                             );

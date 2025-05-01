@@ -359,20 +359,17 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       answers.forEach((index, answer) {
         if (answer == questions[index].correctAnswer) {
           if (questions[index].module == 1) {
-            // totalScoreBab1 += questions[index].point;
+            totalScoreBab1 += questions[index].point;
           } else if (questions[index].module == 2) {
-            // totalScoreBab2 += questions[index].point;
+            totalScoreBab2 += questions[index].point;
           } else if (questions[index].module == 3) {
-            // totalScoreBab3 += questions[index].point;
+            totalScoreBab3 += questions[index].point;
           }
 
           totalPoint += questions[index].point;
         }
       });
 
-      totalScoreBab1 = 18;
-      totalScoreBab2 = 24;
-      totalScoreBab3 = 20;
       //TODO send point to firestore (table user -> point_pretest, is_done_pretest, and total_progress)
       // and create all 4 module data in table module
       final prefs = await SharedPreferences.getInstance();
@@ -388,6 +385,9 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
             'is_done_pretest': true,
             'total_progress': totalPoint,
           });
+          await prefs.setBool('isDonePretest', true);
+          await prefs.setInt('totalProgress', totalPoint);
+          await prefs.setInt('pointPretest', totalPoint);
         }
       });
 
@@ -401,7 +401,17 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
             : totalScoreBab2 >= 22
                 ? false
                 : true,
+        'is_finish': totalScoreBab1 > 22
+            ? true
+            : totalScoreBab2 >= 22
+            ? true
+            : false,
         'point': totalScoreBab1,
+        'point_post_test' : totalScoreBab1 > 22
+            ? 100
+            : totalScoreBab2 >= 22
+            ? 100
+            : 0
       });
 
       moduleRef.doc('$uid-module-2').set({
@@ -410,21 +420,33 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
         'is_locked': totalScoreBab2 > 22
             ? false
             : true,
+        'is_finish': totalScoreBab2 > 22
+            ? true
+            : false,
         'point': totalScoreBab2,
+        'point_post_test' : totalScoreBab2 > 22
+            ? 100
+            : 0
       });
 
       moduleRef.doc('$uid-module-3').set({
         'uid': uid,
         'id_module': 3,
-        'is_locked': true,
+        'is_locked': totalScoreBab2 > 22
+            ? false
+            : true,
+        'is_finish': false,
         'point': totalScoreBab3,
+        'point_post_test' : 0
       });
 
       moduleRef.doc('$uid-module-4').set({
         'uid': uid,
         'id_module': 4,
         'is_locked': true,
+        'is_finish': false,
         'point': 0,
+        'point_post_test' : 0
       });
 
       emit(PretestComplete());

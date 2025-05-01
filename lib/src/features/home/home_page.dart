@@ -82,7 +82,9 @@ class HomePage extends StatelessWidget {
                                       width: 60,
                                       height: 60,
                                       child: CircularProgressIndicator(
-                                        value: 0.6,
+                                        value: double.parse(
+                                            ((state.totalProgress ?? 0) / 100)
+                                                .toString()),
                                         backgroundColor: Colors.grey[200],
                                         valueColor:
                                             const AlwaysStoppedAnimation<Color>(
@@ -91,7 +93,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      state.totalProgress.toString(),
+                                      '${state.totalProgress}%',
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
@@ -218,13 +220,20 @@ class HomePage extends StatelessWidget {
                                                                 ?.isLocked ??
                                                             false)
                                                         ? Colors.grey
-                                                        : Colors
-                                                            .deepOrange[300],
+                                                        : (module?.isFinish ??
+                                                                false)
+                                                            ? Colors.green[300]
+                                                            : Colors.deepOrange[
+                                                                300],
                                                     child: Icon(
                                                       (module?.isLocked ??
                                                               false)
                                                           ? Icons.lock
-                                                          : Icons.play_arrow,
+                                                          : (module?.isFinish ??
+                                                                  false)
+                                                              ? Icons.check
+                                                              : Icons
+                                                                  .play_arrow,
                                                       color: Colors.white,
                                                     ),
                                                   ),

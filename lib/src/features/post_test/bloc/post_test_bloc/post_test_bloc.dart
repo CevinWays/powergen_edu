@@ -15,201 +15,261 @@ class PostTestBloc extends Cubit<PostTestState> {
     final questions = <PostTestQuestionModel>[
       PostTestQuestionModel(
         id: 1,
-        question: 'Apa yang dimaksud dengan torsi?',
+        question:
+            'Mengapa pemahaman prinsip konversi energi penting bagi operator sistem pembangkit listrik?',
         options: [
-          'Gaya yang menyebabkan benda berputar',
-          'Kecepatan putaran mesin',
-          'Tekanan dalam silinder',
-          'Daya mesin'
+          'Agar dapat memperbaiki sistem pendingin',
+          'Untuk mengetahui kapan mesin dimatikan',
+          'Agar mampu mengidentifikasi jalur aliran energi dan mengoptimalkan efisiensi',
+          'Supaya dapat menjalankan generator tanpa prosedur',
+          'Karena sistem pembangkit bekerja otomatis'
         ],
-        correctAnswer: 'Gaya yang menyebabkan benda berputar',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 2,
         question:
-        'Komponen apa yang berfungsi untuk mengubah gerak translasi menjadi gerak rotasi pada mesin?',
-        options: ['Piston', 'Crankshaft', 'Camshaft', 'Connecting rod'],
-        correctAnswer: 'Crankshaft',
+            'Apa dampak utama jika transformator tidak sesuai spesifikasi dalam sistem pembangkit?',
+        options: [
+          'Menurunnya efisiensi pembakaran bahan bakar',
+          'Ketidakseimbangan rotasi turbin',
+          'Kehilangan daya selama transmisi dan distribusi',
+          'Pengurangan kapasitas tangki bahan bakar',
+          'Kelebihan produksi daya listrik'
+        ],
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 3,
-        question: 'Apa fungsi utama dari radiator pada mesin?',
+        question:
+            'Apa yang membedakan motor listrik dan generator dalam sistem pembangkit?',
         options: [
-          'Menghasilkan listrik',
-          'Mendinginkan mesin',
-          'Menyaring udara',
-          'Mengatur bahan bakar'
+          'Motor menghasilkan listrik, generator menggerakkan beban',
+          'Generator beroperasi dengan AC saja, motor hanya dengan DC',
+          'Motor mengubah energi listrik menjadi gerak, generator sebaliknya',
+          'Keduanya berfungsi sebagai sumber energi',
+          'Motor dan generator memiliki sistem kontrol yang sama'
         ],
-        correctAnswer: 'Mendinginkan mesin',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 4,
         question:
-        'Satuan tekanan yang umum digunakan dalam sistem mesin adalah?',
-        options: ['Pascal (Pa)', 'Watt (W)', 'Volt (V)', 'Ampere (A)'],
-        correctAnswer: 'Pascal (Pa)',
+            'Dalam sistem pembangkit, kapan transformator step-down biasanya digunakan?',
+        options: [
+          'Sebelum tegangan masuk ke rumah tangga atau industri',
+          'Saat tegangan sedang tinggi di pembangkit',
+          'Untuk meningkatkan frekuensi arus listrik',
+          'Saat daya reaktif meningkat',
+          'Sebelum proses pembakaran bahan bakar'
+        ],
+        correctAnswer: '0',
       ),
       PostTestQuestionModel(
         id: 5,
-        question: 'Apa fungsi dari karburator pada mesin konvensional?',
+        question:
+            'Bagaimana penerapan hukum Faraday dapat diamati dalam proses kerja generator?',
         options: [
-          'Mencampur udara dan bahan bakar',
-          'Menyaring oli',
-          'Mengatur timing pengapian',
-          'Mendinginkan mesin'
+          'Ketika tegangan input meningkat akibat putaran turbin',
+          'Saat konduktor diam di antara medan magnet',
+          'Saat medan magnet berubah dan menimbulkan arus dalam konduktor',
+          'Ketika transformator mengalami induksi resistif',
+          'Ketika terjadi peningkatan suhu gulungan'
         ],
-        correctAnswer: 'Mencampur udara dan bahan bakar',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 6,
         question:
-        'Komponen apa yang berfungsi untuk menyekat ruang bakar pada mesin?',
-        options: ['Piston ring', 'Valve spring', 'Timing belt', 'Oil filter'],
-        correctAnswer: 'Piston ring',
+            'Apa keunggulan utama generator sinkron dibandingkan asinkron dalam pembangkitan skala besar?',
+        options: [
+          'Memerlukan ruang lebih kecil',
+          'Lebih murah biaya perawatannya',
+          'Lebih mudah untuk start tanpa beban',
+          'Menyediakan stabilitas tegangan dan frekuensi lebih tinggi',
+          'Tidak memerlukan kontrol manual'
+        ],
+        correctAnswer: '3',
       ),
       PostTestQuestionModel(
         id: 7,
-        question: 'Apa yang dimaksud dengan RPM?',
+        question:
+            'Mengapa sistem pendingin diperlukan dalam mesin listrik pembangkit?',
         options: [
-          'Rotasi Per Menit',
-          'Rasio Perbandingan Mesin',
-          'Rate Power Machine',
-          'Relative Position Measurement'
+          'Agar dapat bekerja tanpa beban',
+          'Untuk menurunkan tegangan input',
+          'Mencegah overheating pada komponen penting seperti gulungan',
+          'Menjaga kelembapan sistem kontrol',
+          'Untuk meningkatkan putaran generator'
         ],
-        correctAnswer: 'Rotasi Per Menit',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 8,
         question:
-        'Sistem pengapian pada mesin bensin modern umumnya menggunakan?',
+            'Jika sistem turbin mengalami hambatan mekanis, dampak yang paling mungkin terjadi adalah...',
         options: [
-          'Sistem karburator',
-          'Sistem injeksi elektronik',
-          'Sistem manual',
-          'Sistem hybrid'
+          'Peningkatan tegangan output',
+          'Kestabilan arus meningkat',
+          'Menurunnya efisiensi konversi energi dan potensi kerusakan generator',
+          'Frekuensi tetap stabil',
+          'Peningkatan tekanan bahan bakar'
         ],
-        correctAnswer: 'Sistem injeksi elektronik',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 9,
-        question: 'Apa fungsi dari timing belt/timing chain?',
+        question:
+            'Mengapa penting bagi peserta didik memahami alur konversi energi pada sistem pembangkit?',
         options: [
-          'Mensinkronkan putaran crankshaft dan camshaft',
-          'Mengatur kecepatan mesin',
-          'Mengatur suhu mesin',
-          'Mengatur tekanan oli'
+          'Agar dapat mendesain sistem kelistrikan rumah tangga',
+          'Supaya tahu kapan turbin dinyalakan manual',
+          'Untuk memahami interkoneksi antara peralatan pembangkit',
+          'Supaya dapat menghitung tegangan output secara eksak',
+          'Agar bisa mengganti sistem SCADA'
         ],
-        correctAnswer: 'Mensinkronkan putaran crankshaft dan camshaft',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 10,
         question:
-        'Komponen apa yang mengatur masuk dan keluarnya gas pada ruang bakar?',
-        options: ['Katup (valve)', 'Piston', 'Connecting rod', 'Spark plug'],
-        correctAnswer: 'Katup (valve)',
+            'Apa akibat jika sistem monitoring tegangan dan beban tidak digunakan dalam pembangkit?',
+        options: [
+          'Tidak ada pengaruh signifikan',
+          'Terjadi efisiensi maksimal namun tidak terkontrol',
+          'Sulit mendeteksi gangguan beban dan lonjakan arus',
+          'Tegangan menjadi terlalu stabil',
+          'Frekuensi menjadi otomatis'
+        ],
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 11,
-        question: 'Apa fungsi dari sistem pelumasan pada mesin?',
+        question:
+            'Apa hubungan antara transformator dan efisiensi transmisi daya listrik jarak jauh?',
         options: [
-          'Mengurangi gesekan antar komponen',
-          'Meningkatkan tenaga mesin',
-          'Mengatur suhu mesin',
-          'Mengatur bahan bakar'
+          'Transformator menurunkan arus agar daya bertambah',
+          'Transformator meningkatkan tegangan untuk mengurangi rugi daya',
+          'Transformator mengalihkan daya ke sistem backup',
+          'Transformator menstabilkan frekuensi turbin',
+          'Transformator menyimpan energi saat beban rendah'
         ],
-        correctAnswer: 'Mengurangi gesekan antar komponen',
+        correctAnswer: '1',
       ),
       PostTestQuestionModel(
         id: 12,
-        question: 'Apa yang dimaksud dengan kompresi pada mesin?',
+        question:
+            'Mengapa penting mengetahui karakteristik motor listrik dalam sistem pembangkit?',
         options: [
-          'Pemampatan campuran udara-bahan bakar',
-          'Pembakaran bahan bakar',
-          'Pembuangan gas sisa',
-          'Pemasukan udara bersih'
+          'Agar dapat mengganti transformator',
+          'Supaya tahu kapasitas tangki oli',
+          'Untuk memastikan efisiensi kerja alat bantu seperti pompa',
+          'Karena motor tidak memerlukan pengontrol',
+          'Agar bisa memperbesar ukuran turbin'
         ],
-        correctAnswer: 'Pemampatan campuran udara-bahan bakar',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 13,
-        question: 'Berapakah siklus langkah pada mesin 4 tak?',
+        question:
+            'Bagaimana generator menghasilkan arus listrik dalam sistem pembangkit?',
         options: [
-          'Hisap-Kompresi-Usaha-Buang',
-          'Hisap-Kompresi-Buang',
-          'Kompresi-Usaha-Buang',
-          'Hisap-Usaha-Buang'
+          'Dengan mengubah energi listrik menjadi energi panas',
+          'Dengan rotasi magnet di sekitar kumparan sehingga terjadi induksi',
+          'Melalui kompresi udara dalam ruang isolasi',
+          'Dengan memanaskan kumparan secara konstan',
+          'Menggunakan bahan kimia untuk menghasilkan listrik'
         ],
-        correctAnswer: 'Hisap-Kompresi-Usaha-Buang',
+        correctAnswer: '1',
       ),
       PostTestQuestionModel(
         id: 14,
-        question: 'Apa fungsi dari flywheel (roda gila)?',
+        question:
+            'Kapan turbin air paling efisien digunakan dalam sistem pembangkit?',
         options: [
-          'Menyimpan momentum putar',
-          'Mengatur kecepatan mesin',
-          'Mendinginkan mesin',
-          'Mengatur bahan bakar'
+          'Saat tekanan air rendah',
+          'Saat digunakan pada wilayah datar tanpa bendungan',
+          'Ketika memiliki sumber air bertekanan tinggi dan debit besar',
+          'Pada malam hari dengan beban ringan',
+          'Saat cuaca panas untuk meningkatkan uap'
         ],
-        correctAnswer: 'Menyimpan momentum putar',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 15,
         question:
-        'Komponen apa yang mengubah energi listrik menjadi percikan api pada mesin bensin?',
-        options: ['Busi (spark plug)', 'Alternator', 'Starter', 'Battery'],
-        correctAnswer: 'Busi (spark plug)',
+            'Apa akibat jika tegangan dari generator langsung disalurkan ke rumah tanpa transformator?',
+        options: [
+          'Sistem rumah menjadi lebih efisien',
+          'Tidak terjadi perubahan karena generator sudah aman',
+          'Dapat merusak peralatan rumah tangga akibat tegangan tinggi',
+          'Frekuensi listrik tidak terdeteksi',
+          'Menghasilkan daya lebih besar'
+        ],
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 16,
-        question: 'Apa yang dimaksud dengan displacement mesin?',
+        question:
+            'Apa fungsi utama AVR (Automatic Voltage Regulator) dalam sistem pembangkit?',
         options: [
-          'Volume total silinder mesin',
-          'Kecepatan maksimum mesin',
-          'Tekanan kompresi mesin',
-          'Konsumsi bahan bakar'
+          'Mengatur laju bahan bakar',
+          'Mengendalikan suhu pendingin',
+          'Menstabilkan tegangan output dari generator',
+          'Mengganti posisi rotor generator',
+          'Menyimpan energi listrik cadangan'
         ],
-        correctAnswer: 'Volume total silinder mesin',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 17,
         question:
-        'Sistem pendinginan pada mesin umumnya menggunakan media apa?',
-        options: ['Air dan coolant', 'Oli', 'Udara', 'Bahan bakar'],
-        correctAnswer: 'Air dan coolant',
+            'Apa peran utama sistem bahan bakar dalam pembangkit listrik termal?',
+        options: [
+          'Menurunkan suhu pada ruang kontrol',
+          'Memberikan tekanan pada sistem SCADA',
+          'Menyediakan energi awal untuk memutar turbin',
+          'Mengganti air dalam sistem pendingin',
+          'Menjaga efisiensi transformator'
+        ],
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 18,
-        question: 'Apa fungsi dari gasket pada mesin?',
+        question: 'Mengapa penting melakukan pemantauan terhadap sistem transformator?',
         options: [
-          'Mencegah kebocoran',
-          'Mengatur timing',
-          'Menyaring oli',
-          'Mengatur bahan bakar'
+          'Karena transformator tidak memerlukan pemeliharaan',
+          'Supaya bisa dinyalakan manual saat malam hari',
+          'Untuk mendeteksi gangguan seperti arus tidak seimbang atau kebocoran oli',
+          'Karena transformator hanya bekerja saat beban tinggi',
+          'Untuk menyalakan turbin secara otomatis'
         ],
-        correctAnswer: 'Mencegah kebocoran',
+        correctAnswer: '2',
       ),
       PostTestQuestionModel(
         id: 19,
-        question: 'Apa yang dimaksud dengan firing order?',
+        question: 'Bagaimana sistem pendingin berfungsi dalam menjaga stabilitas generator?',
         options: [
-          'Urutan pembakaran silinder',
-          'Urutan pemasangan busi',
-          'Urutan pergantian oli',
-          'Urutan starter mesin'
+          'Dengan menurunkan frekuensi output',
+          'Dengan menjaga suhu kerja agar tidak melebihi ambang batas',
+          'Dengan mengalirkan uap panas ke sistem kontrol',
+          'Dengan menambah bahan bakar saat suhu tinggi',
+          'Dengan menghentikan aliran listrik secara periodik'
         ],
-        correctAnswer: 'Urutan pembakaran silinder',
+        correctAnswer: '1',
       ),
       PostTestQuestionModel(
         id: 20,
-        question: 'Apa fungsi dari turbocharger pada mesin?',
+        question: 'Apa perbedaan utama antara turbin uap dan turbin gas dalam sistem pembangkit?',
         options: [
-          'Meningkatkan tenaga mesin dengan memampatkan udara masuk',
-          'Mengurangi konsumsi bahan bakar',
-          'Mendinginkan mesin',
-          'Mengurangi emisi gas buang'
+          'Turbin uap menggunakan bahan bakar cair, turbin gas tidak',
+          'Turbin uap memerlukan sistem kondensasi setelah ekspansi',
+          'Turbin gas menghasilkan arus langsung, turbin uap tidak',
+          'Turbin uap tidak memerlukan pendinginan',
+          'Turbin gas menggunakan air sebagai media tekanan'
         ],
         correctAnswer:
-        'Meningkatkan tenaga mesin dengan memampatkan udara masuk',
+            '1',
       ),
     ];
     emit(PostTestLoaded(
@@ -226,8 +286,10 @@ class PostTestBloc extends Cubit<PostTestState> {
     }
   }
 
-  void onAnswerSelected(
-      {required int questionNumber, required String answer,}) {
+  void onAnswerSelected({
+    required int questionNumber,
+    required String answer,
+  }) {
     answers[questionNumber] = answer;
     if (state is PostTestLoaded) {
       emit((state as PostTestLoaded).copyWith(answers: answers));
