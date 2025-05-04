@@ -46,11 +46,15 @@ class SplashPage extends StatelessWidget {
               );
             }
           },
-          child: const Center(
+          child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FlutterLogo(size: 100),
+                Image.asset(
+                  'assets/icon/icon.png',
+                  width: 100,
+                  height: 100,
+                ),
                 SizedBox(height: 20),
                 Text(
                   'PowerGen Edu',

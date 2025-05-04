@@ -44,12 +44,22 @@ class HomePage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  'Halo, ${state.username}',
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/icon/icon.png',
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                    const SizedBox(width: 16),
+                                    Text(
+                                      'Halo, ${state.username}',
+                                      style: const TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 CircleAvatar(
                                   backgroundColor: Colors.grey[200],
