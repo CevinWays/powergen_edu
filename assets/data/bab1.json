@@ -6,17 +6,17 @@
   "content" : [
     {
       "type": "text",
-      "content": "<p><strong>Prinsip Dasar Mesin Listrik Pembangkit</strong>",
+      "content": "<p><strong>\uD83D\uDD39 Prinsip Dasar Mesin Listrik Pembangkit</strong>",
       "isTitle": false
     },
     {
       "type": "text",
-      "content": "<p><strong>Apa itu Mesin Listrik Pembangkit?</strong>",
+      "content": "<p><strong>\uD83D\uDCCC Apa itu Mesin Listrik Pembangkit?</strong>",
       "isTitle": false
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar1.png"
     },
     {
       "type": "text",
@@ -25,7 +25,7 @@
     },
     {
       "type": "text",
-      "content": "<p><strong>Bagaimana Energi Dikonversi?</strong>",
+      "content": "<p><strong>\uD83D\uDCCC Bagaimana Energi Dikonversi?</strong>",
       "isTitle": false
     },
     {
@@ -35,11 +35,11 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar2.png"
     },
     {
       "type": "text",
-      "content": "<p><strong>Proses Umum Konversi Energi:</strong>",
+      "content": "<p><strong>\uD83C\uDF00 Proses Umum Konversi Energi:</strong>",
       "isTitle": false
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar3.png"
     },
     {
       "type": "text",
@@ -68,7 +68,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar4.png"
     },
     {
       "type": "text",
@@ -82,11 +82,11 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar5.png"
     },
     {
       "type": "text",
-      "content": "<p><strong>Ilustrasi Sederhana</strong>",
+      "content": "<p><strong>\uD83D\uDD0D Ilustrasi Sederhana</strong>",
       "isTitle": false
     },
     {
@@ -96,16 +96,16 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar6.png"
     },
     {
       "type": "text",
-      "content": "<p><strong>Jenis dan Karakteristik Mesin Listrik dalam Pembangkit</strong>",
+      "content": "<p><strong>\uD83D\uDD39 Jenis dan Karakteristik Mesin Listrik dalam Pembangkit</strong>",
       "isTitle": false
     },
     {
       "type": "text",
-      "content": "<p><strong>Generator : </strong>",
+      "content": "<p><strong>⚙\uFE0F Generator : </strong>",
       "isTitle": false
     },
     {
@@ -120,7 +120,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar7.png"
     },
     {
       "type": "text",
@@ -129,7 +129,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar8.png"
     },
     {
       "type": "text",
@@ -178,7 +178,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar9.png"
     },
     {
       "type": "text",
@@ -192,12 +192,12 @@
     },
     {
       "type": "text",
-      "content": "<p><strong>Transformator</strong>",
+      "content": "<p><strong>⚙\uFE0F Transformator</strong>",
       "isTitle": false
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar10.png"
     },
     {
       "type": "text",
@@ -216,7 +216,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar11.png"
     },
     {
       "type": "text",
@@ -275,12 +275,12 @@
     },
     {
       "type": "text",
-      "content": "<p><strong>Motor Listrik</strong>",
+      "content": "<p><strong>⚙\uFE0F Motor Listrik</strong>",
       "isTitle": false
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar12.png"
     },
     {
       "type": "text",
@@ -299,7 +299,7 @@
     },
     {
       "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
+      "content": "assets/images/bab1/gambar13.png"
     },
     {
       "type": "text",
@@ -319,6 +319,365 @@
     {
       "type": "text",
       "content": "Motor listrik DC pada sistem pembangkit listrik memiliki keunggulan utama dalam hal pengaturan kecepatan yang presisi dan responsif, sehingga sangat cocok digunakan pada aplikasi yang membutuhkan kontrol kecepatan halus dan fleksibel. Meskipun penggunaannya tidak seumum motor AC dalam instalasi tetap, motor DC tetap memiliki peran penting, terutama dalam sistem kontrol, penggerak katup otomatis, crane pemeliharaan, atau aktuator yang memerlukan perubahan kecepatan dan torsi secara dinamis. Keunggulan motor DC terletak pada kemampuannya mengubah kecepatan tanpa kehilangan torsi yang signifikan, serta kemudahan dalam pengaturan arah putaran. Hal ini sangat bermanfaat dalam situasi di mana ketepatan dan kestabilan gerakan menjadi krusial. Selain itu, motor DC sering digunakan dalam kondisi darurat dengan suplai dari baterai (emergency power system), karena dapat beroperasi dengan sumber tegangan searah. Meski dalam pembangkit modern banyak fungsi motor DC digantikan oleh motor AC dengan inverter, motor DC tetap relevan di aplikasi yang menuntut kontrol presisi tinggi.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDD39 Peralatan Mekanis Pembangkit Listrik</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDD27 Turbin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin adalah mesin konversi energi yang berfungsi untuk mengubah energi fluida baik itu air, uap, maupun gas panas menjadi energi rotasi mekanik melalui putaran poros. Fluida yang memiliki tekanan dan kecepatan tinggi diarahkan ke sudu-sudu turbin, sehingga menghasilkan gaya dorong yang memutar turbin dengan kecepatan tinggi. Putaran ini kemudian digunakan untuk menggerakkan poros generator dalam sistem pembangkitan listrik. Jenis turbin disesuaikan dengan jenis fluida yang digunakan, seperti turbin air pada Pembangkit Listrik Tenaga Air (PLTA), turbin uap pada PLTU, dan turbin gas pada PLTG. Efisiensi konversi energi pada turbin sangat bergantung pada desain sudu, tekanan fluida, serta kecepatan alirannya. Sebagai komponen inti dalam pembangkit listrik, turbin memainkan peran vital dalam mengubah energi potensial atau kinetik dari fluida menjadi energi mekanik yang stabil, yang selanjutnya akan dikonversi menjadi energi listrik oleh generator.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar14.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>1. Jenis Turbin:</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Turbin Uap (Steam Turbine) – untuk PLTU</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin uap (steam turbine) adalah jenis turbin yang digunakan secara luas pada Pembangkit Listrik Tenaga Uap (PLTU) untuk mengubah energi termal dari uap bertekanan tinggi menjadi energi mekanik berupa putaran. Proses dimulai dari pembakaran bahan bakar (seperti batubara, minyak, atau biomassa) di dalam boiler, yang memanaskan air hingga menjadi uap dengan tekanan dan suhu tinggi. Uap ini kemudian dialirkan menuju sudu-sudu turbin, menghasilkan dorongan yang kuat dan memutar rotor turbin secara kontinu. Putaran dari poros turbin kemudian digunakan untuk menggerakkan generator, sehingga menghasilkan energi listrik. Turbin uap memiliki desain bertingkat (multi-stage) untuk memaksimalkan efisiensi konversi energi, di mana uap melewati beberapa tahap ekspansi tekanan yang teratur. Karena kemampuannya menghasilkan daya besar dan efisiensi tinggi, turbin uap menjadi tulang punggung pembangkit listrik skala besar, terutama dalam sistem kelistrikan nasional yang membutuhkan pasokan energi secara terus-menerus dan stabil.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar15.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Turbin Gas – untuk PLTG</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin gas merupakan komponen utama dalam Pembangkit Listrik Tenaga Gas (PLTG) yang berfungsi mengubah energi termal dari gas hasil pembakaran langsung menjadi energi mekanik berupa putaran. Proses dimulai dengan pencampuran udara dan bahan bakar, seperti gas alam atau solar, yang kemudian dibakar dalam ruang bakar untuk menghasilkan gas panas bertekanan tinggi. Gas ini dialirkan ke sudu-sudu turbin, menciptakan dorongan kuat yang memutar poros turbin dengan kecepatan tinggi. Putaran tersebut digunakan untuk menggerakkan generator, sehingga menghasilkan energi listrik. Turbin gas memiliki keunggulan dalam hal desain yang kompak, waktu startup yang cepat, dan respons yang baik terhadap perubahan beban, menjadikannya ideal untuk pembangkit beban puncak maupun pembangkit cadangan. Selain itu, dalam sistem Combined Cycle Power Plant (CCPP), turbin gas sering dikombinasikan dengan turbin uap untuk memanfaatkan panas buangan, sehingga meningkatkan efisiensi pembangkitan secara keseluruhan hingga lebih dari 60%.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar16.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>c. Turbin Air – untuk PLTA</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin air adalah mesin pengubah energi kinetik dan potensial dari air menjadi energi mekanik putar, dan merupakan komponen utama dalam Pembangkit Listrik Tenaga Air (PLTA). Proses dimulai dari air yang ditampung di bendungan atau saluran air bertekanan tinggi, kemudian dialirkan melalui pipa pesat menuju turbin. Tekanan dan kecepatan aliran air akan memutar sudu-sudu turbin, menghasilkan energi rotasi pada poros yang selanjutnya digunakan untuk menggerakkan generator. Jenis turbin air yang digunakan disesuaikan dengan kondisi lokasi dan tinggi jatuhan air, seperti turbin Pelton untuk head tinggi, turbin Francis untuk head sedang, dan turbin Kaplan untuk head rendah. Keunggulan utama turbin air adalah efisiensinya yang tinggi, penggunaan sumber daya alam terbarukan, dan kemampuan beroperasi dalam jangka panjang dengan biaya operasional yang rendah. Karena sifatnya yang ramah lingkungan dan dapat menghasilkan daya besar secara berkelanjutan, PLTA menjadi salah satu solusi energi bersih yang sangat strategis dalam sistem kelistrikan nasional.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar17.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>2. Komponen Utama Turbin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Nosel</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar18.png"
+    },
+    {
+      "type": "text",
+      "content": "Nosel turbin adalah komponen penting dalam sistem turbin, terutama pada turbin impuls seperti turbin Pelton, yang berfungsi untuk mengubah tekanan fluida menjadi kecepatan tinggi sebelum diarahkan ke sudu turbin. Nosel bekerja dengan memperkecil luas penampang aliran fluida, sehingga menghasilkan semburan air atau uap dengan kecepatan tinggi dan arah yang terkontrol. Dalam turbin air, nosel mengarahkan jet air secara presisi ke sudu-sudu roda turbin, menciptakan dorongan yang efisien untuk memutar poros. Sedangkan pada turbin uap atau gas, nosel juga membantu mempercepat aliran fluida sambil mengarahkan sudut serangan fluida ke sudu secara optimal. Desain nosel sangat menentukan efisiensi konversi energi karena memengaruhi besar gaya impuls atau reaksi yang ditransfer ke sudu turbin. Dengan pengaturan yang tepat, nosel mampu meningkatkan efisiensi kerja turbin, mengoptimalkan pemanfaatan energi fluida, dan menjaga kestabilan sistem pembangkitan tenaga secara keseluruhan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Sudu (Blade)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sudu (blade) turbin adalah bagian utama dari turbin yang berfungsi menerima energi kinetik atau energi tekanan dari fluida dan mengubahnya menjadi energi mekanik dalam bentuk putaran. Saat fluida berkecepatan tinggi baik itu air, uap, atau gas yang mengenai sudu, terjadi transfer momentum yang menghasilkan gaya dorong pada sudu, sehingga memutar poros turbin. Desain sudu sangat menentukan efisiensi dan performa turbin secara keseluruhan. Pada turbin impuls seperti turbin Pelton, sudu dirancang untuk mengubah kecepatan fluida menjadi gaya putar tanpa perubahan tekanan yang signifikan. Sementara pada turbin reaksi seperti turbin Francis dan Kaplan, sudu tidak hanya menerima gaya dorong dari kecepatan fluida, tetapi juga memanfaatkan perubahan tekanan fluida untuk menghasilkan energi. Bentuk, sudut kemiringan, dan material sudu dirancang agar tahan terhadap keausan, korosi, serta tekanan tinggi, sehingga mampu mempertahankan efisiensi kerja dalam jangka waktu panjang dan kondisi operasional berat.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar19.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>c. Rotor</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Rotor turbin adalah bagian yang berputar dari turbin dan merupakan komponen utama yang menyalurkan energi mekanik ke poros generator. Rotor terdiri dari poros utama dan rangkaian sudu (blade) yang terpasang secara simetris di sekelilingnya. Saat fluida bertekanan tinggi seperti uap, air, atau gas mengenai sudu-sudu rotor, energi kinetik atau tekanan fluida ditransfer ke sudu, yang kemudian menyebabkan rotor berputar. Putaran ini menghasilkan energi mekanik rotasi yang diteruskan ke generator untuk dikonversi menjadi energi listrik. Desain rotor disesuaikan dengan jenis turbin, misalnya pada turbin impuls, rotor hanya menerima gaya dari kecepatan fluida, sedangkan pada turbin reaksi, rotor juga mengalami perubahan tekanan fluida. Material rotor umumnya menggunakan paduan logam berkekuatan tinggi yang tahan terhadap tekanan, suhu tinggi, serta keausan. Keseimbangan rotor sangat penting agar putaran stabil, minim getaran, dan aman dalam pengoperasian jangka panjang di lingkungan kerja yang ekstrem.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar20.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>3. Ciri-ciri Turbin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Berputar stabil</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Berputar Turbin harus berputar secara stabil untuk memastikan proses pembangkitan listrik berjalan efisien, aman, dan menghasilkan daya dengan kualitas yang sesuai standar. Putaran yang stabil menjaga agar frekuensi listrik tetap konstan biasanya 50 Hz di Indonesia dan menghindari fluktuasi yang bisa merusak peralatan listrik maupun sistem jaringan secara keseluruhan. Ketidakstabilan putaran turbin dapat menyebabkan tegangan dan frekuensi berfluktuasi, berisiko memicu pemadaman atau kerusakan sistem kontrol. Untuk mencapai kestabilan ini, turbin dilengkapi dengan sistem governor yang secara otomatis mengatur suplai energi fluida (air, uap, atau gas) ke turbin berdasarkan beban yang dihadapi. Selain itu, sistem pelumasan, pendinginan, dan pengendali getaran juga berperan penting dalam menjaga rotasi poros turbin tetap seimbang dan tidak mengalami gangguan mekanis. Oleh karena itu, kestabilan putaran turbin menjadi salah satu indikator utama dalam keberhasilan operasi pembangkit listrik yang andal dan berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Bergantung pada tekanan fluida</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Efisiensi turbin sangat dipengaruhi oleh tekanan fluida yang digunakan sebagai sumber energi. Tekanan yang tinggi pada fluida baik itu uap, air, maupun gas yang menyimpan energi potensial atau kinetik yang besar, yang dapat dikonversi secara lebih maksimal menjadi energi mekanik oleh sudu-sudu turbin. Semakin optimal perbedaan tekanan antara fluida masuk dan keluar, semakin besar pula energi yang dapat diambil oleh turbin untuk memutar porosnya. Oleh karena itu, dalam sistem pembangkitan, fluida umumnya dikondisikan melalui proses pemanasan, kompresi, atau peningkatan ketinggian (untuk air) agar tekanan mencapai level ideal. Misalnya, pada turbin uap, tekanan uap superheated sangat berpengaruh terhadap efisiensi termal, sedangkan pada turbin air, tinggi jatuhan air (head) menentukan besarnya tekanan yang masuk ke turbin. Namun, tekanan yang terlalu tinggi tanpa kontrol yang baik juga bisa menyebabkan keausan dini dan menurunkan efisiensi jangka panjang. Maka dari itu, tekanan fluida harus dijaga dalam batas desain optimal untuk memastikan efisiensi turbin maksimal dan umur operasionalnya panjang.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>❄\uFE0F Sistem Pendingin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sistem pendinginan pada pembangkit listrik berfungsi menjaga suhu kerja peralatan tetap optimal agar tidak mengalami overheating, terutama pada komponen vital seperti turbin, generator, transformator, dan sistem kelistrikan lainnya. Selama proses pembangkitan listrik, peralatan tersebut menghasilkan panas akibat gesekan, arus listrik tinggi, dan reaksi termal dari fluida kerja. Jika panas tidak dikelola dengan baik, maka suhu yang berlebihan dapat menyebabkan penurunan efisiensi, kerusakan material, hingga kegagalan sistem secara total. Oleh karena itu, digunakan berbagai metode pendinginan, seperti pendingin oli (oil cooling) pada transformator, pendingin air (water cooling) pada generator, atau pendingin udara (air cooling) pada komponen elektronik. Dalam sistem skala besar, sirkuit tertutup dan menara pendingin (cooling tower) juga digunakan untuk membuang panas ke lingkungan. Dengan menjaga suhu tetap stabil, sistem pendinginan tidak hanya melindungi peralatan, tetapi juga memastikan kontinuitas pembangkitan listrik secara efisien dan aman.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar21.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>1. Jenis Sistem Pendingin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Air Cooling System</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Air Cooling System pada pembangkit listrik merupakan metode pendinginan yang menggunakan udara sebagai media utama untuk menyerap dan menghilangkan panas dari peralatan yang bekerja secara kontinu, seperti generator, motor listrik, panel distribusi, dan transformator berukuran kecil hingga sedang. Sistem ini bekerja dengan cara mengalirkan udara melalui sirip-sirip pendingin atau saluran ventilasi yang menempel pada permukaan komponen panas. Udara yang bersirkulasi baik secara alami maupun dengan bantuan kipas (forced air) akan menyerap panas dan membawa keluar energi termal ke lingkungan, sehingga suhu kerja peralatan tetap terjaga dan tidak mengalami overheating. Air Cooling System memiliki keunggulan dalam hal desain yang lebih sederhana, perawatan yang mudah, serta tidak membutuhkan cairan khusus seperti oli atau air demineralisasi. Sistem ini sangat cocok diterapkan pada pembangkit listrik skala kecil atau pada lokasi yang memiliki keterbatasan sumber air. Meski efisiensinya lebih rendah dibanding water cooling, air cooling tetap efektif untuk beban panas sedang hingga ringan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar22.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Oil Cooling System</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Oil Cooling System pada pembangkit listrik adalah sistem pendinginan yang menggunakan oli sebagai media penghantar panas untuk menjaga suhu peralatan tetap stabil selama beroperasi. Sistem ini banyak digunakan pada komponen-komponen penting seperti transformator daya, generator besar, serta sistem pelumasan turbin, di mana pelepasan panas yang tinggi terjadi secara terus-menerus. Oli memiliki kapasitas panas spesifik yang tinggi dan sifat isolasi listrik yang baik, sehingga sangat efektif untuk menyerap panas dari inti transformator atau bantalan turbin, lalu mengalirkannya ke radiator atau penukar panas (heat exchanger) untuk didinginkan. Dalam sistem tertutup, oli bersirkulasi melalui pompa, mengambil panas dari sumbernya, dan membuangnya ke udara luar atau air pendingin. Keunggulan dari oil cooling adalah kemampuannya bekerja dalam suhu tinggi, perlindungan terhadap keausan mekanis, serta memperpanjang umur peralatan. Sistem ini sangat penting dalam pembangkit listrik skala besar yang menuntut keandalan tinggi dan operasi berkelanjutan tanpa risiko overheating.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar23.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>c. Closed Circuit Cooling</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Closed Circuit Cooling System pada pembangkit listrik adalah sistem pendinginan tertutup yang berfungsi untuk menjaga suhu kerja peralatan tetap dalam kondisi optimal tanpa kehilangan media pendingin ke lingkungan luar. Dalam sistem ini, fluida pendingin (biasanya air demineralisasi atau oli) bersirkulasi secara berulang dalam jalur tertutup antara komponen yang menghasilkan panas seperti turbin, generator, atau sistem pelumas dengan unit penukar panas (heat exchanger) atau cooling tower. Fluida akan menyerap panas dari peralatan, kemudian dialirkan ke penukar panas untuk diturunkan suhunya sebelum kembali lagi ke siklus awal. Karena tidak terjadi kontak langsung antara media pendingin dan udara luar, sistem ini menghindari kontaminasi, penguapan berlebih, serta menjaga tekanan dan kualitas pendingin tetap stabil. Closed circuit cooling sangat ideal untuk pembangkit skala besar karena efisien, ramah lingkungan, dan mampu menjaga performa peralatan dalam jangka panjang. Sistem ini juga memungkinkan kontrol suhu yang lebih presisi, sehingga meningkatkan keandalan dan keselamatan operasional pembangkit listrik.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar24.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDCCC Mengapa system ini penting?</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pentingnya sistem pendingin dalam pembangkit listrik tidak dapat diabaikan, karena suhu berlebih yang tidak dikontrol dengan baik dapat menimbulkan kerusakan serius pada berbagai komponen kritis. Salah satu risiko utama adalah kerusakan pada kumparan tembaga dalam generator atau motor, yang jika terlalu panas dapat menyebabkan perubahan sifat konduktivitas, kehilangan efisiensi, bahkan kegagalan fungsi total. Selain itu, isolator listrik yang berfungsi menjaga keamanan dan kestabilan tegangan juga sangat sensitif terhadap suhu tinggi paparan panas berlebih dapat merusak integritas isolasi dan menimbulkan risiko korsleting. Dalam kondisi ekstrem, material logam tertentu pada inti mesin atau bantalan bahkan bisa mengalami deformasi atau meleleh, menyebabkan kerusakan permanen dan downtime yang mahal. Oleh karena itu, sistem pendinginan baik air, oli, maupun closed circuit memegang peranan vital untuk menjaga suhu operasional dalam batas aman, melindungi keandalan sistem, serta memperpanjang usia peralatan pembangkit secara keseluruhan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDD25 Sistem Bahan Bakar</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Dalam sistem pembangkitan listrik, penyediaan energi awal berupa bahan bakar merupakan langkah krusial yang menentukan seluruh proses pembangkitan selanjutnya. Bahan bakar berfungsi sebagai sumber energi primer yang akan dikonversi menjadi energi panas, kemudian diubah menjadi energi mekanik, dan akhirnya menjadi energi listrik melalui generator. Jenis bahan bakar yang digunakan tergantung pada tipe pembangkit, seperti batubara, minyak, dan gas alam untuk PLTU dan PLTG, atau bahan bakar biomassa untuk pembangkit ramah lingkungan. Pada tahap awal, bahan bakar disuplai melalui sistem conveyor, tangki penyimpanan, atau pipa penyalur ke ruang pembakaran (boiler atau combustion chamber). Di sanalah bahan bakar dibakar untuk menghasilkan panas bertekanan tinggi, yang kemudian dimanfaatkan untuk memutar turbin. Ketersediaan dan kualitas bahan bakar yang konsisten sangat memengaruhi efisiensi, emisi, dan kontinuitas operasi pembangkit. Tanpa suplai energi awal ini, sistem pembangkitan tidak dapat berjalan secara optimal.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar25.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>1. Jenis Bahan Bakar</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Batubara</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Batubara merupakan salah satu bahan bakar utama yang digunakan dalam Pembangkit Listrik Tenaga Uap (PLTU) karena memiliki ketersediaan yang melimpah, harga yang relatif stabil, serta nilai kalori yang tinggi untuk menghasilkan energi panas secara maksimal. Dalam proses pembangkitan, batubara dibakar di dalam boiler untuk menghasilkan uap bertekanan dan bersuhu tinggi. Uap tersebut kemudian diarahkan ke turbin uap, yang akan memutar poros generator untuk menghasilkan energi listrik. Sebelum proses pembakaran, batubara biasanya dihancurkan menjadi partikel halus menggunakan coal pulverizer untuk meningkatkan efisiensi pembakaran. Pengangkutan batubara dari tempat penyimpanan ke ruang pembakaran dilakukan secara otomatis menggunakan sistem conveyor. Meski efektif dalam menghasilkan daya besar, pembakaran batubara juga menghasilkan emisi yang berdampak pada lingkungan. Oleh karena itu, pembangkit modern dilengkapi dengan sistem pengendalian emisi seperti electrostatic precipitator dan flue gas desulfurization (FGD) untuk menekan emisi gas buang.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Batubara</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Batubara merupakan salah satu bahan bakar utama yang digunakan dalam Pembangkit Listrik Tenaga Uap (PLTU) karena memiliki ketersediaan yang melimpah, harga yang relatif stabil, serta nilai kalori yang tinggi untuk menghasilkan energi panas secara maksimal. Dalam proses pembangkitan, batubara dibakar di dalam boiler untuk menghasilkan uap bertekanan dan bersuhu tinggi. Uap tersebut kemudian diarahkan ke turbin uap, yang akan memutar poros generator untuk menghasilkan energi listrik. Sebelum proses pembakaran, batubara biasanya dihancurkan menjadi partikel halus menggunakan coal pulverizer untuk meningkatkan efisiensi pembakaran. Pengangkutan batubara dari tempat penyimpanan ke ruang pembakaran dilakukan secara otomatis menggunakan sistem conveyor. Meski efektif dalam menghasilkan daya besar, pembakaran batubara juga menghasilkan emisi yang berdampak pada lingkungan. Oleh karena itu, pembangkit modern dilengkapi dengan sistem pengendalian emisi seperti electrostatic precipitator dan flue gas desulfurization (FGD) untuk menekan emisi gas buang.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Gas alam</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Gas alam merupakan bahan bakar utama yang banyak digunakan dalam Pembangkit Listrik Tenaga Gas (PLTG) dan Pembangkit Listrik Siklus Gabungan (Combined Cycle Power Plant/CCPP) karena memiliki sifat pembakaran yang bersih, efisien, serta menghasilkan emisi yang lebih rendah dibandingkan batubara atau minyak. Dalam sistem PLTG, gas alam dibakar dalam ruang bakar (combustion chamber) untuk menghasilkan gas panas bertekanan tinggi, yang kemudian digunakan untuk memutar turbin gas dan menggerakkan generator. Sementara dalam sistem CCPP, panas buangan dari turbin gas dimanfaatkan kembali untuk menghasilkan uap melalui Heat Recovery Steam Generator (HRSG), yang kemudian digunakan untuk menggerakkan turbin uap, sehingga meningkatkan efisiensi pembangkit hingga lebih dari 60%. Gas alam disalurkan melalui pipa tekanan tinggi dan diatur menggunakan sistem kontrol otomatis agar suplai tetap stabil selama operasi. Selain itu, gas alam menghasilkan emisi CO₂ dan NOₓ yang lebih rendah, menjadikannya solusi transisi yang lebih ramah lingkungan menuju sistem energi yang bersih dan berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>c. Biomassa</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Biomassa adalah sumber energi terbarukan yang dimanfaatkan sebagai bahan bakar dalam Pembangkit Listrik Tenaga Biomassa (PLTBm), dengan menggunakan material organik seperti limbah pertanian, serbuk gergaji, sekam padi, jerami, hingga limbah industri perkebunan. Proses pembangkitan listrik menggunakan biomassa mirip dengan PLTU, yaitu melalui pembakaran bahan bakar di dalam boiler untuk menghasilkan uap bertekanan tinggi yang digunakan untuk memutar turbin uap dan menggerakkan generator. Kelebihan utama biomassa terletak pada sifatnya yang karbon netral, karena karbon dioksida (CO₂) yang dilepaskan saat pembakaran sebanding dengan yang diserap tanaman selama pertumbuhannya. Sebelum dibakar, biomassa biasanya dikeringkan dan dicacah agar pembakaran lebih efisien dan stabil. Bahan bakar ini disuplai secara otomatis melalui konveyor dan sistem kontrol pembakaran yang menjamin aliran material tetap terjaga. Selain mengurangi ketergantungan pada bahan bakar fosil, pemanfaatan biomassa juga memberikan nilai tambah dari limbah, mendukung konsep ekonomi sirkular dan pembangunan energi berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>d. Bahan bakar cair (diesel)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Bahan bakar cair, seperti diesel (solar), digunakan dalam Pembangkit Listrik Tenaga Diesel (PLTD) sebagai sumber energi utama untuk menghasilkan listrik, terutama di daerah terpencil, pulau-pulau kecil, atau sebagai pembangkit cadangan saat terjadi gangguan pada jaringan utama. Dalam sistem ini, diesel dibakar di dalam mesin diesel internal combustion, menghasilkan tenaga mekanik yang digunakan untuk memutar poros generator. Prosesnya cepat, responsif, dan tidak memerlukan sistem uap atau turbin seperti pada pembangkit lainnya, sehingga cocok untuk kondisi darurat dan kebutuhan daya yang fleksibel. Keunggulan utama PLTD adalah mobilitas tinggi, instalasi yang mudah, serta kemampuan beroperasi secara mandiri tanpa tergantung pada infrastruktur jaringan besar. Namun, pembangkit diesel memiliki efisiensi termal yang relatif lebih rendah dan menghasilkan emisi gas buang serta polusi suara yang cukup tinggi. Oleh karena itu, penggunaan PLTD umumnya dibatasi untuk skala kecil, jangka pendek, atau sebagai backup system untuk memastikan keandalan pasokan listrik.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>2. Komponen Sistem Bahan Bakar</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>a. Tangki Penyimpanan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Tangki penyimpanan bahan bakar pada pembangkit listrik merupakan komponen penting yang berfungsi untuk menampung dan mengelola suplai energi primer secara aman dan efisien sebelum digunakan dalam proses pembangkitan. Jenis tangki dan sistem penyimpanan disesuaikan dengan karakteristik bahan bakar, seperti tangki baja anti-karat untuk bahan bakar cair (diesel) pada Pembangkit Listrik Tenaga Diesel (PLTD), silo atau coal yard untuk batubara pada PLTU, serta tangki bertekanan tinggi untuk gas alam dalam bentuk cair (LNG/LPG) pada PLTG. Setiap tangki dilengkapi dengan sistem monitoring level, katup pengaman, ventilasi, dan sensor tekanan untuk menjamin keselamatan dan mencegah kebocoran atau ledakan. Tangki ini terhubung dengan sistem suplai otomatis atau manual yang mengatur aliran bahan bakar secara stabil menuju ruang pembakaran. Selain menjaga kontinuitas operasional, keberadaan tangki penyimpanan yang andal juga memungkinkan pembangkit beroperasi dalam kondisi darurat atau pasokan bahan bakar terganggu, sekaligus memenuhi standar keselamatan dan lingkungan yang berlaku.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar26.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>b. Pipa Distribusi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pipa distribusi bahan bakar pada pembangkit listrik berperan vital dalam menyalurkan bahan bakar dari tangki penyimpanan ke ruang pembakaran atau ke unit pemrosesan lainnya seperti boiler, ruang bakar mesin diesel, atau combustion chamber turbin gas. Sistem perpipaan ini dirancang dengan mempertimbangkan jenis bahan bakar yang digunakan baik itu cair (seperti solar), gas (seperti LNG atau CNG), maupun bahan bakar berbentuk slurry dalam sistem tertentu. Pipa-pipa ini umumnya terbuat dari material logam tahan panas dan korosi, serta dilengkapi katup pengatur aliran, sensor tekanan, sistem pemanas (untuk mencegah viskositas tinggi pada bahan bakar cair), dan sistem pemadam kebakaran otomatis. Pengaturan distribusi dilakukan secara otomatis melalui sistem kontrol untuk memastikan tekanan dan laju aliran bahan bakar tetap stabil sesuai kebutuhan beban pembangkit. Desain pipa distribusi juga memperhitungkan aspek keselamatan, seperti jarak antar komponen, proteksi terhadap kebocoran, dan kemudahan pemeliharaan. Dengan sistem distribusi bahan bakar yang andal, proses pembangkitan dapat berlangsung efisien, aman, dan berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar27.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>c. Katup Kontrol</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Katup kontrol bahan bakar pada pembangkit listrik merupakan komponen penting dalam sistem distribusi bahan bakar yang berfungsi untuk mengatur, mengarahkan, dan menghentikan aliran bahan bakar dari tangki penyimpanan menuju unit pembakaran seperti boiler, ruang bakar turbin gas, atau mesin diesel. Katup ini bekerja secara manual maupun otomatis, tergantung pada desain sistem pembangkit, dan diintegrasikan dengan sensor tekanan, temperatur, dan sistem kontrol digital (PLC/SCADA) untuk memastikan suplai bahan bakar tetap stabil, presisi, dan aman selama operasi. Jenis katup yang umum digunakan meliputi katup solenoid, katup bola (ball valve), katup jarum (needle valve), dan katup kontrol proporsional. Katup kontrol juga dilengkapi sistem pengaman (safety interlock) yang secara otomatis menutup aliran jika terjadi anomali, seperti tekanan berlebih, kebocoran, atau suhu ekstrem. Dengan keberadaan katup kontrol yang andal, pembangkit dapat menghindari gangguan pembakaran, mencegah kerusakan peralatan, dan menjaga efisiensi serta keselamatan operasional secara keseluruhan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar28.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>d. Burner</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Burner bahan bakar pada pembangkit listrik adalah perangkat penting yang berfungsi untuk mencampurkan bahan bakar seperti batubara, gas alam, minyak diesel, atau biomassa dengan udara dalam rasio yang tepat, kemudian membakarnya secara efisien di dalam ruang pembakaran (boiler atau combustion chamber) guna menghasilkan panas bertekanan tinggi. Panas ini selanjutnya digunakan untuk memanaskan air menjadi uap atau menggerakkan gas bertekanan yang akan memutar turbin dan menghasilkan listrik. Kualitas pembakaran yang dihasilkan burner sangat memengaruhi efisiensi termal, kestabilan nyala api, dan tingkat emisi gas buang, sehingga burner modern dilengkapi dengan sistem kontrol otomatis, termasuk pengatur aliran bahan bakar dan udara, pengapian elektrik, serta sensor suhu dan emisi. Selain itu, burner juga didesain agar mampu beradaptasi dengan variasi jenis bahan bakar dan beban pembangkit. Dengan sistem pembakaran yang optimal, burner berperan besar dalam meningkatkan efisiensi operasional, mengurangi konsumsi bahan bakar, serta menekan emisi berbahaya, sehingga mendukung pembangkit yang lebih ramah lingkungan dan berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDCCC Fungsi Tambahan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Memastikan tekanan dan pasokan bahan bakar tetap stabil selama operasi adalah aspek penting dalam menjaga kelangsungan dan efisiensi sistem pembangkitan listrik. Ketidakstabilan tekanan atau pasokan bahan bakar dapat menyebabkan gangguan pada proses pembakaran, menurunkan efisiensi termal, dan bahkan mengakibatkan shutdown mendadak yang berisiko merusak peralatan. Oleh karena itu, pembangkit listrik dilengkapi dengan sistem pengaturan tekanan otomatis, sensor pemantau aliran, serta katup kontrol yang bekerja secara real-time untuk menyesuaikan volume dan tekanan bahan bakar sesuai kebutuhan beban. Pada PLTU dan PLTG, misalnya, sistem burner memerlukan pasokan bahan bakar yang presisi agar nyala api stabil dan temperatur pembakaran terjaga. Selain itu, tangki penyimpanan, pompa suplai, dan sistem pemanas bahan bakar (jika diperlukan) turut berperan dalam menjamin kestabilan distribusi. Dengan pengaturan pasokan yang stabil, pembangkit dapat beroperasi secara efisien, aman, dan berkelanjutan tanpa gangguan yang merugikan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>\uD83D\uDCDA Kesimpulan Bab</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Mesin listrik pembangkit dan peralatan mekanis merupakan tulang punggung dari sistem pembangkitan energi, karena seluruh proses konversi energi dari sumber energi primer hingga menjadi energi listrik yang siap didistribusikan sangat bergantung pada kinerja komponen ini. Memahami prinsip dasar konversi energi, seperti perubahan energi potensial atau termal menjadi energi mekanik melalui turbin, dan selanjutnya menjadi energi listrik melalui generator, merupakan langkah awal yang sangat penting dalam pendidikan teknis kelistrikan. Selain itu, pemahaman mengenai jenis-jenis mesin listrik, seperti generator sinkron dan asinkron, serta fungsi berbagai peralatan pendukung seperti sistem pendingin, katup kontrol, burner, dan sistem distribusi bahan bakar, akan memberikan wawasan menyeluruh kepada peserta didik. Pengetahuan ini menjadi fondasi penting sebelum melangkah ke materi lanjutan seperti kontrol sistem pembangkit otomatis, optimasi efisiensi energi, serta strategi pemeliharaan dan troubleshooting yang dibutuhkan dalam dunia kerja industri pembangkitan energi modern.",
       "isTitle": false
     }
   ]

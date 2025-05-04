@@ -1,23 +1,117 @@
 {
   "id" : 1,
   "title" : "Bab 2",
-  "description" : "Prosedur Pengoperasian Mesin Listrik Pembangkit",
+  "description" : "Pengoperasian Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit",
   "estimatedHours" : 3, 
   "content" : [
     {
       "type": "text",
-      "content": "<p><strong>Prosedur Pengoperasian Mesin Listrik Pembangkit</strong>",
+      "content": "<p><strong>\uD83D\uDD39 Prosedur Pengoperasian Mesin Listrik Pembangkit</strong>",
       "isTitle": false
     },
     {
       "type": "text",
-      "content": "<p><strong>Langkah Awal: Persiapan Operasi</strong>",
+      "content": "<p><strong>\uD83D\uDCCC Langkah Awal: Persiapan Operasi</strong>",
       "isTitle": false
     },
     {
       "type": "text",
       "content": "<p>Sebelum mesin listrik pembangkit dinyalakan, teknisi wajib melakukan serangkaian pemeriksaan menyeluruh untuk memastikan bahwa seluruh sistem berada dalam kondisi siap operasi. Langkah ini mencakup pengecekan visual terhadap kondisi fisik mesin dan instalasi, verifikasi level pelumas dan pendingin, pemeriksaan sistem bahan bakar, serta pengujian fungsi kontrol dan perlindungan otomatis. Selain itu, sistem kelistrikan seperti koneksi grounding, kabel daya, serta panel kontrol harus dipastikan bebas dari gangguan dan dalam kondisi aman. Tekanan fluida, suhu, dan parameter lain yang relevan juga harus berada dalam rentang normal sesuai dengan spesifikasi teknis. Prosedur ini tidak hanya penting untuk menjamin keandalan mesin saat start-up, tetapi juga merupakan bagian dari langkah preventif untuk mencegah kerusakan komponen akibat beban mendadak atau kondisi operasi yang tidak stabil. Pemeriksaan menyeluruh sebelum menyalakan mesin memastikan proses pembangkitan dapat berjalan optimal, aman, dan efisien. Berikut merupakan tahapan untuk persiapan operasi mesin listrik:</p>",
       "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>1. Pemeriksaan tegangan dan arus sistem kontrol</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pemeriksaan tegangan dan arus pada sistem kontrol merupakan langkah krusial sebelum mesin listrik pembangkit dioperasikan, guna memastikan keandalan dan kestabilan fungsi otomatisasi serta proteksi. Teknisi perlu memverifikasi bahwa tegangan suplai ke sistem kontrol berada dalam batas toleransi yang ditentukan, biasanya menggunakan alat ukur digital seperti multimeter atau power analyzer. Selain itu, arus listrik yang mengalir melalui panel kontrol, sensor, dan aktuator juga harus diperiksa agar tidak melebihi kapasitas yang diizinkan, karena arus yang terlalu tinggi dapat menandakan adanya gangguan atau hubungan pendek yang berpotensi merusak komponen. Pengujian ini juga mencakup simulasi sinyal input-output dari sistem kontrol untuk melihat apakah semua rangkaian bekerja secara responsif dan tepat waktu. Dengan melakukan pemeriksaan ini secara menyeluruh, potensi kegagalan sistem saat pembangkitan dapat diminimalkan, serta menjaga performa dan keselamatan operasional mesin pembangkit secara keseluruhan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<p><strong>2. Ketersediaan dan kualitas bahan bakar</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Ketersediaan dan kualitas bahan bakar merupakan faktor fundamental yang sangat memengaruhi keandalan dan efisiensi operasional mesin listrik pembangkit. Sebelum mesin dinyalakan, teknisi harus memastikan bahwa jumlah bahan bakar yang tersedia mencukupi untuk mendukung proses pembangkitan dalam periode waktu yang direncanakan tanpa gangguan. Selain kuantitas, kualitas bahan bakar juga harus diperhatikan, karena bahan bakar yang terkontaminasi oleh air, partikel padat, atau kandungan kimia yang tidak sesuai dapat menyebabkan penurunan performa pembakaran, kerusakan komponen mesin, hingga peningkatan emisi gas buang. Oleh karena itu, pemeriksaan kualitas dilakukan dengan uji sampel untuk memastikan spesifikasi bahan bakar sesuai standar operasional yang telah ditetapkan, baik itu untuk batubara, gas alam, biomassa, maupun bahan bakar cair seperti solar atau diesel. Dengan memastikan ketersediaan dan mutu bahan bakar, proses pembangkitan dapat berlangsung stabil, efisien, dan ramah lingkungan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Kondisi pendinginan dan pelumasan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Kondisi sistem pendinginan dan pelumasan merupakan aspek vital yang harus dipastikan dalam keadaan optimal sebelum mesin listrik pembangkit dioperasikan. Sistem pendinginan berfungsi menjaga suhu kerja mesin agar tetap stabil dan mencegah terjadinya overheating yang dapat merusak komponen internal, sementara sistem pelumasan bertugas mengurangi gesekan antar komponen bergerak untuk memperpanjang usia pakai dan menjaga efisiensi operasional. Teknisi perlu memeriksa level dan kejernihan cairan pendingin, memastikan tidak ada kebocoran pada pipa atau radiator, serta memverifikasi kinerja pompa sirkulasi. Pada sistem pelumasan, perlu dilakukan pengecekan viskositas dan volume oli, serta memastikan sirkulasi berjalan lancar ke seluruh titik pelumas yang dibutuhkan. Penggunaan pelumas dan cairan pendingin dengan spesifikasi sesuai standar pabrik juga menjadi syarat mutlak. Kondisi pendinginan dan pelumasan yang baik menjamin mesin dapat bekerja dalam kondisi termal dan mekanis yang aman dan stabil sepanjang siklus pembangkitan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>⚙\uFE0F Prosedur Pengoperasian Umum</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Start-up Generator</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>a. Periksaan koneksi grounding dan isolasi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pemeriksaan koneksi grounding dan isolasi pada generator merupakan langkah penting untuk menjamin keselamatan operasional dan mencegah risiko kerusakan akibat gangguan listrik. Koneksi grounding yang baik berfungsi sebagai jalur pembuangan arus bocor atau arus lebih akibat gangguan, sehingga melindungi peralatan dan personel dari sengatan listrik serta menjaga kestabilan sistem kelistrikan. Oleh karena itu, teknisi harus memastikan bahwa sambungan grounding terpasang dengan kuat, menggunakan konduktor yang sesuai standar, serta memiliki tahanan pentanahan di bawah batas maksimum yang diperbolehkan, biasanya kurang dari 5 ohm. Selain itu, kondisi isolasi generator juga harus diperiksa menggunakan alat seperti megger untuk mengukur tahanan isolasi antara lilitan dan tanah. Nilai resistansi yang rendah menandakan adanya degradasi pada lapisan isolasi, yang dapat menyebabkan korsleting atau flashover saat generator beroperasi. Dengan memastikan grounding dan isolasi dalam kondisi baik, keandalan serta keselamatan sistem pembangkitan dapat terjamin secara menyeluruh.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>b. Aktifasi AVR (Automatic Voltage Regulator)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Mengaktifkan AVR (Automatic Voltage Regulator) pada generator merupakan tahap krusial dalam proses persiapan operasi pembangkitan listrik, karena perangkat ini berfungsi untuk mengatur dan menstabilkan tegangan output generator secara otomatis. Sebelum diaktifkan, teknisi harus memastikan bahwa semua koneksi kelistrikan antara AVR dan sistem eksitasi telah terpasang dengan benar, serta tidak terdapat gangguan atau kerusakan pada sensor tegangan dan komponen pendukung lainnya. Setelah itu, AVR dapat diaktifkan melalui panel kontrol atau sistem digital sesuai jenis generator yang digunakan. Saat AVR aktif, ia akan bekerja secara real-time menyesuaikan arus eksitasi pada rotor generator agar tegangan output tetap berada dalam batas yang ditentukan, meskipun terjadi fluktuasi beban. Proses ini sangat penting untuk mencegah tegangan drop atau lonjakan yang dapat merusak peralatan listrik terhubung. Aktivasi AVR yang tepat menjamin kestabilan sistem distribusi daya dan meningkatkan keandalan pembangkitan listrik.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>c. Sinkronkan generator dengan sistem jaringan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sinkronisasi generator dengan sistem jaringan merupakan proses teknis yang sangat penting untuk memastikan generator dapat terhubung ke jaringan listrik tanpa menimbulkan gangguan atau kerusakan. Proses ini mensyaratkan kesesuaian tiga parameter utama: frekuensi, tegangan, dan sudut fase antara output generator dengan sistem jaringan. Sebelum breaker atau pemutus sirkuit diaktifkan, teknisi harus memverifikasi bahwa frekuensi generator sudah selaras dengan frekuensi jaringan, biasanya 50 Hz, serta tegangan output berada dalam toleransi yang sama dengan jaringan. Selain itu, sudut fase antara tegangan generator dan jaringan harus mendekati nol agar tidak terjadi lonjakan arus akibat ketidaksesuaian fasa. Untuk mencapai sinkronisasi ini, digunakan peralatan seperti synchroscope atau sistem sinkronisasi otomatis yang memonitor dan menyesuaikan parameter secara real-time. Sinkronisasi yang tepat sangat penting untuk mencegah kerusakan pada generator, sistem distribusi, maupun peralatan beban, serta memastikan pembangkitan berjalan aman dan stabil.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab1/gambar29.png"
     }
   ]
 }
