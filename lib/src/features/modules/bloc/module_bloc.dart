@@ -8,7 +8,7 @@ import 'package:powergen_edu/src/features/modules/models/content_model.dart';
 class ModuleBloc extends Cubit<ModuleState> {
   ModuleBloc() : super(InitModuleState());
 
-  Future<void> fetchBab1(int id) async {
+  Future<void> fetchBab1(int? id) async {
     emit(LoadingModuleState());
 
     String response = '';

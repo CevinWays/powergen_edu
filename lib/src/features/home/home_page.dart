@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:powergen_edu/src/features/modules/module_detail_page.dart';
 import 'package:powergen_edu/src/features/modules/modules_page.dart';
 import '../profile/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ class HomePage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
                       child: Column(
                         children: [
                           // Customer name and profile row
@@ -102,7 +104,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 16),
                                 // Module Info
-                                _buildCurrentModule(),
+                                _buildCurrentModule(context),
                               ],
                             ),
                           ),
@@ -116,8 +118,8 @@ class HomePage extends StatelessWidget {
                               Expanded(
                                 child: _buildSummaryItem(
                                   icon: Icons.book_outlined,
-                                  label: 'Total',
-                                  value: '12',
+                                  label: 'Total Modul',
+                                  value: (state.totalModules ?? 0).toString(),
                                   color: Colors.blue,
                                 ),
                               ),
@@ -128,7 +130,8 @@ class HomePage extends StatelessWidget {
                                 child: _buildSummaryItem(
                                   icon: Icons.pending_outlined,
                                   label: 'Dikerjakan',
-                                  value: '3',
+                                  value: (state.totalInProgressModules ?? 0)
+                                      .toString(),
                                   color: Colors.orange,
                                 ),
                               ),
@@ -139,7 +142,8 @@ class HomePage extends StatelessWidget {
                                 child: _buildSummaryItem(
                                   icon: Icons.check_circle_outline,
                                   label: 'Selesai',
-                                  value: '5',
+                                  value: (state.totalFinishModules ?? 0)
+                                      .toString(),
                                   color: Colors.green,
                                 ),
                               ),
@@ -195,92 +199,126 @@ class HomePage extends StatelessWidget {
                                   itemCount: state.modules?.length,
                                   itemBuilder: (context, index) {
                                     final module = state.modules?[index];
-                                    return Container(
-                                      width: 280,
-                                      margin: EdgeInsets.only(
-                                        left: index == 0 ? 0 : 16,
-                                        right: index ==
-                                                (state.modules?.length ?? 0) - 1
-                                            ? 0
-                                            : 0,
-                                      ),
-                                      child: Card(
-                                        elevation: 2,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  CircleAvatar(
-                                                    backgroundColor: (module
-                                                                ?.isLocked ??
-                                                            false)
-                                                        ? Colors.grey
-                                                        : (module?.isFinish ??
-                                                                false)
-                                                            ? Colors.green[300]
-                                                            : Colors.deepOrange[
-                                                                300],
-                                                    child: Icon(
-                                                      (module?.isLocked ??
+                                    return GestureDetector(
+                                      onTap: module?.isLocked ?? false
+                                          ? () {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      'Selesaikan modul sebelumnya terlebih dahulu'),
+                                                ),
+                                              );
+                                            }
+                                          : () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ModuleDetailPage(
+                                                    id: module?.idModule ?? 0,
+                                                    title: module?.title ?? '',
+                                                    isFinish:
+                                                        module?.isFinish ??
+                                                            false,
+                                                    pointPostTest:
+                                                        module?.pointPostTest ??
+                                                            0,
+                                                    desc: module?.description,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                      child: Container(
+                                        width: 280,
+                                        margin: EdgeInsets.only(
+                                          left: index == 0 ? 0 : 16,
+                                          right: index ==
+                                                  (state.modules?.length ?? 0) -
+                                                      1
+                                              ? 0
+                                              : 0,
+                                        ),
+                                        child: Card(
+                                          elevation: 2,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    CircleAvatar(
+                                                      backgroundColor: (module
+                                                                  ?.isLocked ??
                                                               false)
-                                                          ? Icons.lock
+                                                          ? Colors.grey
                                                           : (module?.isFinish ??
                                                                   false)
-                                                              ? Icons.check
-                                                              : Icons
-                                                                  .play_arrow,
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Expanded(
-                                                    child: Text(
-                                                      module?.title ?? '',
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                                                              ? Colors
+                                                                  .green[300]
+                                                              : Colors.deepOrange[
+                                                                  300],
+                                                      child: Icon(
+                                                        (module?.isLocked ??
+                                                                false)
+                                                            ? Icons.lock
+                                                            : (module?.isFinish ??
+                                                                    false)
+                                                                ? Icons.check
+                                                                : Icons
+                                                                    .play_arrow,
+                                                        color: Colors.white,
                                                       ),
-                                                      maxLines: 2,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              const SizedBox(height: 12),
-                                              Text(
-                                                module?.description ?? '',
-                                                style: TextStyle(
-                                                  color: Colors.grey[600],
-                                                  fontSize: 14,
+                                                    const SizedBox(width: 8),
+                                                    Expanded(
+                                                      child: Text(
+                                                        module?.title ?? '',
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                        maxLines: 2,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                              const Spacer(),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.access_time,
-                                                    size: 16,
+                                                const SizedBox(height: 12),
+                                                Text(
+                                                  module?.description ?? '',
+                                                  style: TextStyle(
                                                     color: Colors.grey[600],
+                                                    fontSize: 14,
                                                   ),
-                                                  const SizedBox(width: 4),
-                                                  Text(
-                                                    '${module?.estimatedHours} Jam Belajar',
-                                                    style: TextStyle(
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                                const Spacer(),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.access_time,
+                                                      size: 16,
                                                       color: Colors.grey[600],
-                                                      fontSize: 14,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
+                                                    const SizedBox(width: 4),
+                                                    Text(
+                                                      '${module?.estimatedHours} Jam Belajar',
+                                                      style: TextStyle(
+                                                        color: Colors.grey[600],
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -304,68 +342,69 @@ class HomePage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              const SizedBox(height: 20),
-                              SizedBox(
-                                height: 200,
-                                child: PieChart(
-                                  PieChartData(
-                                    sections: [
-                                      PieChartSectionData(
-                                        value: 70,
-                                        color: Colors.deepOrange[100]!,
-                                        title: '70%',
-                                        radius: 60,
-                                        titleStyle: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      PieChartSectionData(
-                                        value: 45,
-                                        color: Colors.deepOrange[200]!,
-                                        title: '45%',
-                                        radius: 60,
-                                        titleStyle: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      PieChartSectionData(
-                                        value: 55,
-                                        color: Colors.deepOrange[300]!,
-                                        title: '55%',
-                                        radius: 60,
-                                        titleStyle: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ],
-                                    sectionsSpace: 0,
-                                    centerSpaceRadius: 40,
-                                  ),
-                                ),
-                              ),
+                              // const SizedBox(height: 20),
+                              // SizedBox(
+                              //   height: 200,
+                              //   child: PieChart(
+                              //     PieChartData(
+                              //       sections: [
+                              //         PieChartSectionData(
+                              //           value: 70,
+                              //           color: Colors.deepOrange[100]!,
+                              //           title: '70%',
+                              //           radius: 60,
+                              //           titleStyle: const TextStyle(
+                              //             fontSize: 16,
+                              //             fontWeight: FontWeight.bold,
+                              //             color: Colors.white,
+                              //           ),
+                              //         ),
+                              //         PieChartSectionData(
+                              //           value: 45,
+                              //           color: Colors.deepOrange[200]!,
+                              //           title: '45%',
+                              //           radius: 60,
+                              //           titleStyle: const TextStyle(
+                              //             fontSize: 16,
+                              //             fontWeight: FontWeight.bold,
+                              //             color: Colors.white,
+                              //           ),
+                              //         ),
+                              //         PieChartSectionData(
+                              //           value: 55,
+                              //           color: Colors.deepOrange[300]!,
+                              //           title: '55%',
+                              //           radius: 60,
+                              //           titleStyle: const TextStyle(
+                              //             fontSize: 16,
+                              //             fontWeight: FontWeight.bold,
+                              //             color: Colors.white,
+                              //           ),
+                              //         ),
+                              //       ],
+                              //       sectionsSpace: 0,
+                              //       centerSpaceRadius: 40,
+                              //     ),
+                              //   ),
+                              // ),
                               const SizedBox(height: 40),
-                              _buildModuleProgress(
-                                'Module 1: Basics of Power Generation',
-                                70,
-                                Colors.deepOrange[500]!,
-                              ),
-                              const SizedBox(height: 16),
-                              _buildModuleProgress(
-                                'Module 2: Advanced Machinery',
-                                45,
-                                Colors.deepOrange[500]!,
-                              ),
-                              const SizedBox(height: 16),
-                              _buildModuleProgress(
-                                'Module 3: Safety Protocols',
-                                55,
-                                Colors.deepOrange[500]!,
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: state.modules?.length ?? 0,
+                                itemBuilder: (context, index) {
+                                  final module = state.modules![index];
+                                  return Column(
+                                    children: [
+                                      _buildModuleProgress(
+                                        '${module.title}: ${module.description}',
+                                        module.isFinish ? 100 : 0,
+                                        Colors.deepOrange[500]!,
+                                      ),
+                                      const SizedBox(height: 16),
+                                    ],
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -427,46 +466,76 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Expanded _buildCurrentModule() {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Bab 1: Fundamentals of Power Generation',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+  Widget _buildCurrentModule(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        if (state is HomeLoaded && state.lastModule != null) {
+          return Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${state.lastModule?.title} : ${state.lastModule?.description}',
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                // Continue Button
+                ElevatedButton(
+                  onPressed: state.lastModule?.isLocked ?? false
+                      ? () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                  'Selesaikan modul sebelumnya terlebih dahulu'),
+                            ),
+                          );
+                        }
+                      : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ModuleDetailPage(
+                                id: state.lastModule?.idModule ?? 0,
+                                title: state.lastModule?.title ?? '',
+                                isFinish: state.lastModule?.isFinish ?? false,
+                                pointPostTest:
+                                    state.lastModule?.pointPostTest ?? 0,
+                                desc: state.lastModule?.description,
+                              ),
+                            ),
+                          );
+                        },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    'Lanjutkan',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Module 06/10',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[600],
-            ),
-          ),
-          // Continue Button
-          ElevatedButton(
-            onPressed: () {
-              // Add navigation logic here
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepOrange,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            child: const Text(
-              'Lanjutkan',
+          );
+        } else {
+          return const Expanded(
+            child: Text(
+              'Belum ada modul yang dikerjakan',
               style: TextStyle(
-                color: Colors.white,
+                fontSize: 16,
+                color: Colors.grey,
               ),
             ),
-          ),
-        ],
-      ),
+          );
+        }
+      },
     );
   }
 

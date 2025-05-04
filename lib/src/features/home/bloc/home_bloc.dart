@@ -31,11 +31,19 @@ class HomeLoaded extends HomeState {
   final List<ModuleModel>? modules;
   final String? username;
   final int? totalProgress;
+  final int? totalModules;
+  final int? totalFinishModules;
+  final int? totalInProgressModules;
+  final ModuleModel? lastModule;
 
   const HomeLoaded({
     this.modules,
     this.username,
     this.totalProgress,
+    this.totalFinishModules,
+    this.totalInProgressModules,
+    this.totalModules,
+    this.lastModule,
   });
 }
 
@@ -88,17 +96,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           module.isLocked = module.isLocked;
         } else if (module.idModule == 2) {
           module.title = 'Bab ${module.idModule}';
-          module.description = 'Pengoperasian Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
+          module.description =
+              'Pengoperasian Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
           module.estimatedHours = 2;
           module.isLocked = module.isLocked;
         } else if (module.idModule == 3) {
           module.title = 'Bab ${module.idModule}';
-          module.description = 'Pemeliharaan Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
+          module.description =
+              'Pemeliharaan Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit';
           module.estimatedHours = 3;
           module.isLocked = module.isLocked;
         } else if (module.idModule == 4) {
           module.title = 'Final Project';
-          module.description = 'Sistem Pemeliharaan dan Pengoperasian Mesin Listrik Pembangkit';
+          module.description =
+              'Sistem Pemeliharaan dan Pengoperasian Mesin Listrik Pembangkit';
           module.estimatedHours = 2;
           module.isLocked = module.isLocked;
         }
@@ -128,10 +139,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       //     isLocked: true,
       //   ),
       // ];
-      emit(HomeLoaded(
+      final finishModules = modules.where((data) => data.isFinish);
+      final inProgressModules =
+          modules.where((data) => (data.pointPostTest ?? 0) > 0);
+      final lastModule = modules.lastWhere(
+          (data) => data.isFinish == false && data.isLocked == false);
+      emit(
+        HomeLoaded(
           modules: modules,
           username: username,
-          totalProgress: userData?['total_progress'] ?? 0));
+          totalProgress: userData?['total_progress'] ?? 0,
+          totalModules: modules.length,
+          totalFinishModules: finishModules.length,
+          totalInProgressModules: inProgressModules.length,
+          lastModule: lastModule,
+        ),
+      );
     } catch (e) {
       emit(HomeError(e.toString()));
     }

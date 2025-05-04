@@ -5,16 +5,18 @@ abstract class PretestState {}
 class PretestLoading extends PretestState {}
 
 class PretestLoaded extends PretestState {
-  final List<PretestQuestion> questions;
-  final int currentPage;
-  final PageController pageController;
-  final Map<int, String> answers;
+  final List<PretestQuestion>? questions;
+  final int? currentPage;
+  final PageController? pageController;
+  final Map<int, String>? answers;
+  final String? errorMessage;
 
   PretestLoaded({
-    required this.questions,
-    required this.currentPage,
-    required this.pageController,
-    required this.answers,
+    this.questions,
+    this.currentPage,
+    this.pageController,
+    this.answers,
+    this.errorMessage,
   });
 
   PretestLoaded copyWith({
@@ -22,12 +24,14 @@ class PretestLoaded extends PretestState {
     int? currentPage,
     PageController? pageController,
     Map<int, String>? answers,
+    String? errorMessage,
   }) {
     return PretestLoaded(
       questions: questions ?? this.questions,
       currentPage: currentPage ?? this.currentPage,
       pageController: pageController ?? this.pageController,
       answers: answers ?? this.answers,
+      errorMessage: errorMessage,
     );
   }
 }

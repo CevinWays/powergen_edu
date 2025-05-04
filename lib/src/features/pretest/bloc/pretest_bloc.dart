@@ -356,6 +356,12 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       int totalScoreBab2 = 0;
       int totalScoreBab3 = 0;
 
+      if (answers.length < questions.length) {
+        emit((state as PretestLoaded).copyWith(
+            errorMessage: 'Silahkan isi semua jawaban terlebih dahulu'));
+        return;
+      }
+
       answers.forEach((index, answer) {
         if (answer == questions[index].correctAnswer) {
           if (questions[index].module == 1) {
@@ -396,48 +402,36 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       moduleRef.doc('$uid-module-1').set({
         'uid': uid,
         'id_module': 1,
-        'is_locked': totalScoreBab1 > 22
-            ? false
-            : totalScoreBab2 >= 22
-                ? false
-                : true,
+        'is_locked': false,
         'is_finish': totalScoreBab1 > 22
             ? true
             : totalScoreBab2 >= 22
-            ? true
-            : false,
+                ? true
+                : false,
         'point': totalScoreBab1,
-        'point_post_test' : totalScoreBab1 > 22
+        'point_post_test': totalScoreBab1 > 22
             ? 100
             : totalScoreBab2 >= 22
-            ? 100
-            : 0
+                ? 100
+                : 0
       });
 
       moduleRef.doc('$uid-module-2').set({
         'uid': uid,
         'id_module': 2,
-        'is_locked': totalScoreBab2 > 22
-            ? false
-            : true,
-        'is_finish': totalScoreBab2 > 22
-            ? true
-            : false,
+        'is_locked': totalScoreBab2 > 22 ? false : true,
+        'is_finish': totalScoreBab2 > 22 ? true : false,
         'point': totalScoreBab2,
-        'point_post_test' : totalScoreBab2 > 22
-            ? 100
-            : 0
+        'point_post_test': totalScoreBab2 > 22 ? 100 : 0
       });
 
       moduleRef.doc('$uid-module-3').set({
         'uid': uid,
         'id_module': 3,
-        'is_locked': totalScoreBab2 > 22
-            ? false
-            : true,
+        'is_locked': totalScoreBab2 > 22 ? false : true,
         'is_finish': false,
         'point': totalScoreBab3,
-        'point_post_test' : 0
+        'point_post_test': 0
       });
 
       moduleRef.doc('$uid-module-4').set({
@@ -446,7 +440,7 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
         'is_locked': true,
         'is_finish': false,
         'point': 0,
-        'point_post_test' : 0
+        'point_post_test': 0
       });
 
       emit(PretestComplete());

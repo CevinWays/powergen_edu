@@ -119,6 +119,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await prefs.setString('nis', userData?['nis'] ?? '');
       await prefs.setString('fullName', userData?['fullName'] ?? '');
       await prefs.setInt('totalProgress', userData?['total_progress'] ?? 0);
+      await prefs.setString('fullName', userData?['fullName'] ?? '');
+      await prefs.setBool(
+          'isDonePretest', userData?['is_done_pretest'] ?? false);
 
       // Store additional user data from Firestore if available
       if (userData != null) {

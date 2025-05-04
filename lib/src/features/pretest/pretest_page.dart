@@ -35,11 +35,25 @@ class PretestView extends StatelessWidget {
       ),
       body: BlocConsumer<PretestBloc, PretestState>(
         listener: (context, state) {
-          if(state is PretestComplete){
+          if (state is PretestComplete) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const HomePage()),
             );
+          } else if (state is PretestLoaded) {
+            if (state.errorMessage != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    state.errorMessage ?? '',
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
           }
         },
         builder: (context, state) {
@@ -51,11 +65,11 @@ class PretestView extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: state.questions.length,
+                    itemCount: state.questions?.length,
                     shrinkWrap: true,
                     itemBuilder: (context, questionIndex) {
                       final questionNumber = questionIndex;
-                      final question = state.questions[questionNumber];
+                      final question = state.questions?[questionNumber];
                       return PretestQuestionCard(
                         question: question,
                         onAnswerSelected: (answer) {

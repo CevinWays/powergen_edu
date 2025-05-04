@@ -87,6 +87,7 @@ class ModulesPage extends StatelessWidget {
                                   title: module.title ?? '',
                                   isFinish: module.isFinish,
                                   pointPostTest: module.pointPostTest ?? 0,
+                                  desc: module.description,
                                 ),
                               ),
                             );

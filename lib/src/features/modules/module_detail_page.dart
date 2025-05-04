@@ -8,17 +8,19 @@ import 'package:powergen_edu/src/features/post_test/post_test_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ModuleDetailPage extends StatefulWidget {
-  final int id;
-  final String title;
+  final int? id;
+  final String? title;
+  final String? desc;
   final bool isFinish;
-  final int pointPostTest;
+  final int? pointPostTest;
 
   const ModuleDetailPage({
     super.key,
-    required this.id,
-    required this.title,
-    required this.isFinish,
-    required this.pointPostTest,
+    this.id,
+    this.title,
+    this.isFinish = false,
+    this.pointPostTest,
+    this.desc,
   });
 
   @override
@@ -84,7 +86,7 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                         ),
                         flexibleSpace: FlexibleSpaceBar(
                           title: Text(
-                            'Bab ${widget.id} ${widget.title}',
+                            '${widget.title} : ${widget.desc}',
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
