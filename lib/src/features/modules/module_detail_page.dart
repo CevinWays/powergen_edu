@@ -46,7 +46,7 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
         showLiveFullscreenButton: false,
       ),
     );
-    moduleBloc.fetchBab1(widget.id);
+    moduleBloc.fetchModule(widget.id);
   }
 
   void listener() {
@@ -243,7 +243,9 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const PostTestPage()),
+                                    builder: (context) => PostTestPage(
+                                      moduleId: (widget.id ?? 0).toString(),
+                                    )),
                               );
                             }
                           },

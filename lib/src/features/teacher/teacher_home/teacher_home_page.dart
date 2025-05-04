@@ -139,7 +139,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              'Progres Belajar Murid',
+                              'Progres Belajar Siswa',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -163,7 +163,20 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                                     );
                                   },
                                   child: ListTile(
-                                    title: Text(progress.studentName),
+                                    contentPadding: const EdgeInsets.all(8.0),
+                                    leading: CircleAvatar(
+                                      backgroundColor: Colors.blue[100],
+                                      child: Text(
+                                        progress.fullName?[0]
+                                                .toUpperCase() ??
+                                            '',
+                                        style: const TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    title: Text(progress.fullName ?? ''),
                                     subtitle: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,

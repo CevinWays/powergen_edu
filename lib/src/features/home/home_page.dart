@@ -128,7 +128,7 @@ class HomePage extends StatelessWidget {
                               Expanded(
                                 child: _buildSummaryItem(
                                   icon: Icons.book_outlined,
-                                  label: 'Total Modul',
+                                  label: 'Total',
                                   value: (state.totalModules ?? 0).toString(),
                                   color: Colors.blue,
                                 ),
@@ -479,7 +479,7 @@ class HomePage extends StatelessWidget {
   Widget _buildCurrentModule(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        if (state is HomeLoaded && state.lastModule != null) {
+        if (state is HomeLoaded && state.lastModule.idModule != 0) {
           return Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

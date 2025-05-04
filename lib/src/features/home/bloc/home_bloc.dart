@@ -34,7 +34,7 @@ class HomeLoaded extends HomeState {
   final int? totalModules;
   final int? totalFinishModules;
   final int? totalInProgressModules;
-  final ModuleModel? lastModule;
+  final ModuleModel lastModule;
 
   const HomeLoaded({
     this.modules,
@@ -43,7 +43,7 @@ class HomeLoaded extends HomeState {
     this.totalFinishModules,
     this.totalInProgressModules,
     this.totalModules,
-    this.lastModule,
+    required this.lastModule,
   });
 }
 
@@ -143,7 +143,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final inProgressModules =
           modules.where((data) => (data.pointPostTest ?? 0) > 0);
       final lastModule = modules.lastWhere(
-          (data) => data.isFinish == false && data.isLocked == false);
+        (data) => data.isFinish == false && data.isLocked == false,
+        orElse: () {
+          return ModuleModel(
+              idModule: 0,
+              title: 'No Module',
+              description: 'No Description',
+              estimatedHours: 0,
+              isLocked: true,
+              isFinish: false);
+        },
+      );
       emit(
         HomeLoaded(
           modules: modules,

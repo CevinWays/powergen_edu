@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/post_test/models/post_test_question_model.dart';
@@ -10,6 +11,25 @@ class PostTestBloc extends Cubit<PostTestState> {
   final PageController pageController = PageController();
   List<PostTestQuestionModel> questions = [];
   Map<int, String> answers = {};
+
+  Future<void> savePdfReference({
+    required String userId,
+    required String fileName,
+    required String downloadUrl,
+    required String studentName,
+  }) async {
+    try {
+      await FirebaseFirestore.instance.collection('student_pdfs').add({
+        'userId': userId,
+        'fileName': fileName,
+        'downloadUrl': downloadUrl,
+        'uploadedAt': FieldValue.serverTimestamp(),
+        'studentName': studentName,
+      });
+    } catch (e) {
+      throw Exception('Failed to save PDF reference: $e');
+    }
+  }
 
   void onLoadQuestion() {
     final questions = <PostTestQuestionModel>[
@@ -236,7 +256,8 @@ class PostTestBloc extends Cubit<PostTestState> {
       ),
       PostTestQuestionModel(
         id: 18,
-        question: 'Mengapa penting melakukan pemantauan terhadap sistem transformator?',
+        question:
+            'Mengapa penting melakukan pemantauan terhadap sistem transformator?',
         options: [
           'Karena transformator tidak memerlukan pemeliharaan',
           'Supaya bisa dinyalakan manual saat malam hari',
@@ -248,7 +269,8 @@ class PostTestBloc extends Cubit<PostTestState> {
       ),
       PostTestQuestionModel(
         id: 19,
-        question: 'Bagaimana sistem pendingin berfungsi dalam menjaga stabilitas generator?',
+        question:
+            'Bagaimana sistem pendingin berfungsi dalam menjaga stabilitas generator?',
         options: [
           'Dengan menurunkan frekuensi output',
           'Dengan menjaga suhu kerja agar tidak melebihi ambang batas',
@@ -260,7 +282,8 @@ class PostTestBloc extends Cubit<PostTestState> {
       ),
       PostTestQuestionModel(
         id: 20,
-        question: 'Apa perbedaan utama antara turbin uap dan turbin gas dalam sistem pembangkit?',
+        question:
+            'Apa perbedaan utama antara turbin uap dan turbin gas dalam sistem pembangkit?',
         options: [
           'Turbin uap menggunakan bahan bakar cair, turbin gas tidak',
           'Turbin uap memerlukan sistem kondensasi setelah ekspansi',
@@ -268,8 +291,7 @@ class PostTestBloc extends Cubit<PostTestState> {
           'Turbin uap tidak memerlukan pendinginan',
           'Turbin gas menggunakan air sebagai media tekanan'
         ],
-        correctAnswer:
-            '1',
+        correctAnswer: '1',
       ),
     ];
     emit(PostTestLoaded(

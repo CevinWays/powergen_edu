@@ -1,132 +1,169 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:powergen_edu/src/features/post_test/widgets/post_test_question_card.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home/home_page.dart';
 import 'bloc/post_test_bloc/post_test_bloc.dart';
 
 class PostTestPage extends StatelessWidget {
-  const PostTestPage({super.key});
+  final String? moduleId;
+
+  const PostTestPage({super.key, this.moduleId});
+
+  Future<void> _uploadPDF(BuildContext context) async {
+    try {
+      // Check and request storage permission
+      final permissionStatus = await Permission.storage.request();
+
+      if (!permissionStatus.isGranted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Izin untuk mengakses penyimpanan diperlukan',
+                style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf'],
+        allowMultiple: false,
+      );
+
+      const limitSize = 5 * 1024 * 1024; // 5 MB
+
+      if (result != null && result.files.first.size > limitSize) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('File PDF tidak boleh lebih dari 5 mb',
+                style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      if (result != null) {
+        final file = result.files.first;
+        final fileName = file.name;
+        final uid = prefs.getString('uid') ?? '';
+        final name = prefs.getString('fullName') ?? '';
+
+        // Create reference to Firebase Storage
+        final storageRef =
+            FirebaseStorage.instance.ref().child('student_pdfs/$uid/$fileName');
+
+        // Upload file
+        if (file.path != null) {
+          await storageRef.putFile(File(file.path!));
+        } else {
+          throw Exception('File path is null');
+        }
+
+        // Get download URL
+        final downloadUrl = await storageRef.getDownloadURL();
+
+        // Save reference to Firestore
+        if (context.mounted) {
+          await FirebaseFirestore.instance.collection('student_pdfs').add({
+            'userId': uid,
+            'fileName': fileName,
+            'downloadUrl': downloadUrl,
+            'uploadedAt': DateTime.now(),
+            'studentName': name,
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Praktikum berhasil diunggah',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.green,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error: ${e.toString()}',
+              style: const TextStyle(color: Colors.white)),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => PostTestBloc()..onLoadQuestion(),
-      child: const PostTestView(),
-    );
-  }
-}
-
-class PostTestView extends StatelessWidget {
-  const PostTestView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Post Test'),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
-              );
-              debugPrint('Selesai');
-              // context.read<Post TestBloc>().add(SubmitPostTest());
-            },
-            child: const Text('Selesai'),
-          )
-        ],
-      ),
-      body: BlocBuilder<PostTestBloc, PostTestState>(
-        builder: (context, state) {
-          if (state is PostTestLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (state is PostTestLoaded) {
-            return Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: state.questions.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, questionIndex) {
-                      final questionNumber = questionIndex;
-                      final question = state.questions[questionNumber];
-                      return PostTestQuestionCard(
-                        question: question,
-                        onAnswerSelected: (answer) {
-                          context.read<PostTestBloc>().
-                            onAnswerSelected(
-                              questionNumber: questionNumber,
-                              answer: answer,
-                            );
-                        },
-                      );
-                    },
-                  ),
+        create: (_) => PostTestBloc()..onLoadQuestion(),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Post Test'),
+            actions: [
+              if (moduleId == '4') ...[
+                IconButton(
+                  icon: const Icon(Icons.upload_file),
+                  onPressed: () => _uploadPDF(context),
+                  tooltip: 'Upload Praktikum',
                 ),
-                // Expanded(
-                //   child: PageView.builder(
-                //     controller: state.pageController,
-                //     itemCount: 4, // 5 questions per page
-                //     onPageChanged: (index) {
-                //       context.read<PostTestBloc>().add(PageChanged(index));
-                //     },
-                //     itemBuilder: (context, pageIndex) {
-                //       return ListView.builder(
-                //         itemCount: 5,
-                //         itemBuilder: (context, questionIndex) {
-                //           final questionNumber = pageIndex * 5 + questionIndex;
-                //           final question = state.questions[questionNumber];
-                //           return QuestionCard(
-                //             question: question,
-                //             onAnswerSelected: (answer) {
-                //               context.read<PostTestBloc>().add(
-                //                     AnswerSelected(
-                //                       questionNumber: questionNumber,
-                //                       answer: answer,
-                //                     ),
-                //                   );
-                //             },
-                //           );
-                //         },
-                //       );
-                //     },
-                //   ),
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     ElevatedButton(
-                //       onPressed: () {
-                //         // Handle previous navigation
-                //       },
-                //       style: ElevatedButton.styleFrom(
-                //         backgroundColor: Colors.grey[200],
-                //         foregroundColor: Colors.black,
-                //       ),
-                //       child: const Text('Kembali'),
-                //     ),
-                //     ElevatedButton(
-                //       onPressed: () {
-                //         // Handle next navigation
-                //       },
-                //       style: ElevatedButton.styleFrom(
-                //         backgroundColor: Colors.deepOrange,
-                //         foregroundColor: Colors.white,
-                //       ),
-                //       child: const Text('Selanjutnya'),
-                //     ),
-                //   ],
-                // ),
               ],
-            );
-          }
-          return const Center(child: Text('Error loading questions'));
-        },
-      ),
-    );
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                  debugPrint('Selesai');
+                },
+                child: const Text('Selesai'),
+              )
+            ],
+          ),
+          body: BlocBuilder<PostTestBloc, PostTestState>(
+            builder: (context, state) {
+              if (state is PostTestLoading) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (state is PostTestLoaded) {
+                return Column(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: state.questions.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, questionIndex) {
+                          final questionNumber = questionIndex;
+                          final question = state.questions[questionNumber];
+                          return PostTestQuestionCard(
+                            question: question,
+                            onAnswerSelected: (answer) {
+                              context.read<PostTestBloc>().onAnswerSelected(
+                                    questionNumber: questionNumber,
+                                    answer: answer,
+                                  );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return const Center(child: Text('Error loading questions'));
+            },
+          ),
+        ));
   }
 }
