@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:powergen_edu/src/features/pretest/models/pretest_question.dart';
 
 class PretestQuestionCard extends StatefulWidget {
-  final PretestQuestion question;
+  final PretestQuestion? question;
   final Function(String) onAnswerSelected;
 
   const PretestQuestionCard({
     super.key,
-    required this.question,
+    this.question,
     required this.onAnswerSelected,
   });
 
@@ -31,28 +31,30 @@ class _PretestQuestionCardState extends State<PretestQuestionCard> {
               children: [
                 Expanded(
                   child: Text(
-                    '${widget.question.id}. ${widget.question.question}',
+                    '${widget.question?.id}. ${widget.question?.question}',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
-            ...widget.question.options.map((option) {
-              return RadioListTile<String>(
-                title: Text(option),
-                value: option,
-                groupValue: selectedAnswer,
-                onChanged: (value) {
-                  setState(() {
-                    selectedAnswer = value;
-                  });
-                  if (value != null) {
-                    widget.onAnswerSelected(value);
-                  }
-                },
-              );
-            }).toList(),
+            if (widget.question?.options != null)
+              ...widget.question!.options.map((option) {
+                return RadioListTile<String>(
+                  title: Text(option),
+                  value: option,
+                  groupValue: selectedAnswer,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedAnswer = value;
+                    });
+                    if (value != null) {
+                      widget.onAnswerSelected(
+                          widget.question!.options.indexOf(value).toString());
+                    }
+                  },
+                );
+              }),
           ],
         ),
       ),

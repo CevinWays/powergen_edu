@@ -30,6 +30,7 @@ class SplashAuthenticated extends SplashState {
   final String userName;
   final String nis;
   final bool isTeacher;
+  final bool isDonePretest;
 
   const SplashAuthenticated({
     required this.token,
@@ -37,6 +38,7 @@ class SplashAuthenticated extends SplashState {
     required this.userName,
     required this.nis,
     this.isTeacher = false,
+    this.isDonePretest = false,
   });
 
   @override
@@ -69,6 +71,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       final className = prefs.getString('className');
       final isTeacher = prefs.getBool('isTeacher') ?? false;
       final fullName = prefs.getString('fullName') ?? false;
+      final isDonePretest = prefs.getBool('isDonePretest') ?? false;
 
       if (token != null && token.isNotEmpty) {
         emit(SplashAuthenticated(
@@ -77,6 +80,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
           userName: userName ?? '',
           nis: nis ?? '',
           isTeacher: isTeacher,
+          isDonePretest: isDonePretest,
         ));
       } else {
         emit(SplashUnauthenticated());

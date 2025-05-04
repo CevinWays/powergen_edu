@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:powergen_edu/src/features/post_test/models/post_test_question_model.dart';
-import 'package:powergen_edu/src/features/pretest/models/pretest_question.dart';
 
 class PostTestQuestionCard extends StatefulWidget {
   final PostTestQuestionModel question;

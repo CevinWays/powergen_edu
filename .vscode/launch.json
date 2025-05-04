@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "powergen_edu",
+            "name": "Powergen Edu",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "powergen_edu (profile mode)",
+            "name": "Powergen Edu (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "powergen_edu (release mode)",
+            "name": "Powergen Edu (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

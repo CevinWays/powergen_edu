@@ -8,10 +8,20 @@ import 'package:powergen_edu/src/features/post_test/post_test_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ModuleDetailPage extends StatefulWidget {
-  final int id;
-  final String title;
+  final int? id;
+  final String? title;
+  final String? desc;
+  final bool isFinish;
+  final int? pointPostTest;
 
-  const ModuleDetailPage({super.key, required this.id, required this.title});
+  const ModuleDetailPage({
+    super.key,
+    this.id,
+    this.title,
+    this.isFinish = false,
+    this.pointPostTest,
+    this.desc,
+  });
 
   @override
   State<ModuleDetailPage> createState() => _ModuleDetailPageState();
@@ -21,9 +31,8 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
   late YoutubePlayerController _controller;
   late PlayerState _playerState;
   late YoutubeMetaData _videoMetaData;
-  double _volume = 100;
-  bool _muted = false;
-  bool _isPlayerReady = false;
+  final bool _muted = false;
+  final bool _isPlayerReady = false;
   ModuleBloc moduleBloc = ModuleBloc();
 
   @override
@@ -37,7 +46,7 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
         showLiveFullscreenButton: false,
       ),
     );
-    moduleBloc.fetchBab1(widget.id);
+    moduleBloc.fetchModule(widget.id);
   }
 
   void listener() {
@@ -77,7 +86,7 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                         ),
                         flexibleSpace: FlexibleSpaceBar(
                           title: Text(
-                            'Bab ${widget.id} ${widget.title}',
+                            '${widget.title} : ${widget.desc}',
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -196,11 +205,49 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                         ElevatedButton(
                           onPressed: () {
                             // Handle next navigation
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const PostTestPage()),
-                            );
+                            if (widget.isFinish) {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text('Oke'),
+                                      ),
+                                    ],
+                                    content: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Text(
+                                            'Kamu sudah menyelesaikan post test, point kamu adalah'),
+                                        const SizedBox(height: 8),
+                                        Center(
+                                          child: Text(
+                                            '${widget.pointPostTest}',
+                                            style: const TextStyle(
+                                                fontSize: 54,
+                                                color: Colors.deepOrange),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PostTestPage(
+                                      moduleId: (widget.id ?? 0).toString(),
+                                    )),
+                              );
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.deepOrange,

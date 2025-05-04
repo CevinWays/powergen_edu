@@ -8,14 +8,14 @@ import 'package:powergen_edu/src/features/modules/models/content_model.dart';
 class ModuleBloc extends Cubit<ModuleState> {
   ModuleBloc() : super(InitModuleState());
 
-  Future<void> fetchBab1(int id) async {
+  Future<void> fetchModule(int? id) async {
     emit(LoadingModuleState());
 
     String response = '';
 
     if (id == 1) {
       response = await rootBundle.loadString('assets/data/bab1.json');
-    } else if(id == 2) {
+    } else if (id == 2) {
       response = await rootBundle.loadString('assets/data/bab2.json');
     } else if (id == 3) {
       response = await rootBundle.loadString('assets/data/bab3.json');

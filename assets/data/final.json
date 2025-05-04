@@ -1,88 +1,18 @@
 {
-  "id" : 1,
-  "title" : "Bab 1",
+  "id" : 4,
+  "title" : "Final Project",
   "description" : "Konsep Dasar Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit.",
   "estimatedHours" : 3, 
   "content" : [
     {
       "type": "text",
-      "content": "<p><strong>Prinsip Dasar Mesin Listrik Pembangkit</strong>",
+      "content": "<p><strong>Deskripsi Final Project</strong>",
       "isTitle": false
     },
     {
       "type": "text",
-      "content": "<p><strong>Apa itu Mesin Listrik Pembangkit?</strong>",
+      "content": "<p>Proyek akhir ini dirancang untuk memberikan pengalaman praktis kepada peserta didik dalam merancang, menganalisis, dan mengimplementasikan sistem pemeliharaan dan pengoperasian mesin listrik pembangkit. Peserta akan mensimulasikan kondisi nyata dalam mengelola sistem pembangkit listrik, baik dari aspek teknis maupun keselamatan kerja (K3), meliputi generator, transformator, dan peralatan mekanis lainnya.</p>",
       "isTitle": false
-    },
-    {
-      "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
-    },
-    {
-      "type": "text",
-      "content": "<p>Mesin listrik pembangkit merupakan komponen utama dalam sistem pembangkitan energi listrik yang berfungsi mengubah energi mekanik, biasanya berasal dari turbin uap, turbin gas, atau turbin air, menjadi energi listrik yang dapat didistribusikan ke konsumen. Keberadaannya sangat krusial karena proses konversi ini menjadi titik awal dari seluruh rangkaian sistem kelistrikan, mulai dari transmisi hingga distribusi. Tanpa mesin pembangkit yang andal, kontinuitas pasokan listrik tidak akan dapat terjaga secara optimal. Oleh karena itu, mesin ini tidak hanya dituntut untuk mampu bekerja secara efisien, tetapi juga harus memiliki tingkat keandalan tinggi agar dapat beroperasi dalam jangka panjang dengan risiko gangguan yang minimal. Dalam implementasinya, mesin pembangkit modern dilengkapi berbagai sistem pengendali dan proteksi untuk menjaga kestabilan tegangan, frekuensi, serta mengantisipasi gangguan operasional yang dapat merugikan jaringan kelistrikan secara keseluruhan.</p>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "<p><strong>Bagaimana Energi Dikonversi?</strong>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "<p>Proses konversi energi pada pembangkit listrik umumnya didasarkan pada prinsip induksi elektromagnetik yang pertama kali dijelaskan oleh Michael Faraday. Dalam eksperimennya, Faraday menemukan bahwa arus listrik dapat dihasilkan ketika medan magnet bergerak melintasi kumparan konduktor, atau sebaliknya. Prinsip fundamental ini menjadi dasar kerja dari mesin generator modern, di mana energi mekanik yang dihasilkan oleh turbin akan memutar rotor yang memiliki medan magnet, sehingga menciptakan arus listrik pada stator yang berupa kumparan kawat. Mekanisme ini memungkinkan transformasi energi mekanik menjadi energi listrik secara efisien dan berkesinambungan. Generator yang memanfaatkan prinsip ini telah menjadi tulang punggung sistem pembangkitan energi di berbagai jenis pembangkit, mulai dari tenaga air, uap, hingga tenaga angin. Dengan desain dan pengaturan yang tepat, prinsip induksi elektromagnetik dapat dimanfaatkan secara optimal untuk memenuhi kebutuhan listrik skala besar maupun kecil.</p>",
-      "isTitle": false
-    },
-    {
-      "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
-    },
-    {
-      "type": "text",
-      "content": "<p><strong>Proses Umum Konversi Energi:</strong>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "<p><strong>1. Energi potensial (air, uap, dan gas)</strong>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "Energi potensial, seperti yang terdapat pada air yang ditampung di bendungan, uap bertekanan tinggi hasil pembakaran, atau gas panas dari hasil pembakaran bahan bakar, merupakan sumber utama dalam sistem pembangkit listrik. Energi potensial ini diubah menjadi energi kinetik atau energi gerak melalui turbin. Ketika air jatuh dari ketinggian atau uap panas diarahkan ke sudu-sudu turbin, tekanan dan kecepatannya akan memutar bilah-bilah turbin dengan kekuatan tertentu. Putaran ini menghasilkan energi mekanik dalam bentuk gerakan rotasi poros turbin. Proses ini menjadi tahap awal dalam rangkaian konversi energi, sebelum energi mekanik tersebut diteruskan ke generator untuk diubah menjadi energi listrik. Efisiensi konversi dari energi potensial ke energi gerak sangat bergantung pada desain turbin, tekanan fluida, dan kecepatan alirannya, yang semuanya dirancang untuk memaksimalkan pemanfaatan energi dari sumber daya alam yang tersedia.",
-      "isTitle": false
-    },
-    {
-      "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
-    },
-    {
-      "type": "text",
-      "content": "<p><strong>2. Turbin memutar poros generator</strong>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "Turbin berperan sebagai penggerak utama dalam sistem pembangkitan listrik, di mana energi kinetik yang dihasilkan dari aliran fluida baik itu air, uap, atau gas digunakan untuk memutar sudu-sudu turbin. Putaran ini kemudian diteruskan ke poros utama yang terhubung langsung dengan rotor generator. Saat turbin berputar, poros generator ikut berputar secara bersamaan, memutar medan magnet yang ada di dalam rotor. Gerakan rotasi ini memungkinkan terjadinya pemotongan garis-garis medan magnet terhadap kumparan stator pada generator, yang kemudian menimbulkan arus listrik berdasarkan prinsip induksi elektromagnetik. Hubungan antara turbin dan poros generator menjadi sangat vital karena menentukan kestabilan kecepatan rotasi, efisiensi pembangkitan, dan kualitas daya yang dihasilkan. Semakin stabil dan presisi perputaran turbin, semakin konsisten pula tegangan dan frekuensi listrik yang dihasilkan oleh generator dalam sistem pembangkit.",
-      "isTitle": false
-    },
-    {
-      "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
-    },
-    {
-      "type": "text",
-      "content": "<p><strong>3. Generator mengubah energi mekanik menjadi energi listrik</strong>",
-      "isTitle": false
-    },
-    {
-      "type": "text",
-      "content": "Generator merupakan komponen kunci dalam sistem pembangkitan listrik yang bertugas mengubah energi mekanik menjadi energi listrik melalui prinsip induksi elektromagnetik. Proses ini terjadi ketika poros generator, yang terhubung langsung dengan turbin, berputar dan menyebabkan rotor bermagnet berputar di dalam stator yang berisi kumparan kawat konduktor. Gerakan relatif antara medan magnet dan kumparan ini menciptakan arus listrik pada kumparan sesuai hukum Faraday. Energi mekanik yang dihasilkan dari turbin baik yang digerakkan oleh air, uap, atau gas yang dikonversi secara efisien menjadi energi listrik yang siap disalurkan ke sistem distribusi. Generator dirancang agar mampu mempertahankan kestabilan tegangan dan frekuensi, meskipun terjadi perubahan beban. Oleh karena itu, generator menjadi jantung dari proses pembangkitan listrik, dan keberhasilannya dalam mengubah energi sangat bergantung pada kestabilan putaran serta desain sistem elektromagnetik yang presisi.",
-      "isTitle": false
-    },
-    {
-      "type": "image",
-      "content": "https://images.pexels.com/photos/3573351/pexels-photo-3573351.png"
     }
   ]
 }

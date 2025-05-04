@@ -13,9 +13,12 @@ class TeacherHomeRepository {
       return snapshot.docs.map((doc) {
         final data = doc.data();
         return StudentProgress(
-          id: doc.id,
+          id: data['uid'] as String,
+          nis: data['nis'] as String,
+          fullName: data['fullName'] as String?,
           studentName: data['username'] as String,
-            progressPercentage: (data['total_progress'] as num?)?.toDouble() ?? 0.0,
+          progressPercentage:
+              (data['total_progress'] as num?)?.toDouble() ?? 0.0,
         );
       }).toList();
     } catch (e) {
@@ -29,7 +32,9 @@ class TeacherHomeRepository {
       return snapshot.docs.map((doc) {
         final data = doc.data();
         return Student(
-          id: doc.id,
+          id: data['uid'] as String,
+          nis: data['nis'] as String,
+          fullName: data['fullName'] as String?,
           name: data['username'] as String,
         );
       }).toList();
