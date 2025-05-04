@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:powergen_edu/src/features/modules/module_detail_page.dart';
 import 'package:powergen_edu/src/features/post_test/widgets/post_test_question_card.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -107,63 +108,104 @@ class PostTestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => PostTestBloc()..onLoadQuestion(),
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Post Test'),
-            actions: [
-              if (moduleId == '4') ...[
-                IconButton(
-                  icon: const Icon(Icons.upload_file),
-                  onPressed: () => _uploadPDF(context),
-                  tooltip: 'Upload Praktikum',
-                ),
-              ],
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                  debugPrint('Selesai');
-                },
-                child: const Text('Selesai'),
-              )
-            ],
-          ),
-          body: BlocBuilder<PostTestBloc, PostTestState>(
-            builder: (context, state) {
-              if (state is PostTestLoading) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              if (state is PostTestLoaded) {
-                return Column(
-                  children: [
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: state.questions.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, questionIndex) {
-                          final questionNumber = questionIndex;
-                          final question = state.questions[questionNumber];
-                          return PostTestQuestionCard(
-                            question: question,
-                            onAnswerSelected: (answer) {
-                              context.read<PostTestBloc>().onAnswerSelected(
-                                    questionNumber: questionNumber,
-                                    answer: answer,
-                                  );
-                            },
+        create: (_) => PostTestBloc()..onLoadQuestion(moduleId ?? ''),
+        child: BlocConsumer<PostTestBloc, PostTestState>(
+          listener: (context, state) {
+            if (state is PostTestComplete) {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()),
                           );
                         },
+                        child: Text(state.isSuccess ? 'Oke' : 'Ulangi lagi'),
                       ),
+                    ],
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(state.isSuccess
+                            ? 'Kamu sudah menyelesaikan post test. Maaf kamu harus mengulangi Bab $moduleId lagi, point kamu adalah'
+                            : 'Kamu sudah menyelesaikan post test. Silahkan lanjut ke Bab selanjutnya, point kamu adalah'),
+                        const SizedBox(height: 8),
+                        Center(
+                          child: Text(
+                            '${state.point}',
+                            style: const TextStyle(
+                                fontSize: 54, color: Colors.deepOrange),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            }
+          },
+          builder: (context, state) {
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Post Test'),
+                actions: [
+                  if (moduleId == '4') ...[
+                    IconButton(
+                      icon: const Icon(Icons.upload_file),
+                      onPressed: () => _uploadPDF(context),
+                      tooltip: 'Upload Praktikum',
                     ),
                   ],
-                );
-              }
-              return const Center(child: Text('Error loading questions'));
-            },
-          ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<PostTestBloc>().onSubmitTest(moduleId ?? '');
+                      debugPrint('Selesai');
+                    },
+                    child: const Text('Selesai'),
+                  )
+                ],
+              ),
+              body: BlocBuilder<PostTestBloc, PostTestState>(
+                builder: (context, state) {
+                  if (state is PostTestLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (state is PostTestLoaded) {
+                    return Column(
+                      children: [
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: state.questions.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, questionIndex) {
+                              final questionNumber = questionIndex;
+                              final question = state.questions[questionNumber];
+                              return PostTestQuestionCard(
+                                question: question,
+                                onAnswerSelected: (answer) {
+                                  context.read<PostTestBloc>().onAnswerSelected(
+                                        questionNumber: questionNumber,
+                                        answer: answer,
+                                      );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                  return const Center(child: Text('Error loading questions'));
+                },
+              ),
+            );
+          },
         ));
   }
 }

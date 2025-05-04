@@ -3,6 +3,7 @@ part of 'post_test_bloc.dart';
 abstract class PostTestState {}
 
 class InitPostTestState extends PostTestState {}
+
 class PostTestLoading extends PostTestState {}
 
 class PostTestLoaded extends PostTestState {
@@ -34,6 +35,11 @@ class PostTestLoaded extends PostTestState {
 }
 
 class PostTestComplete extends PostTestState {
-  final int moduleToUnlock;
-  PostTestComplete({required this.moduleToUnlock});
+  final bool isSuccess;
+  final int point;
+
+  PostTestComplete({
+    required this.isSuccess,
+    required this.point,
+  });
 }

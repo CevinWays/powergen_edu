@@ -49,8 +49,7 @@ class _PretestQuestionCardState extends State<PretestQuestionCard> {
                       selectedAnswer = value;
                     });
                     if (value != null) {
-                      widget.onAnswerSelected(
-                          widget.question!.options.indexOf(value).toString());
+                      widget.onAnswerSelected(value);
                     }
                   },
                 );

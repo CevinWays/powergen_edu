@@ -31,7 +31,7 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar30.png"
     },
     {
       "type": "text",
@@ -45,7 +45,7 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar31.png"
     },
     {
       "type": "text",
@@ -59,7 +59,7 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar32.png"
     },
     {
       "type": "text",
@@ -83,7 +83,7 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar33.png"
     },
     {
       "type": "text",
@@ -97,7 +97,7 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar34.png"
     },
     {
       "type": "text",
@@ -111,7 +111,89 @@
     },
     {
       "type": "image",
-      "content": "assets/images/bab1/gambar29.png"
+      "content": "assets/images/bab2/gambar35.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. Pemantauan Sistem</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>a. Pengamatan Parameter</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Mengamati parameter operasional seperti tegangan, arus, suhu, dan getaran pada generator merupakan bagian penting dari monitoring sistem secara real-time untuk memastikan kinerja optimal dan mencegah potensi kerusakan. Tegangan dan arus harus terus dipantau untuk memastikan keduanya berada dalam batas nominal yang ditetapkan; fluktuasi ekstrem bisa menjadi indikasi adanya beban berlebih atau gangguan sistem. Suhu generator, terutama pada stator dan rotor, perlu dijaga agar tidak melewati ambang batas termal, karena suhu tinggi yang tidak terkontrol dapat mempercepat degradasi isolasi dan menyebabkan kerusakan permanen. Selain itu, getaran mekanis juga harus diawasi menggunakan sensor vibrasi—tingkat getaran yang melebihi standar biasanya mengindikasikan ketidakseimbangan rotor, misalignment, atau keausan bantalan. Pemantauan parameter-parameter ini harus dilakukan secara berkala atau melalui sistem SCADA (Supervisory Control and Data Acquisition), sehingga tindakan preventif dapat segera dilakukan untuk menjaga keamanan dan keandalan operasional generator.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar36.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>b. Logging Otomatis/Manual</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Melakukan logging otomatis maupun manual pada panel kontrol generator merupakan bagian penting dalam sistem dokumentasi operasional yang berfungsi untuk merekam semua parameter dan kejadian penting selama proses pembangkitan. Logging ini mencakup pencatatan nilai tegangan, arus, frekuensi, suhu, tekanan oli, waktu start dan stop, serta data peringatan atau alarm yang mungkin muncul. Pada sistem modern, proses logging dilakukan secara otomatis melalui software monitoring yang terintegrasi dalam panel kontrol digital atau SCADA, yang memungkinkan data disimpan dalam basis data untuk analisis jangka panjang. Namun, pada sistem konvensional, teknisi tetap perlu melakukan pencatatan manual secara berkala ke dalam logbook atau formulir harian sebagai dokumentasi fisik. Logging ini sangat berguna untuk keperluan evaluasi performa, perawatan prediktif, serta sebagai dasar dalam penyusunan laporan operasional dan troubleshooting jika terjadi gangguan. Dengan melakukan logging secara konsisten, keandalan sistem dapat terjaga dan pengambilan keputusan teknis menjadi lebih akurat.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar37.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Shut Down (Pemadaman)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>a. Pengurangan Beban Secara Bertahap</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Mengurangi beban generator secara bertahap merupakan prosedur penting dalam proses shutdown atau pemeliharaan sistem pembangkit listrik untuk menjaga kestabilan operasional dan mencegah kerusakan akibat perubahan beban yang mendadak. Proses ini dilakukan dengan cara melepas atau memutus koneksi beban secara bertahap, mulai dari beban non-prioritas hingga beban utama, sambil memantau perubahan parameter seperti tegangan, arus, dan frekuensi. Pengurangan beban yang terkontrol membantu menghindari lonjakan tegangan (voltage spike) yang bisa terjadi jika beban dilepaskan sekaligus, serta menjaga rotor generator agar tidak mengalami perubahan kecepatan putar secara tiba-tiba. Selain itu, proses ini memberikan waktu bagi sistem pendingin dan pelumasan untuk menyesuaikan diri terhadap perubahan kondisi kerja, sehingga komponen mesin tetap berada dalam suhu dan tekanan yang aman. Dengan menerapkan prosedur ini secara sistematis, umur peralatan dapat diperpanjang dan risiko gangguan teknis dapat diminimalkan secara signifikan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar38.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>b. Pemutuskan Koneksi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Memutuskan koneksi generator dari sistem jaringan merupakan langkah akhir dalam proses penghentian operasi pembangkit yang harus dilakukan dengan hati-hati untuk menjaga keselamatan peralatan dan stabilitas sistem. Proses ini hanya boleh dilakukan setelah beban generator dikurangi secara bertahap hingga nol atau berada pada level minimum yang aman, serta semua parameter operasional seperti tegangan, arus, dan frekuensi telah distabilkan. Pemutusan dilakukan melalui pemutus sirkuit (circuit breaker) utama yang menghubungkan generator ke jaringan, baik secara manual oleh teknisi melalui panel kontrol maupun secara otomatis oleh sistem proteksi jika kondisi darurat terjadi. Setelah koneksi terputus, teknisi harus memverifikasi bahwa tidak ada arus balik dari jaringan ke generator, serta memastikan bahwa sistem kontrol dan eksitasi dalam keadaan nonaktif. Tindakan ini bertujuan untuk mencegah kerusakan pada generator maupun sistem distribusi, serta menjamin keamanan bagi personel dan peralatan dalam proses selanjutnya seperti pendinginan atau pemeliharaan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>c. Pendinginan Unit</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pendinginan unit generator hingga mencapai suhu aman sebelum dimatikan merupakan prosedur krusial untuk menjaga integritas komponen internal dan memperpanjang umur pakai mesin. Setelah generator diputuskan dari jaringan dan beban telah dikurangi, sistem pendingin baik berupa air, minyak, atau udara harus tetap dioperasikan untuk menurunkan suhu rotor, stator, serta bantalan ke tingkat yang telah ditentukan oleh spesifikasi pabrikan. Jika suhu terlalu tinggi saat mesin dimatikan, komponen logam bisa mengalami penyusutan mendadak yang menyebabkan retakan mikro atau deformasi, sementara pelumas dapat menguap atau terdegradasi secara kimia. Oleh karena itu, teknisi harus memantau indikator suhu secara real-time melalui panel kontrol hingga mencapai ambang batas aman, biasanya di bawah 70°C tergantung jenis generator. Proses pendinginan ini juga memberikan waktu bagi sistem pelumasan untuk melindungi bagian bergerak saat mesin mulai berhenti berputar. Dengan prosedur pendinginan yang tepat, risiko kerusakan akibat thermal shock dapat dicegah secara efektif.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDEA8 Catatan Keselamatan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Seluruh prosedur operasional dan pemeliharaan pada sistem pembangkit, termasuk proses start-up, sinkronisasi, pengoperasian, hingga shutdown, harus dijalankan sesuai dengan SOP (Standard Operating Procedure) dan prinsip K3 (Keselamatan dan Kesehatan Kerja) yang berlaku. Kepatuhan terhadap SOP memastikan bahwa setiap langkah dilakukan secara sistematis, terstandar, dan berdasarkan pedoman teknis yang telah terbukti aman dan efisien. Sementara itu, penerapan prinsip K3 bertujuan untuk melindungi tenaga kerja dari potensi bahaya, baik dari aspek listrik, mekanik, maupun lingkungan kerja sekitar. Seluruh personel wajib menggunakan alat pelindung diri (APD), seperti helm, sarung tangan, pelindung telinga, dan sepatu safety, serta melakukan komunikasi yang jelas dalam setiap tahapan kerja. Selain itu, area kerja harus diberi tanda bahaya dan instruksi keselamatan yang mudah dipahami. Dengan menjalankan setiap aktivitas sesuai SOP dan K3, risiko kecelakaan kerja dapat ditekan seminimal mungkin, serta keandalan dan keselamatan sistem pembangkit dapat dijaga secara berkelanjutan.",
+      "isTitle": false
     }
   ]
 }
