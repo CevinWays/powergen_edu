@@ -1,9 +1,9 @@
 {
-  "id" : 4,
-  "title" : "Final Project",
-  "description" : "Konsep Dasar Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit.",
-  "estimatedHours" : 3, 
-  "content" : [
+  "id": 4,
+  "title": "Final Project",
+  "description": "Konsep Dasar Mesin Listrik Pembangkit dan Peralatan Mekanis Pembangkit.",
+  "estimatedHours": 3,
+  "content": [
     {
       "type": "text",
       "content": "<p><strong>Deskripsi Final Project</strong>",
@@ -12,6 +12,36 @@
     {
       "type": "text",
       "content": "<p>Proyek akhir ini dirancang untuk memberikan pengalaman praktis kepada peserta didik dalam merancang, menganalisis, dan mengimplementasikan sistem pemeliharaan dan pengoperasian mesin listrik pembangkit. Peserta akan mensimulasikan kondisi nyata dalam mengelola sistem pembangkit listrik, baik dari aspek teknis maupun keselamatan kerja (K3), meliputi generator, transformator, dan peralatan mekanis lainnya.</p>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h2>🎯 Tujuan Proyek</h2><ul><li>Menganalisis sistem konversi energi dan cara kerja mesin listrik pembangkit.</li><li>Mengembangkan SOP startup, shutdown, sinkronisasi, dan sistem pemantauan operasional.</li><li>Melaksanakan pemeliharaan preventif dan korektif berdasarkan kondisi aktual mesin.</li><li>Menerapkan prinsip keselamatan kerja sesuai standar industri pembangkitan.</li><li>Menyusun dokumentasi proyek berbasis hasil implementasi dan refleksi analisis.</li></ul>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h2>🛠️ Tahapan Proyek</h2>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h3>✅ Tahap 1: Analisis dan Perancangan Sistem (Bab 1)</h3><h4>🔧 Kegiatan:</h4><ul><li>Meneliti proses konversi energi dari energi primer (uap, air, gas) menjadi energi listrik.</li><li>Menganalisis karakteristik teknis dari generator, transformator, dan motor.</li><li>Menyusun diagram alir operasional dari sistem pembangkitan.</li><li>Mengembangkan model pemantauan untuk mengamati stabilitas tegangan dan beban.</li></ul><h4>📤 Output:</h4><ul><li>Dokumen visual: Diagram konversi energi</li><li>Tabel analisis: Jenis & karakteristik mesin pembangkit</li><li>Flowchart: Alur pengoperasian sistem pembangkit listrik</li><li>Format model pemantauan (excel/json/grafik beban & tegangan)</li></ul>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h3>✅ Tahap 2: Implementasi Pengoperasian Sistem Pembangkit (Bab 2)</h3><h4>🔧 Kegiatan:</h4><ul><li>Simulasi prosedur startup & shutdown generator sesuai SOP.</li><li>Praktik sinkronisasi generator dengan jaringan (dengan simulasi sinkronoskop).</li><li>Pengembangan sistem pemantauan untuk deteksi ketidakseimbangan beban & tegangan.</li><li>Analisis gangguan: Misalnya, beban tidak seimbang, frekuensi tidak stabil, atau tegangan drop.</li></ul><h4>📤 Output:</h4><ul><li>Laporan hasil simulasi startup & shutdown</li><li>Analisis video/grafik sinkronisasi generator</li><li>Tabel hasil pemantauan beban/tegangan (dengan grafik per jam atau per beban)</li><li>Dokumentasi analisis: Jenis gangguan & penyebabnya</li></ul>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h3>✅ Tahap 3: Implementasi Pemeliharaan Preventif dan Korektif (Bab 3)</h3><h4>🔧 Kegiatan:</h4><ul><li>Praktik pemeliharaan preventif pada tiga komponen utama (generator, transformator, peralatan mekanis)</li><li>Analisis kasus gangguan nyata, seperti:<ul><li>Gangguan pendinginan pada generator</li><li>Ketidakseimbangan arus pada transformator</li><li>Kebocoran pelumasan atau oli</li></ul></li><li>Menyusun rekomendasi tindakan korektif untuk tiap kasus</li><li>Membuat dokumentasi troubleshooting dan checklist perawatan</li></ul><h4>📤 Output:</h4><ul><li>Laporan pelaksanaan pemeliharaan preventif</li><li>Laporan inspeksi kerusakan & tindakan korektif</li><li>Formulir checklist pemeliharaan rutin</li><li>Prosedur troubleshooting dalam format teks atau diagram interaktif</li></ul>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<h2>🔏 Penilaian Proyek</h2><table border='1'><tr><th>Aspek</th><th>Bobot</th></tr><tr><td>Ketepatan analisis teknis</td><td>25%</td></tr><tr><td>Kesesuaian prosedur operasional</td><td>20%</td></tr><tr><td>Implementasi pemeliharaan & troubleshooting</td><td>25%</td></tr><tr><td>Kreativitas visualisasi dan dokumentasi</td><td>15%</td></tr><tr><td>Penerapan prinsip K3 & SOP industri</td><td>15%</td></tr></table>",
       "isTitle": false
     }
   ]

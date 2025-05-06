@@ -64,24 +64,27 @@ class PretestView extends StatelessWidget {
             return Column(
               children: [
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: state.questions?.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, questionIndex) {
-                      final questionNumber = questionIndex;
-                      final question = state.questions?[questionNumber];
-                      return PretestQuestionCard(
-                        question: question,
-                        onAnswerSelected: (answer) {
-                          context.read<PretestBloc>().add(
-                                AnswerSelected(
-                                  questionNumber: questionNumber,
-                                  answer: answer,
-                                ),
-                              );
-                        },
-                      );
-                    },
+                  child: SingleChildScrollView(
+                    child: ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: state.questions?.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, questionIndex) {
+                        final questionNumber = questionIndex;
+                        final question = state.questions?[questionNumber];
+                        return PretestQuestionCard(
+                          question: question,
+                          onAnswerSelected: (answer) {
+                            context.read<PretestBloc>().add(
+                                  AnswerSelected(
+                                    questionNumber: questionNumber,
+                                    answer: answer,
+                                  ),
+                                );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
                 // Expanded(

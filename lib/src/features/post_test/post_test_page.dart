@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:powergen_edu/src/features/post_test/widgets/post_test_question_card.dart';
@@ -39,8 +38,9 @@ class PostTestPage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(state.isSuccess
-                            ? 'Kamu sudah menyelesaikan post test. Maaf kamu harus mengulangi Bab $moduleId lagi, point kamu adalah'
-                            : 'Kamu sudah menyelesaikan post test. Silahkan lanjut ke Bab selanjutnya, point kamu adalah'),
+                            ? 'Kamu sudah menyelesaikan post test. Silahkan lanjut ke Bab selanjutnya, point kamu adalah'
+                            : 'Kamu sudah menyelesaikan post test. Maaf kamu harus mengulangi Bab $moduleId lagi, persyaratan ke bab selanjutnya adalah nilai >= 75 '
+                                'point kamu adalah'),
                         const SizedBox(height: 8),
                         Center(
                           child: Text(
@@ -79,22 +79,28 @@ class PostTestPage extends StatelessWidget {
                     return Column(
                       children: [
                         Expanded(
-                          child: ListView.builder(
-                            itemCount: state.questions.length,
-                            shrinkWrap: true,
-                            itemBuilder: (context, questionIndex) {
-                              final questionNumber = questionIndex;
-                              final question = state.questions[questionNumber];
-                              return PostTestQuestionCard(
-                                question: question,
-                                onAnswerSelected: (answer) {
-                                  context.read<PostTestBloc>().onAnswerSelected(
-                                        questionNumber: questionNumber,
-                                        answer: answer,
-                                      );
-                                },
-                              );
-                            },
+                          child: SingleChildScrollView(
+                            child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: state.questions.length,
+                              shrinkWrap: true,
+                              itemBuilder: (context, questionIndex) {
+                                final questionNumber = questionIndex;
+                                final question =
+                                    state.questions[questionNumber];
+                                return PostTestQuestionCard(
+                                  question: question,
+                                  onAnswerSelected: (answer) {
+                                    context
+                                        .read<PostTestBloc>()
+                                        .onAnswerSelected(
+                                          questionNumber: questionNumber,
+                                          answer: answer,
+                                        );
+                                  },
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ],

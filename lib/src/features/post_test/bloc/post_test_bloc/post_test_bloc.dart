@@ -34,6 +34,8 @@ class PostTestBloc extends Cubit<PostTestState> {
   }
 
   void onLoadQuestion(String moduleId) {
+    emit(PostTestLoading());
+
     List<PostTestQuestionModel> questions = [];
     if (moduleId == '1') {
       questions = <PostTestQuestionModel>[
@@ -1135,7 +1137,7 @@ class PostTestBloc extends Cubit<PostTestState> {
         if (moduleSnapshot.exists) {
           transaction.update(moduleRef, {
             'point_post_test': score,
-            'is_finish': true,
+            // 'is_finish': true,
             'is_locked': false
           });
 
@@ -1167,9 +1169,27 @@ class PostTestBloc extends Cubit<PostTestState> {
           if (userSnapshot.exists) {
             transaction.update(userRef, {
               'total_progress': userSnapshot.data()?['total_progress'] + 25,
+              'is_finish': true,
             });
             await prefs.setInt(
                 'totalProgress', userSnapshot.data()?['total_progress'] + 25);
+          }
+        });
+      }else{
+        //INFO : jika nilai kurang dari 75, total progress tidak bertambah
+        //INFO : jika nilai kurang dari 75, is_finish = false
+        final userRef = _firestore.collection('users').doc(uid);
+
+        _firestore.runTransaction((transaction) async {
+          final userSnapshot = await transaction.get(userRef);
+
+          if (userSnapshot.exists) {
+            transaction.update(userRef, {
+              'total_progress': userSnapshot.data()?['total_progress'],
+              'is_finish': false,
+            });
+            await prefs.setInt(
+                'totalProgress', userSnapshot.data()?['total_progress']);
           }
         });
       }

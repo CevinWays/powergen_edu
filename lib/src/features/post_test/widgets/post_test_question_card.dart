@@ -48,7 +48,10 @@ class _PostTestQuestionCardState extends State<PostTestQuestionCard> {
                     selectedAnswer = value;
                   });
                   if (value != null) {
-                    widget.onAnswerSelected(value);
+                    final selectedIndex =
+                        widget.question.options.indexOf(value);
+                    widget.onAnswerSelected(selectedIndex.toString());
+                    debugPrint('Selected index: $selectedIndex'); // For debugging
                   }
                 },
               );
