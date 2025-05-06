@@ -4,6 +4,7 @@ class StudentProgress {
   final String nis;
   final String? fullName;
   final double? progressPercentage;
+  final bool isTeacher;
 
   StudentProgress({
     required this.id,
@@ -11,6 +12,7 @@ class StudentProgress {
     required this.nis,
     this.fullName,
     this.progressPercentage,
+    this.isTeacher = false,
   });
 }
 

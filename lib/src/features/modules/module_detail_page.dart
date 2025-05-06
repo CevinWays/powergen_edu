@@ -67,201 +67,209 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => moduleBloc,
-        child: BlocBuilder(
-            bloc: moduleBloc,
-            builder: (context, state) {
-              if (state is LoadingModuleState) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (state is LoadedModuleState) {
-                return Scaffold(
-                  body: CustomScrollView(
-                    slivers: [
-                      SliverAppBar(
-                        expandedHeight: 200.0,
-                        pinned: true,
-                        leading: IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: () => Navigator.pop(context),
+      create: (context) => moduleBloc,
+      child: BlocBuilder(
+        bloc: moduleBloc,
+        builder: (context, state) {
+          if (state is LoadingModuleState) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(
+                  color: Colors.deepOrange,
+                ),
+              ),
+            );
+          } else if (state is LoadedModuleState) {
+            return Scaffold(
+              body: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    expandedHeight: 200.0,
+                    pinned: true,
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text(
+                        '${widget.title} : ${widget.desc}',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
-                        flexibleSpace: FlexibleSpaceBar(
-                          title: Text(
-                            '${widget.title} : ${widget.desc}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      ),
+                      background: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CachedNetworkImage(
+                            imageUrl:
+                                'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg',
+                            // Sesuaikan dengan path image yang tersedia
+                            fit: BoxFit.cover,
+                            errorWidget: (context, error, stackTrace) =>
+                                Container(
+                              color: Colors.deepOrange,
                             ),
                           ),
-                          background: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              CachedNetworkImage(
-                                imageUrl:
-                                    'https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg',
-                                // Sesuaikan dengan path image yang tersedia
-                                fit: BoxFit.cover,
-                                errorWidget: (context, error, stackTrace) =>
-                                    Container(
-                                  color: Colors.deepOrange,
-                                ),
-                              ),
-                              // Gradient overlay untuk memastikan text tetap terbaca
-                              // Container(
-                              //   decoration: BoxDecoration(
-                              //     gradient: LinearGradient(
-                              //       begin: Alignment.topCenter,
-                              //       end: Alignment.bottomCenter,
-                              //       colors: [
-                              //         Colors.transparent,
-                              //         Colors.black.withOpacity(0.7),
-                              //       ],
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ),
+                          // Gradient overlay untuk memastikan text tetap terbaca
+                          // Container(
+                          //   decoration: BoxDecoration(
+                          //     gradient: LinearGradient(
+                          //       begin: Alignment.topCenter,
+                          //       end: Alignment.bottomCenter,
+                          //       colors: [
+                          //         Colors.transparent,
+                          //         Colors.black.withOpacity(0.7),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
                       ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: state.contents.map((content) {
-                              if (content.type == 'text') {
-                                return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: HtmlWidget(content.content),
-                                );
-                              } else if (content.type == 'image') {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 16.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: CachedNetworkImage(
-                                      imageUrl: content.content,
-                                      width: double.infinity,
-                                      height: 200,
-                                      fit: BoxFit.cover,
-                                      errorWidget:
-                                          (context, error, stackTrace) =>
-                                              const Icon(
-                                        Icons.image_not_supported,
-                                        color: Colors.red,
-                                        size: 50,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              } else if (content.type == 'video') {
-                                return YoutubePlayer(
-                                  controller: _controller,
-                                  showVideoProgressIndicator: true,
-                                  progressIndicatorColor: Colors.amber,
-                                  progressColors: const ProgressBarColors(
-                                    playedColor: Colors.amber,
-                                    handleColor: Colors.amberAccent,
-                                  ),
-                                  onReady: () {
-                                    _controller.addListener(listener);
-                                  },
-                                );
-                              }
-                              return const SizedBox.shrink();
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  bottomNavigationBar: Container(
-                    padding: const EdgeInsets.all(16.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 4,
-                          offset: const Offset(0, -2),
-                        ),
-                      ],
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Handle previous navigation
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey[200],
-                            foregroundColor: Colors.black,
-                          ),
-                          child: const Icon(Icons.arrow_back),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Handle next navigation
-                            if (widget.isFinish) {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: const Text('Oke'),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: state.contents.map((content) {
+                          if (content.type == 'text') {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              child: HtmlWidget(content.content),
+                            );
+                          } else if (content.type == 'image') {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: CachedNetworkImage(
+                                    imageUrl: content.content,
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.cover,
+                                    errorWidget: (context, error, stackTrace) =>
+                                        Image.asset(
+                                          content.content,
+                                          width: double.infinity,
+                                          height: 200,
+                                          fit: BoxFit.cover,
+                                        )),
+                              ),
+                            );
+                          } else if (content.type == 'video') {
+                            return YoutubePlayer(
+                              controller: _controller,
+                              showVideoProgressIndicator: true,
+                              progressIndicatorColor: Colors.amber,
+                              progressColors: const ProgressBarColors(
+                                playedColor: Colors.amber,
+                                handleColor: Colors.amberAccent,
+                              ),
+                              onReady: () {
+                                _controller.addListener(listener);
+                              },
+                            );
+                          }
+                          return const SizedBox.shrink();
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              bottomNavigationBar: Container(
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 4,
+                      offset: const Offset(0, -2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle previous navigation
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[200],
+                        foregroundColor: Colors.black,
+                      ),
+                      child: const Icon(Icons.arrow_back),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle next navigation
+                        if (widget.isFinish) {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Oke'),
+                                  ),
+                                ],
+                                content: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text(
+                                        'Kamu sudah menyelesaikan post test, point kamu adalah'),
+                                    const SizedBox(height: 8),
+                                    Center(
+                                      child: Text(
+                                        '${widget.pointPostTest}',
+                                        style: const TextStyle(
+                                            fontSize: 54,
+                                            color: Colors.deepOrange),
                                       ),
-                                    ],
-                                    content: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Text(
-                                            'Kamu sudah menyelesaikan post test, point kamu adalah'),
-                                        const SizedBox(height: 8),
-                                        Center(
-                                          child: Text(
-                                            '${widget.pointPostTest}',
-                                            style: const TextStyle(
-                                                fontSize: 54,
-                                                color: Colors.deepOrange),
-                                          ),
-                                        ),
-                                      ],
                                     ),
-                                  );
-                                },
+                                  ],
+                                ),
                               );
-                            } else {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PostTestPage(
+                            },
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PostTestPage(
                                       moduleId: (widget.id ?? 0).toString(),
                                     )),
-                              );
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepOrange,
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Icon(Icons.arrow_forward),
-                        ),
-                      ],
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepOrange,
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Icon(Icons.arrow_forward),
                     ),
-                  ),
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            }));
+                  ],
+                ),
+              ),
+            );
+          } else {
+            return const Scaffold(
+              body: SizedBox.shrink(),
+            );
+          }
+        },
+      ),
+    );
   }
 }

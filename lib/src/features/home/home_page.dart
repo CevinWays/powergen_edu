@@ -1,13 +1,115 @@
-import 'package:fl_chart/fl_chart.dart';
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:powergen_edu/src/features/modules/module_detail_page.dart';
 import 'package:powergen_edu/src/features/modules/modules_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../profile/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  Future<void> _openPDF(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Future<void> _uploadPDF(BuildContext context) async {
+    try {
+      // Check and request storage permission
+      final permissionStatus = await Permission.storage.request();
+
+      if (!permissionStatus.isGranted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Izin untuk mengakses penyimpanan diperlukan',
+                style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf'],
+        allowMultiple: false,
+      );
+
+      const limitSize = 5 * 1024 * 1024; // 5 MB
+
+      if (result != null && result.files.first.size > limitSize) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('File PDF tidak boleh lebih dari 5 mb',
+                style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      if (result != null) {
+        final file = result.files.first;
+        final fileName = file.name;
+        final uid = prefs.getString('uid') ?? '';
+        final name = prefs.getString('fullName') ?? '';
+
+        // Create reference to Firebase Storage
+        final storageRef =
+            FirebaseStorage.instance.ref().child('student_pdfs/$uid/$fileName');
+
+        // Upload file
+        if (file.path != null) {
+          await storageRef.putFile(File(file.path!));
+        } else {
+          throw Exception('File path is null');
+        }
+
+        // Get download URL
+        final downloadUrl = await storageRef.getDownloadURL();
+
+        // Save reference to Firestore
+        if (context.mounted) {
+          await FirebaseFirestore.instance.collection('student_pdfs').add({
+            'userId': uid,
+            'fileName': fileName,
+            'downloadUrl': downloadUrl,
+            'uploadedAt': DateTime.now(),
+            'studentName': name,
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Praktikum berhasil diunggah',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.green,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error: ${e.toString()}',
+              style: const TextStyle(color: Colors.white)),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +264,217 @@ class HomePage extends StatelessWidget {
 
                           const SizedBox(height: 24),
 
+                          // Uploaded PDFs Card
+                          Visibility(
+                            visible: state.lastModule.idModule == 4,
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.blue[50],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Dokumen Praktikum',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  StreamBuilder<QuerySnapshot>(
+                                    stream: FirebaseFirestore.instance
+                                        .collection('student_pdfs')
+                                        .where('userId', isEqualTo: state.uid)
+                                        .orderBy('uploadedAt', descending: true)
+                                        .snapshots(),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasError) {
+                                        return const Text(
+                                            'Terjadi kesalahan saat memuat data');
+                                      }
+
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return const Center(
+                                            child: CircularProgressIndicator());
+                                      }
+
+                                      if (!snapshot.hasData ||
+                                          snapshot.data!.docs.isEmpty) {
+                                        return Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Center(
+                                              child: IconButton(
+                                                onPressed: () async {
+                                                  await _uploadPDF(context);
+                                                  if (context.mounted) {
+                                                    context
+                                                        .read<HomeBloc>()
+                                                        .add(LoadHomeData());
+                                                  }
+                                                },
+                                                icon: const Icon(
+                                                  Icons.upload_file,
+                                                  size: 60,
+                                                ),
+                                                color: Colors.blue[300],
+                                              ),
+                                            ),
+                                            const Text(
+                                              'Belum ada dokumen praktikum yang diunggah, ketuk untuk mengunggah',
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        );
+                                      }
+
+                                      return ListView.builder(
+                                        shrinkWrap: true,
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
+                                        itemCount: snapshot.data!.docs.length,
+                                        itemBuilder: (context, index) {
+                                          final doc =
+                                              snapshot.data!.docs[index];
+                                          final data = doc.data()
+                                              as Map<String, dynamic>;
+                                          return Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ListTile(
+                                                contentPadding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 8.0),
+                                                leading: const Icon(
+                                                  Icons.picture_as_pdf,
+                                                  color: Colors.blue,
+                                                ),
+                                                title: Text(data['fileName'] ??
+                                                    'Unnamed PDF'),
+                                                subtitle: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(data['uploadedAt'] !=
+                                                            null
+                                                        ? (data['uploadedAt']
+                                                                as Timestamp)
+                                                            .toDate()
+                                                            .toString()
+                                                        : 'Date unknown'),
+                                                    const SizedBox(height: 8),
+                                                    if (data['review'] !=
+                                                            null &&
+                                                        data['review'] != '')
+                                                      Text(
+                                                        'Catatan dari Guru : ${data['review']}',
+                                                        style: TextStyle(
+                                                          color:
+                                                              Colors.grey[600],
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
+                                                trailing: IconButton(
+                                                  icon: const Icon(
+                                                      Icons.open_in_new),
+                                                  onPressed: () => _openPDF(
+                                                      data['downloadUrl']),
+                                                ),
+                                              ),
+                                              const Divider(),
+                                              Row(
+                                                children: [
+                                                  const Text(
+                                                    'Penilaian',
+                                                    style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 8),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return AlertDialog(
+                                                            title: const Text(
+                                                                'Informasi Penilaian'),
+                                                            content: const Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                    '⭐ 1 Bintang: Sangat Buruk'),
+                                                                Text(
+                                                                    '⭐⭐ 2 Bintang: Buruk'),
+                                                                Text(
+                                                                    '⭐⭐⭐ 3 Bintang: Cukup'),
+                                                                Text(
+                                                                    '⭐⭐⭐⭐ 4 Bintang: Baik'),
+                                                                Text(
+                                                                    '⭐⭐⭐⭐⭐ 5 Bintang: Sangat Baik'),
+                                                              ],
+                                                            ),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+                                                                },
+                                                                child:
+                                                                    const Text(
+                                                                        'Tutup'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.info_outline,
+                                                      color: Colors.blue,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(height: 8),
+                                              Row(
+                                                children: List.generate(
+                                                  data['pointPraktikum'] ?? 0,
+                                                  (index) => const Icon(
+                                                    Icons.star,
+                                                    color: Colors.amber,
+                                                    size: 50,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+
                           // Menu Grid with 4 buttons
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,27 +491,19 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => ModulesPage(
-                                            modules: state.modules ?? [],
-                                            percentage:
-                                                state.totalProgress ?? 0,
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ModulesPage(
+                                              modules: state.modules ?? [],
+                                              percentage:
+                                                  state.totalProgress ?? 0,
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.arrow_circle_right_outlined,
-                                          color: Colors.deepOrange[300],
-                                        ),
-                                      ],
-                                    ),
-                                  )
+                                        );
+                                      },
+                                      child: const Text('Lihat semua'))
                                 ],
                               ),
                               const SizedBox(height: 16),

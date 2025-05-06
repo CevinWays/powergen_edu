@@ -173,6 +173,8 @@ class TeacherHomeBloc extends Bloc<TeacherHomeEvent, TeacherHomeState> {
       final students = await _repository.getStudents();
       // final pendingAssessments = await _repository.getPendingAssessments();
 
+      studentProgress.removeWhere((progress) => progress.isTeacher);
+
       emit(TeacherHomeLoaded(
         studentProgress: studentProgress,
         students: students,
@@ -194,7 +196,12 @@ class TeacherHomeBloc extends Bloc<TeacherHomeEvent, TeacherHomeState> {
   ) async {
     if (state is TeacherHomeLoaded) {
       final currentState = state as TeacherHomeLoaded;
-      emit(currentState.copyWith(searchQuery: event.query));
+      final result = currentState.studentProgress
+          .where((student) =>
+              (student.fullName ?? '').toLowerCase().contains(event.query))
+          .toList();
+      emit(currentState.copyWith(
+          searchQuery: event.query, studentProgress: result));
     }
   }
 
@@ -264,7 +271,7 @@ class TeacherHomeBloc extends Bloc<TeacherHomeEvent, TeacherHomeState> {
     }
   }
 
-  FutureOr<void> _onLogout(event, Emitter<TeacherHomeState> emit) async{
+  FutureOr<void> _onLogout(event, Emitter<TeacherHomeState> emit) async {
     try {
       // Sign out from Firebase
       await _auth.signOut();

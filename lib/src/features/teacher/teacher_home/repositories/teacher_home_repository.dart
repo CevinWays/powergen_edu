@@ -17,6 +17,7 @@ class TeacherHomeRepository {
           nis: data['nis'] as String,
           fullName: data['fullName'] as String?,
           studentName: data['username'] as String,
+          isTeacher: data['isTeacher'] as bool,
           progressPercentage:
               (data['total_progress'] as num?)?.toDouble() ?? 0.0,
         );

@@ -35,6 +35,7 @@ class HomeLoaded extends HomeState {
   final int? totalFinishModules;
   final int? totalInProgressModules;
   final ModuleModel lastModule;
+  final String? uid;
 
   const HomeLoaded({
     this.modules,
@@ -44,6 +45,7 @@ class HomeLoaded extends HomeState {
     this.totalInProgressModules,
     this.totalModules,
     required this.lastModule,
+    this.uid,
   });
 }
 
@@ -163,6 +165,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           totalFinishModules: finishModules.length,
           totalInProgressModules: inProgressModules.length,
           lastModule: lastModule,
+          uid: uid,
         ),
       );
     } catch (e) {

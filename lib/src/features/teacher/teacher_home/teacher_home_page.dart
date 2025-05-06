@@ -124,9 +124,15 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                         ),
                       ),
                       onChanged: (value) {
-                        context
-                            .read<TeacherHomeBloc>()
-                            .add(SearchStudents(value));
+                        if (value.isEmpty) {
+                          context
+                              .read<TeacherHomeBloc>()
+                              .add(LoadTeacherHomeData());
+                        } else {
+                          context
+                              .read<TeacherHomeBloc>()
+                              .add(SearchStudents(value));
+                        }
                       },
                     ),
                     const SizedBox(height: 16),
@@ -167,8 +173,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                                     leading: CircleAvatar(
                                       backgroundColor: Colors.blue[100],
                                       child: Text(
-                                        progress.fullName?[0]
-                                                .toUpperCase() ??
+                                        progress.fullName?[0].toUpperCase() ??
                                             '',
                                         style: const TextStyle(
                                           color: Colors.blue,
