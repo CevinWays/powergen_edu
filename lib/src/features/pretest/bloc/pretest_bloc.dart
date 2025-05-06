@@ -398,16 +398,17 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       });
 
       final moduleRef = _firestore.collection('modules');
+      final isModul1Finish = totalScoreBab1 > 22
+          ? true
+          : totalScoreBab2 >= 22
+              ? true
+              : false;
 
       moduleRef.doc('$uid-module-1').set({
         'uid': uid,
         'id_module': 1,
         'is_locked': false,
-        'is_finish': totalScoreBab1 > 22
-            ? true
-            : totalScoreBab2 >= 22
-                ? true
-                : false,
+        'is_finish': isModul1Finish,
         'point': totalScoreBab1,
         'point_post_test': totalScoreBab1 > 22
             ? 100
@@ -419,7 +420,7 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       moduleRef.doc('$uid-module-2').set({
         'uid': uid,
         'id_module': 2,
-        'is_locked': totalScoreBab2 > 22 ? false : true,
+        'is_locked': totalScoreBab2 > 22 ? false : isModul1Finish,
         'is_finish': totalScoreBab2 > 22 ? true : false,
         'point': totalScoreBab2,
         'point_post_test': totalScoreBab2 > 22 ? 100 : 0

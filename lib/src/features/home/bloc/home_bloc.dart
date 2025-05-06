@@ -75,7 +75,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final username = prefs.getString('userName') ?? 'Guest';
       final userDoc = await _firestore.collection('users').doc(uid).get();
       final userData = userDoc.data();
-      await prefs.setInt('totalProgress', userData?['total_progress'] ?? 0);
+      final totalProgress = userData?['total_progress'] ?? 0;
+      await prefs.setInt('totalProgress', totalProgress);
       await prefs.setInt('pointPretest', userData?['point_pretest'] ?? 0);
       await prefs.setBool(
           'isDonePretest', userData?['is_done_pretest'] ?? false);
@@ -116,31 +117,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           module.isLocked = module.isLocked;
         }
       }
-      await Future.delayed(const Duration(seconds: 1));
-      // final modules = [
-      //   ModuleModel(
-      //     idModule: 1,
-      //     title: 'Fundamentals of Power Plant Machinery',
-      //     description:
-      //         'Learn the basic concepts and principles of power plant machinery',
-      //     estimatedHours: 1,
-      //     isCompleted: true,
-      //   ),
-      //   ModuleModel(
-      //     idModule: 2,
-      //     title: 'Structure and Components',
-      //     description:
-      //         'Understand the structure and components of power plant systems',
-      //     estimatedHours: 2,
-      //   ),
-      //   ModuleModel(
-      //     idModule: 3,
-      //     title: 'Working Principles',
-      //     description: 'Master the working principles of power generation',
-      //     estimatedHours: 1,
-      //     isLocked: true,
-      //   ),
-      // ];
       final finishModules = modules.where((data) => data.isFinish);
       final inProgressModules =
           modules.where((data) => (data.pointPostTest ?? 0) > 0);
@@ -160,7 +136,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         HomeLoaded(
           modules: modules,
           username: username,
-          totalProgress: userData?['total_progress'] ?? 0,
+          totalProgress: totalProgress,
           totalModules: modules.length,
           totalFinishModules: finishModules.length,
           totalInProgressModules: inProgressModules.length,

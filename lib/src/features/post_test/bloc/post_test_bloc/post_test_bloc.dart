@@ -284,7 +284,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Dengan menambah bahan bakar saat suhu tinggi',
             'Dengan menghentikan aliran listrik secara periodik'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 20,
@@ -297,7 +297,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Turbin uap tidak memerlukan pendinginan',
             'Turbin gas menggunakan air sebagai media tekanan'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
       ];
     } else if (moduleId == '2') {
@@ -352,7 +352,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Saat daya reaktif meningkat',
             'Sebelum proses pembakaran bahan bakar'
           ],
-          correctAnswer: '0',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 5,
@@ -378,7 +378,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Menyediakan stabilitas tegangan dan frekuensi lebih tinggi',
             'Tidak memerlukan kontrol manual'
           ],
-          correctAnswer: '3',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 7,
@@ -443,7 +443,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Transformator menstabilkan frekuensi turbin',
             'Transformator menyimpan energi saat beban rendah'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 12,
@@ -469,7 +469,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Dengan memanaskan kumparan secara konstan',
             'Menggunakan bahan kimia untuk menghasilkan listrik'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 14,
@@ -547,7 +547,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Dengan menambah bahan bakar saat suhu tinggi',
             'Dengan menghentikan aliran listrik secara periodik'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
         PostTestQuestionModel(
           id: 20,
@@ -560,7 +560,7 @@ class PostTestBloc extends Cubit<PostTestState> {
             'Turbin uap tidak memerlukan pendinginan',
             'Turbin gas menggunakan air sebagai media tekanan'
           ],
-          correctAnswer: '1',
+          correctAnswer: '2',
         ),
       ];
     } else if (moduleId == '3') {
@@ -1128,65 +1128,70 @@ class PostTestBloc extends Cubit<PostTestState> {
 
       final prefs = await SharedPreferences.getInstance();
       final uid = prefs.getString('uid') ?? '';
+      final currentModule = '$uid-module-$moduleId';
 
-      final moduleRef =
-          _firestore.collection('modules').doc('$uid-module-$moduleId');
-      _firestore.runTransaction((transaction) async {
+      // INFO : update MODULE data
+      final moduleRef = _firestore.collection('modules').doc(currentModule);
+      await _firestore.runTransaction((transaction) async {
         final moduleSnapshot = await transaction.get(moduleRef);
 
         if (moduleSnapshot.exists) {
-          transaction.update(moduleRef, {
-            'point_post_test': score,
-            // 'is_finish': true,
-            'is_locked': false
-          });
+          if (score >= 75) {
+            transaction.update(moduleRef, {
+              'is_finish': true,
+              'point_post_test': score,
+            });
+            if (int.parse(moduleId) < 4) {
+              final nextModule = (int.parse(moduleId) + 1).toString();
+              final nextModuleRef = _firestore
+                  .collection('modules')
+                  .doc('$uid-module-$nextModule');
+              await _firestore.runTransaction((transaction) async {
+                final nextModuleSnapshot = await transaction.get(nextModuleRef);
 
-          if(int.parse(moduleId) < 4){
-            final nextModuleRef =
-            _firestore.collection('modules').doc('$uid-module-${(int.parse(moduleId)+1).toString()}');
-            _firestore.runTransaction((transaction) async {
-              final nextModuleSnapshot = await transaction.get(nextModuleRef);
-
-              if (nextModuleSnapshot.exists) {
-                transaction.update(nextModuleRef, {
-                  'is_finish': false,
-                  'is_locked': false
-                });
-
-              }
+                if (nextModuleSnapshot.exists) {
+                  transaction.update(
+                      nextModuleRef, {'is_finish': false, 'is_locked': false});
+                }
+              });
+            }
+          } else {
+            transaction.update(moduleRef, {
+              'is_finish': false,
+              'point_post_test': score,
             });
           }
-
         }
       });
 
-      if (score >= 75) {
-        final userRef = _firestore.collection('users').doc(uid);
+      // INFO : update USER total progress
+      final userRef = _firestore.collection('users').doc(uid);
 
-        _firestore.runTransaction((transaction) async {
+      if (score >= 75) {
+        await _firestore.runTransaction((transaction) async {
           final userSnapshot = await transaction.get(userRef);
 
           if (userSnapshot.exists) {
             transaction.update(userRef, {
+              'point_post_test': score,
               'total_progress': userSnapshot.data()?['total_progress'] + 25,
-              'is_finish': true,
             });
             await prefs.setInt(
                 'totalProgress', userSnapshot.data()?['total_progress'] + 25);
           }
         });
-      }else{
+      } else {
         //INFO : jika nilai kurang dari 75, total progress tidak bertambah
         //INFO : jika nilai kurang dari 75, is_finish = false
         final userRef = _firestore.collection('users').doc(uid);
 
-        _firestore.runTransaction((transaction) async {
+        await _firestore.runTransaction((transaction) async {
           final userSnapshot = await transaction.get(userRef);
 
           if (userSnapshot.exists) {
             transaction.update(userRef, {
+              'point_post_test': score,
               'total_progress': userSnapshot.data()?['total_progress'],
-              'is_finish': false,
             });
             await prefs.setInt(
                 'totalProgress', userSnapshot.data()?['total_progress']);

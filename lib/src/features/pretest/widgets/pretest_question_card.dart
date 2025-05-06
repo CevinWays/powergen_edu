@@ -54,7 +54,6 @@ class _PretestQuestionCardState extends State<PretestQuestionCard> {
                       widget.onAnswerSelected(selectedIndex.toString());
                       debugPrint(
                           'Selected index: $selectedIndex'); // For debugging
-                      widget.onAnswerSelected(value);
                     }
                   },
                 );
