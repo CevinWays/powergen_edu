@@ -194,6 +194,283 @@
       "type": "text",
       "content": "Seluruh prosedur operasional dan pemeliharaan pada sistem pembangkit, termasuk proses start-up, sinkronisasi, pengoperasian, hingga shutdown, harus dijalankan sesuai dengan SOP (Standard Operating Procedure) dan prinsip K3 (Keselamatan dan Kesehatan Kerja) yang berlaku. Kepatuhan terhadap SOP memastikan bahwa setiap langkah dilakukan secara sistematis, terstandar, dan berdasarkan pedoman teknis yang telah terbukti aman dan efisien. Sementara itu, penerapan prinsip K3 bertujuan untuk melindungi tenaga kerja dari potensi bahaya, baik dari aspek listrik, mekanik, maupun lingkungan kerja sekitar. Seluruh personel wajib menggunakan alat pelindung diri (APD), seperti helm, sarung tangan, pelindung telinga, dan sepatu safety, serta melakukan komunikasi yang jelas dalam setiap tahapan kerja. Selain itu, area kerja harus diberi tanda bahaya dan instruksi keselamatan yang mudah dipahami. Dengan menjalankan setiap aktivitas sesuai SOP dan K3, risiko kecelakaan kerja dapat ditekan seminimal mungkin, serta keandalan dan keselamatan sistem pembangkit dapat dijaga secara berkelanjutan.",
       "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDD39 Analisis Kerja Peralatan Mekanis dalam Sistem Pembangkit</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDD27 Peran Turbin dalam Proses Pembangkit</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Turbin Mengubah Energi Fluida Menjadi Energi Gerak Rotasi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin merupakan komponen utama dalam sistem pembangkit listrik yang berfungsi untuk mengubah energi fluida baik dalam bentuk uap, air, atau gas menjadi energi gerak rotasi mekanis. Proses ini dimulai ketika fluida bertekanan tinggi diarahkan ke sudu-sudu turbin, menyebabkan rotor berputar akibat dorongan energi kinetik dan tekanan dari fluida tersebut. Desain sudu turbin yang aerodinamis memungkinkan konversi energi berlangsung secara efisien, dengan memaksimalkan transfer momentum dari fluida ke poros turbin. Energi rotasi yang dihasilkan kemudian diteruskan ke generator melalui kopling untuk dikonversi menjadi energi listrik. Kinerja turbin sangat bergantung pada jenis fluida, tekanan dan suhu fluida masuk, serta desain sistem pembuangan fluida setelah proses konversi. Dengan efisiensi tinggi dan kemampuan bekerja dalam berbagai kondisi, turbin menjadi komponen vital dalam menjamin kontinuitas dan stabilitas produksi energi pada berbagai jenis pembangkit listrik.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. Turbin Harus Beroperasi Dalam Kecepatan Dan Tekanan Optimal</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin harus beroperasi dalam kecepatan dan tekanan optimal agar dapat menghasilkan energi secara efisien dan mencegah kerusakan pada sistem. Kecepatan putaran turbin yang sesuai dengan desain nominal sangat penting untuk menjaga sinkronisasi dengan generator, sehingga frekuensi listrik yang dihasilkan tetap stabil, umumnya 50 Hz. Sementara itu, tekanan fluida baik uap, gas, maupun air harus dijaga dalam batas ideal untuk memastikan dorongan yang cukup terhadap sudu-sudu turbin tanpa menyebabkan keausan berlebih atau kegagalan mekanis. Jika tekanan terlalu rendah, energi yang ditransfer ke turbin menjadi tidak maksimal, sehingga efisiensi pembangkitan menurun. Sebaliknya, tekanan yang terlalu tinggi dapat menyebabkan tekanan berlebih pada komponen, meningkatkan risiko kebocoran atau ledakan. Oleh karena itu, sistem kontrol otomatis biasanya digunakan untuk memantau dan mengatur parameter tekanan dan kecepatan secara real-time. Dengan menjaga turbin bekerja pada kondisi optimal, performa pembangkit menjadi lebih stabil, aman, dan berumur panjang.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Turbin Dilengkapi dengan sensor kecepatan dan katup bypass otomatis</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Turbin pada sistem pembangkit listrik modern dilengkapi dengan sensor kecepatan dan katup bypass otomatis sebagai bagian dari sistem kontrol dan proteksi yang canggih. Sensor kecepatan berfungsi untuk memantau putaran poros turbin secara real-time dan memastikan agar kecepatan tetap berada dalam batas operasi yang aman serta sesuai dengan kebutuhan sinkronisasi generator. Data dari sensor ini digunakan oleh sistem kontrol untuk menyesuaikan aliran fluida masuk melalui aktuator atau governor. Sementara itu, katup bypass otomatis berperan sebagai pengaman untuk mengalihkan aliran fluida jika terjadi kelebihan tekanan atau kondisi abnormal yang berpotensi membahayakan turbin. Ketika tekanan sistem melebihi ambang batas, katup ini secara otomatis membuka dan mengalirkan fluida ke jalur alternatif untuk mencegah kerusakan mekanis. Integrasi sensor kecepatan dan katup bypass otomatis memungkinkan pengoperasian turbin yang lebih responsif, efisien, dan aman, sekaligus mendukung sistem pembangkitan bekerja secara andal dan berkelanjutan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>❄\uFE0F Sistem Pendingin</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Mencegah Overheating</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sistem pendingin berperan penting dalam mencegah overheating pada komponen vital pembangkit seperti generator, transformator, dan motor listrik. Ketiga perangkat ini menghasilkan panas secara kontinu selama beroperasi akibat gesekan mekanis, arus listrik yang mengalir, dan proses konversi energi. Tanpa sistem pendingin yang efektif, suhu yang berlebih dapat menyebabkan degradasi isolasi, penurunan efisiensi, bahkan kerusakan permanen pada komponen internal. Sistem pendingin yang umum digunakan meliputi pendinginan udara, oli, dan air tergantung pada jenis dan kapasitas perangkat. Pada generator, pendingin sering kali berupa udara atau hidrogen yang disirkulasikan melalui saluran internal, sementara transformator biasanya menggunakan minyak trafo (mineral oil) sebagai media pembuang panas yang juga berfungsi sebagai isolator. Motor listrik juga dilengkapi dengan sirip pendingin atau kipas internal untuk menjaga suhu tetap stabil. Dengan sistem pendingin yang berfungsi optimal, keandalan operasional tetap terjaga dan usia peralatan menjadi lebih panjang.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. Bekerja Secara Otomatis</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pendinginan pada sistem pembangkit dirancang untuk bekerja secara otomatis saat suhu mencapai ambang batas tertentu guna mencegah terjadinya overheating yang dapat merusak komponen utama seperti generator, transformator, dan motor listrik. Sistem ini dilengkapi dengan sensor suhu yang terus memantau kondisi termal secara real-time. Ketika suhu terdeteksi melebihi batas yang telah ditetapkan misalnya 80°C pada transformator atau 90°C pada generator sistem kontrol secara otomatis mengaktifkan mekanisme pendinginan, seperti kipas angin, pompa sirkulasi air, atau sistem semprot oli. Dalam beberapa sistem canggih, penggunaan Programmable Logic Controller (PLC) memungkinkan respon yang lebih cepat dan akurat dalam mengatur laju pendinginan berdasarkan beban kerja dan suhu aktual. Aktivasi otomatis ini sangat penting untuk menjaga stabilitas operasi pembangkit, mencegah kerusakan isolasi, menghindari gangguan listrik, dan memastikan efisiensi kerja tetap optimal. Dengan sistem pendingin otomatis, risiko kegagalan akibat suhu berlebih dapat diminimalkan secara signifikan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Otomatis Mematikan Mesin (Trip)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Jika sistem pendinginan pada pembangkit mengalami kegagalan, sistem proteksi akan secara otomatis mematikan mesin atau melakukan trip untuk mencegah kerusakan lebih lanjut. Trip otomatis ini merupakan bagian dari sistem keselamatan kritis yang didesain untuk melindungi komponen utama seperti generator, transformator, dan motor listrik dari overheating parah yang dapat menyebabkan kegagalan isolasi, kerusakan permanen, atau bahkan kebakaran. Sensor suhu yang terpasang akan terus memantau kondisi termal; apabila suhu melebihi batas maksimum yang diizinkan dan sistem pendingin tidak merespons, sinyal darurat akan dikirim ke unit kontrol untuk segera memutus operasi. Proses ini mematikan aliran energi dan menghentikan putaran mesin guna menghentikan produksi panas secara langsung. Selain itu, alarm peringatan biasanya akan diaktifkan untuk memberi tahu operator mengenai kondisi abnormal. Dengan adanya sistem trip otomatis, keselamatan operasional dan integritas peralatan pembangkit dapat dijaga secara maksimal, meskipun terjadi kegagalan fungsi pendinginan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDD25 Sistem Bahan Bakar</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Dikendalikan Oleh Sistem Otomasi (PLC/SCADA)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sistem bahan bakar pada pembangkit modern dikendalikan oleh sistem otomasi seperti PLC (Programmable Logic Controller) atau SCADA (Supervisory Control and Data Acquisition) untuk memastikan suplai bahan bakar berjalan secara efisien, aman, dan stabil. Melalui sistem ini, aliran bahan bakar baik berupa gas, cair (seperti diesel), maupun padat (seperti batubara) dapat diatur secara presisi berdasarkan kebutuhan beban pembangkitan dan kondisi operasional. PLC bertugas mengontrol aktuator, katup, dan pompa bahan bakar dengan logika pemrograman yang disesuaikan, sementara SCADA memantau parameter secara real-time, seperti tekanan, volume, dan suhu bahan bakar, serta menyediakan tampilan visual kepada operator. Jika terjadi anomali, sistem akan memberikan alarm dan dapat menghentikan suplai bahan bakar secara otomatis untuk mencegah bahaya. Dengan otomasi ini, efisiensi penggunaan bahan bakar meningkat, risiko kesalahan manusia dapat ditekan, serta keandalan dan keamanan proses pembangkitan tetap terjaga secara optimal.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar39.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. Memenuhi Rasio Udara-Bahan Bakar Yang Ideal</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Sistem bahan bakar dalam pembangkit listrik harus memenuhi rasio udara-bahan bakar yang ideal untuk memastikan proses pembakaran berlangsung secara efisien, stabil, dan ramah lingkungan. Rasio ini menunjukkan perbandingan antara jumlah udara yang dicampurkan dengan bahan bakar dalam ruang bakar agar pembakaran berlangsung sempurna. Jika udara terlalu sedikit (campuran kaya bahan bakar), pembakaran menjadi tidak sempurna dan menghasilkan emisi gas buang berbahaya seperti karbon monoksida dan partikulat. Sebaliknya, jika udara terlalu banyak (campuran miskin bahan bakar), energi yang dihasilkan berkurang karena suhu pembakaran lebih rendah, menyebabkan efisiensi termal menurun. Sistem otomasi seperti PLC atau SCADA berperan penting dalam mengatur rasio ini secara real-time dengan mengontrol laju aliran bahan bakar dan udara berdasarkan sensor tekanan, suhu, dan beban pembangkit. Memastikan rasio udara-bahan bakar tetap ideal tidak hanya meningkatkan efisiensi operasional, tetapi juga mengurangi polusi dan memperpanjang umur peralatan pembangkit.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Monitor Tekanan Suplai, Volume Pembakaran, Dan Sisa Emisi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Monitoring tekanan suplai, volume pembakaran, dan sisa emisi merupakan bagian integral dari sistem kontrol bahan bakar dalam pembangkit listrik yang bertujuan menjaga efisiensi, keamanan, dan kepatuhan terhadap regulasi lingkungan. Tekanan suplai bahan bakar harus dipantau secara ketat untuk memastikan aliran tetap stabil dan cukup untuk memenuhi kebutuhan pembakaran. Tekanan yang terlalu rendah dapat menyebabkan gangguan pasokan, sementara tekanan berlebih bisa memicu risiko kebocoran atau ledakan. Volume pembakaran mengacu pada jumlah bahan bakar yang dibakar dalam waktu tertentu, yang harus disesuaikan dengan beban pembangkit agar tidak terjadi kelebihan konsumsi atau pemborosan energi. Sementara itu, sisa emisi, seperti karbon monoksida (CO), nitrogen oksida (NOx), dan partikel debu, perlu dianalisis melalui sistem monitoring emisi (CEMS) untuk memastikan proses pembakaran berjalan optimal dan ramah lingkungan. Dengan pemantauan tiga parameter ini secara terintegrasi melalui sistem SCADA atau DCS, operator dapat melakukan penyesuaian cepat dan menjaga performa pembangkit tetap dalam kondisi ideal.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDD39 Keselamatan dan Standar Operasional Pengoperasian Pembangkit</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>⚠\uFE0F Prinsip Keselamatan Kerja\n</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Lock Out – Tag Out (LOTO)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Lock Out – Tag Out (LOTO) adalah prosedur keselamatan kerja yang sangat penting dalam lingkungan pembangkit listrik untuk memastikan bahwa tidak ada energi yang mengalir ke sistem saat dilakukan perbaikan, pemeliharaan, atau inspeksi. Prosedur ini melibatkan dua langkah utama: Lock Out, yaitu penguncian fisik terhadap sumber energi menggunakan gembok khusus pada saklar, katup, atau pemutus daya untuk mencegah aktivasi sistem secara tidak sengaja; dan Tag Out, yaitu pemasangan label peringatan (tag) yang menunjukkan bahwa peralatan sedang dalam kondisi tidak boleh dioperasikan karena ada personel yang sedang bekerja. Energi yang dikendalikan meliputi listrik, tekanan hidrolik, udara bertekanan, uap, hingga energi mekanis. Setiap teknisi yang terlibat wajib memasang kunci dan tag-nya sendiri untuk menjamin keamanan pribadi. LOTO bertujuan mencegah insiden berbahaya seperti sengatan listrik, ledakan, atau pergerakan mesin mendadak, sehingga memastikan lingkungan kerja tetap aman selama proses perbaikan berlangsung.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar40.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. PPE (Personal Protective Equipment)</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "PPE (Personal Protective Equipment) atau Alat Pelindung Diri adalah perlengkapan wajib yang digunakan oleh personel di lingkungan kerja berisiko tinggi seperti pembangkit listrik untuk melindungi diri dari potensi bahaya fisik, termal, dan kebisingan. Beberapa perlengkapan PPE yang standar digunakan meliputi: sarung tangan untuk melindungi tangan dari panas, luka, dan sengatan listrik saat menangani komponen listrik atau mekanis; helm keselamatan untuk melindungi kepala dari benturan benda jatuh atau struktur di atas; sepatu safety dengan ujung baja (steel toe) dan sol anti-slip yang melindungi kaki dari kejatuhan benda berat, tumpahan cairan panas, dan medan licin; serta pelindung telinga (ear plug atau earmuff) yang digunakan saat bekerja di area dengan tingkat kebisingan tinggi, seperti dekat turbin atau generator, untuk mencegah gangguan pendengaran. Penggunaan PPE bukan hanya sekadar kepatuhan terhadap regulasi K3, tetapi juga merupakan upaya nyata untuk menciptakan lingkungan kerja yang aman, produktif, dan bebas dari kecelakaan.",
+      "isTitle": false
+    },
+    {
+      "type": "image",
+      "content": "assets/images/bab2/gambar41.png"
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Routine Inspection</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Routine inspection atau pemeriksaan rutin merupakan kegiatan penting yang dilakukan secara harian untuk memastikan seluruh sistem pembangkit listrik beroperasi dengan aman, efisien, dan sesuai standar. Pemeriksaan ini mencakup tiga tahapan utama: sebelum operasi, selama operasi, dan setelah operasi. Sebelum operasi dimulai, teknisi melakukan pengecekan awal terhadap kondisi fisik peralatan, seperti kebocoran fluida, tekanan sistem, level pelumas, suhu awal, serta kesiapan panel kontrol dan sistem proteksi. Selama operasi, fokus pemeriksaan bergeser pada pemantauan parameter penting seperti tegangan, arus, suhu, tekanan, getaran, suara abnormal, serta stabilitas output daya untuk mendeteksi potensi gangguan secara dini. Setelah operasi berakhir, pemeriksaan dilakukan untuk mengevaluasi kondisi akhir sistem, seperti suhu pendinginan, sisa bahan bakar, serta dokumentasi hasil operasional dan alarm. Dengan melakukan routine inspection secara disiplin, risiko kerusakan mendadak dapat diminimalkan, umur peralatan menjadi lebih panjang, dan keselamatan kerja tetap terjaga.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDCD1 Standar Operasional (SOP) Wajib Diikuti</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>Permen ESDM dan standar IEEE/IEC</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Standar Operasional Prosedur (SOP) wajib diikuti secara ketat dalam pengoperasian dan pemeliharaan pembangkit listrik, sebagai bentuk kepatuhan terhadap regulasi nasional dan internasional. Di Indonesia, SOP ini harus mengacu pada Peraturan Menteri Energi dan Sumber Daya Mineral (Permen ESDM) yang mengatur standar keselamatan, keandalan, dan efisiensi sistem ketenagalistrikan. Selain itu, operator dan teknisi juga wajib merujuk pada standar internasional seperti IEEE (Institute of Electrical and Electronics Engineers) dan IEC (International Electrotechnical Commission), yang memberikan pedoman teknis global terkait desain, pengujian, dan pengoperasian sistem kelistrikan. SOP meliputi seluruh aspek operasional dari start-up dan shutdown, kontrol beban, pemeliharaan berkala, penanganan gangguan, hingga sistem proteksi dan keselamatan kerja. Penerapan SOP berdasarkan Permen ESDM dan standar IEEE/IEC bertujuan untuk menjamin keselamatan personel, perlindungan peralatan, efisiensi energi, serta kontinuitas pasokan listrik yang andal dan sesuai standar mutu internasional.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. SOP Start-Up, Shutdown, Pemeliharaan, Dan Keadaan Darurat</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>a. SOP Start-up</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Prosedur ini mencakup serangkaian langkah penting yang harus dilakukan sebelum mesin pembangkit dinyalakan guna memastikan keamanan dan keandalan operasional. Tahap awal dimulai dengan pemeriksaan kesiapan sistem bahan bakar untuk menjamin suplai bahan bakar dalam kondisi optimal dan tidak terjadi kebocoran. Selanjutnya, sistem pelumasan diperiksa untuk memastikan semua komponen bergerak memiliki pelumas yang cukup guna mencegah gesekan berlebih dan keausan dini. Sistem pendinginan juga diverifikasi untuk menjamin suhu mesin tetap dalam batas aman selama pengoperasian. Pemeriksaan dilanjutkan ke sistem kontrol, termasuk sensor, panel kontrol, dan logika pemrograman (PLC/SCADA), guna memastikan seluruh parameter bekerja normal. Setelah itu, dilakukan proses sinkronisasi dengan jaringan listrik untuk menghindari lonjakan arus saat integrasi pembangkit dengan sistem distribusi. Terakhir, sistem proteksi diaktifkan, termasuk pemutus otomatis dan pengaman beban lebih, guna melindungi mesin dari gangguan operasional yang tidak terduga.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>b. SOP Shutdown</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Prosedur shutdown pada mesin pembangkit dilakukan secara terkontrol dan bertahap untuk mencegah kerusakan akibat perubahan mendadak yang dapat merugikan sistem. Tahapan ini dimulai dengan pengurangan beban secara perlahan guna menurunkan tekanan kerja mesin secara aman dan stabil. Setelah beban mencapai titik minimum, dilakukan pemutusan koneksi antara unit pembangkit dan jaringan distribusi listrik untuk mengisolasi sistem dari aliran energi eksternal. Selanjutnya, unit pembangkit menjalani proses pendinginan untuk menurunkan suhu operasional secara bertahap, sehingga mencegah terjadinya keausan dini atau retakan termal pada komponen vital seperti turbin, generator, dan sistem perpipaan. Pendinginan ini juga penting untuk menjaga integritas sistem pelumasan dan mencegah oli menjadi terlalu panas. Pada tahap akhir, operator melakukan pencatatan kondisi akhir unit, termasuk tekanan, suhu, serta status sistem kontrol dan proteksi, sebagai bagian dari dokumentasi dan evaluasi performa mesin secara menyeluruh.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>c. SOP Pemeliharaan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Kegiatan pemeliharaan mesin pembangkit melibatkan berbagai tindakan yang dirancang untuk memastikan kinerja optimal dan keamanan operasional secara berkelanjutan. Langkah pertama mencakup inspeksi rutin yang dilakukan harian atau mingguan untuk mendeteksi dini adanya kerusakan atau keausan pada komponen penting seperti bearing, valve, atau konektor. Selanjutnya, dilakukan perawatan berkala yang meliputi pembersihan sistem, penggantian pelumas, serta pemeriksaan tekanan dan suhu kerja. Kalibrasi sensor juga menjadi bagian krusial, terutama pada sistem kontrol otomatis, agar data yang diterima oleh sistem pengendali tetap akurat dan dapat diandalkan. Penggantian suku cadang dilakukan sesuai jadwal atau ketika komponen menunjukkan penurunan performa, guna mencegah kegagalan mendadak. Selain itu, prosedur keselamatan Lock Out – Tag Out (LOTO) wajib diterapkan sebelum memulai pekerjaan perawatan, untuk memastikan bahwa seluruh aliran energi telah dihentikan dan peralatan tidak aktif selama proses pemeliharaan berlangsung, demi melindungi teknisi dari risiko kecelakaan kerja.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>d. SOP Keadaan Darurat</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Standar Operasional Prosedur (SOP) darurat disusun secara komprehensif untuk menghadapi berbagai situasi kritis yang dapat mengancam keselamatan personel dan integritas sistem pembangkit, seperti kebakaran, kegagalan sistem pendingin, lonjakan tegangan, maupun kebocoran bahan bakar. Prosedur ini dirancang agar dapat diimplementasikan secara cepat dan tepat oleh seluruh personel operasional, dimulai dengan pemutusan darurat atau emergency trip untuk segera menghentikan seluruh aktivitas mesin dan aliran energi guna mencegah eskalasi kerusakan. Setelah itu, sistem proteksi otomatis akan diaktifkan, termasuk pemadam kebakaran otomatis, pemutus arus berlebih, serta sistem kontrol tekanan dan suhu agar bahaya dapat diminimalisasi. Dalam situasi darurat, personel wajib mengikuti jalur evakuasi sesuai dengan protokol Keselamatan dan Kesehatan Kerja (K3) yang telah ditetapkan, termasuk penggunaan alat pelindung diri (APD) dan berkumpul di titik aman yang telah ditentukan, sehingga setiap insiden dapat ditangani secara sistematis tanpa menimbulkan korban jiwa atau kerusakan yang lebih besar.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. SOP dalam Bentuk Cetak</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Standar Operasional Prosedur (SOP) wajib tersedia dalam dua format, yakni cetak dan digital, dan harus selalu ditempatkan di ruang kendali pembangkit untuk memastikan aksesibilitas yang cepat dan mudah oleh seluruh operator, terutama dalam kondisi darurat. Keberadaan SOP dalam bentuk cetak memungkinkan personel untuk segera merujuk pada panduan tindakan tanpa tergantung pada perangkat elektronik yang mungkin tidak dapat diakses saat terjadi gangguan sistem. Sementara itu, versi digital mendukung pencarian informasi yang lebih cepat dan dapat diintegrasikan dengan sistem kendali berbasis SCADA atau Human Machine Interface (HMI). Ketersediaan ganda ini juga membantu dalam proses pelatihan, audit internal, serta pembaruan prosedur secara berkala. Dengan memastikan SOP tercetak tersimpan dalam map khusus yang tahan api dan tahan air, serta versi digital tersimpan dalam sistem dengan backup otomatis, maka konsistensi operasional dan keselamatan kerja di lingkungan pembangkit dapat terjaga dengan optimal.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDD04 Sistem Otomatisasi dan Proteksi</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>1. Proteksi overvoltage, overload, dan overheating</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Proteksi terhadap overvoltage, overload, dan overheating pada sistem pembangkit listrik merupakan bagian penting dari sistem keselamatan operasional untuk mencegah kerusakan peralatan dan menjaga kontinuitas pasokan energi. Proteksi overvoltage berfungsi untuk melindungi peralatan dari lonjakan tegangan yang dapat disebabkan oleh gangguan jaringan, petir, atau kesalahan switching. Umumnya, proteksi ini menggunakan surge arrester, voltage relay, atau sistem pemutus tegangan otomatis. Sementara itu, proteksi overload dirancang untuk mendeteksi arus yang melebihi kapasitas nominal peralatan, seperti generator atau transformator. Ketika arus berlebih terdeteksi, sistem akan memicu pemutus arus (circuit breaker) untuk mencegah kerusakan termal atau mekanis pada komponen. Adapun overheating dikontrol melalui sensor suhu yang dipasang pada titik-titik kritis seperti kumparan generator, bearing, dan sistem pelumas. Jika suhu melebihi ambang batas yang diizinkan, sistem akan mengaktifkan alarm dan dapat menghentikan operasi secara otomatis (shutdown) sebagai langkah pengamanan. Ketiga sistem proteksi ini bekerja secara terintegrasi dalam sistem kendali otomatis (SCADA/PLC) untuk memastikan pembangkit beroperasi dalam batas yang aman dan efisien.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>2. Pemantauan remote via HMI/SCADA</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pemantauan sistem proteksi secara remote melalui Human Machine Interface (HMI) dan Supervisory Control and Data Acquisition (SCADA) merupakan bagian integral dari manajemen pembangkit modern yang mengedepankan efisiensi, keandalan, dan respons cepat terhadap potensi gangguan. Sistem HMI/SCADA memungkinkan operator untuk memonitor secara real-time parameter penting seperti tegangan, arus, suhu, tekanan, serta status proteksi seperti trip, alarm, atau warning dari berbagai komponen seperti generator, transformator, dan sistem pendingin. Melalui interface grafis HMI yang intuitif, operator dapat dengan mudah membaca indikator performa dan kondisi abnormal, sementara SCADA memberikan kemampuan untuk mengakses dan mengendalikan sistem secara jarak jauh, termasuk mereset sistem proteksi, menjalankan diagnostic tools, atau mengeksekusi shutdown darurat. Data yang terekam juga dapat disimpan dalam log historis untuk analisis lebih lanjut dan keperluan audit. Keunggulan pemantauan remote ini adalah kemampuannya dalam mempercepat pengambilan keputusan, mengurangi risiko human error, dan memungkinkan intervensi dini terhadap masalah sebelum berkembang menjadi kegagalan sistem yang lebih serius.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>3. Alarm untuk mendeteksi gejala kerusakan</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Alarm dini pada sistem pembangkit listrik dirancang sebagai sistem peringatan awal untuk mendeteksi gejala kerusakan sebelum terjadi kegagalan total atau kerusakan berat pada peralatan. Sistem ini bekerja dengan memanfaatkan sensor-sensor yang terpasang di berbagai titik kritis, seperti suhu kumparan generator, getaran pada turbin, tekanan oli pelumas, tegangan output, dan arus beban. Ketika parameter yang dimonitor menunjukkan deviasi dari nilai normal atau mendekati batas toleransi operasional, alarm akan aktif secara otomatis baik melalui sinyal audio, visual (lampu indikator), maupun notifikasi di sistem SCADA/HMI. Alarm ini tidak hanya menunjukkan lokasi dan jenis potensi masalah, tetapi juga menyediakan kode atau pesan yang mengarahkan operator pada tindakan korektif yang diperlukan. Dengan adanya alarm dini, operator dapat segera melakukan pemeriksaan dan penyesuaian atau menjadwalkan pemeliharaan sebelum terjadi kerusakan yang lebih besar, sehingga meningkatkan keandalan sistem, memperpanjang umur peralatan, dan mengurangi downtime yang merugikan.",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "<strong>\uD83D\uDCDA Kesimpulan Bab</strong>",
+      "isTitle": false
+    },
+    {
+      "type": "text",
+      "content": "Pengoperasian sistem pembangkit listrik merupakan proses kompleks yang jauh melampaui sekadar menyalakan dan mematikan mesin. Setiap tahapan memerlukan prosedur teknis yang terstandarisasi, mulai dari persiapan awal, pengaturan beban, pemantauan parameter operasional, hingga proses shutdown yang aman. Hal ini menuntut pemahaman mendalam terhadap prinsip kerja peralatan mekanis dan sistem kelistrikan seperti generator, transformator, turbin, sistem bahan bakar, serta pendinginan. Selain aspek teknis, penerapan prinsip keselamatan kerja (K3) menjadi faktor utama yang tidak bisa diabaikan, mengingat risiko kecelakaan pada pembangkit sangat tinggi. Setiap operator wajib mengikuti Standar Operasional Prosedur (SOP), mengenakan alat pelindung diri (APD), serta memahami langkah-langkah darurat jika terjadi gangguan. Dengan kedisiplinan terhadap SOP dan perhatian terhadap detail teknis setiap komponen, maka keandalan, efisiensi, dan kontinuitas sistem pembangkitan listrik dapat terjaga secara optimal, sekaligus meminimalkan potensi kerusakan dan kecelakaan kerja.",
+      "isTitle": false
     }
   ]
 }

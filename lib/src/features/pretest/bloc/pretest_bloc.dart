@@ -382,6 +382,22 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       final uid = prefs.getString('uid') ?? '';
       final userRef = _firestore.collection('users').doc(uid);
 
+      final isModule1Finish = totalScoreBab1 > 22
+          ? true
+          : totalScoreBab2 >= 22
+              ? true
+              : false;
+      final isModule2Finish = totalScoreBab2 > 22 ? true : false;
+
+      int totalProgress = 0;
+      if(isModule1Finish && isModule2Finish){
+        totalProgress = 50;
+      } else if(isModule1Finish || isModule2Finish){
+        totalProgress = 25;
+      } else {
+        totalProgress = 0;
+      }
+
       _firestore.runTransaction((transaction) async {
         final userSnapshot = await transaction.get(userRef);
 
@@ -389,7 +405,7 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
           transaction.update(userRef, {
             'point_pretest': totalPoint,
             'is_done_pretest': true,
-            'total_progress': totalPoint,
+            'total_progress': totalProgress,
           });
           await prefs.setBool('isDonePretest', true);
           await prefs.setInt('totalProgress', totalPoint);
@@ -398,17 +414,12 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       });
 
       final moduleRef = _firestore.collection('modules');
-      final isModul1Finish = totalScoreBab1 > 22
-          ? true
-          : totalScoreBab2 >= 22
-              ? true
-              : false;
 
       moduleRef.doc('$uid-module-1').set({
         'uid': uid,
         'id_module': 1,
         'is_locked': false,
-        'is_finish': isModul1Finish,
+        'is_finish': isModule1Finish,
         'point': totalScoreBab1,
         'point_post_test': totalScoreBab1 > 22
             ? 100
@@ -420,8 +431,8 @@ class PretestBloc extends Bloc<PretestEvent, PretestState> {
       moduleRef.doc('$uid-module-2').set({
         'uid': uid,
         'id_module': 2,
-        'is_locked': totalScoreBab2 > 22 ? false : isModul1Finish,
-        'is_finish': totalScoreBab2 > 22 ? true : false,
+        'is_locked': totalScoreBab2 > 22 ? false : isModule1Finish,
+        'is_finish': isModule2Finish,
         'point': totalScoreBab2,
         'point_post_test': totalScoreBab2 > 22 ? 100 : 0
       });

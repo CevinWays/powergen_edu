@@ -47,6 +47,16 @@ class HomePage extends StatelessWidget {
 
       const limitSize = 5 * 1024 * 1024; // 5 MB
 
+      if (result != null && !result.files.first.name.toLowerCase().endsWith('.pdf')) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Hanya file PDF yang diperbolehkan', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
       if (result != null && result.files.first.size > limitSize) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -266,7 +276,7 @@ class HomePage extends StatelessWidget {
 
                           // Uploaded PDFs Card
                           Visibility(
-                            visible: state.lastModule.idModule == 4,
+                            visible: (state.lastModule.idModule ?? 0) >= 4,
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -409,7 +419,8 @@ class HomePage extends StatelessWidget {
                                                           return AlertDialog(
                                                             title: const Text(
                                                                 'Informasi Penilaian'),
-                                                            content: const Column(
+                                                            content:
+                                                                const Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .min,
@@ -790,7 +801,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${state.lastModule?.title} : ${state.lastModule?.description}',
+                  '${state.lastModule?.title} ${state.lastModule?.description}',
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -798,41 +809,44 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 // Continue Button
-                ElevatedButton(
-                  onPressed: state.lastModule?.isLocked ?? false
-                      ? () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                  'Selesaikan modul sebelumnya terlebih dahulu'),
-                            ),
-                          );
-                        }
-                      : () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ModuleDetailPage(
-                                id: state.lastModule?.idModule ?? 0,
-                                title: state.lastModule?.title ?? '',
-                                isFinish: state.lastModule?.isFinish ?? false,
-                                pointPostTest:
-                                    state.lastModule?.pointPostTest ?? 0,
-                                desc: state.lastModule?.description,
+                Visibility(
+                  visible: (state.lastModule.idModule ?? 0) < 5,
+                  child: ElevatedButton(
+                    onPressed: state.lastModule.isLocked
+                        ? () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'Selesaikan modul sebelumnya terlebih dahulu'),
                               ),
-                            ),
-                          );
-                        },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepOrange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                            );
+                          }
+                        : () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ModuleDetailPage(
+                                  id: state.lastModule.idModule ?? 0,
+                                  title: state.lastModule.title ?? '',
+                                  isFinish: state.lastModule.isFinish,
+                                  pointPostTest:
+                                      state.lastModule.pointPostTest ?? 0,
+                                  desc: state.lastModule.description,
+                                ),
+                              ),
+                            );
+                          },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    'Lanjutkan',
-                    style: TextStyle(
-                      color: Colors.white,
+                    child: const Text(
+                      'Lanjutkan',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

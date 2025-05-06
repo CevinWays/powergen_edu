@@ -6,11 +6,11 @@
   "content": [
     {
       "type": "text",
-      "content": "🔹 Prosedur Pemeliharaan Rutin"
+      "content": "<strong>🔹 Prosedur Pemeliharaan Rutin</strong>"
     },
     {
       "type": "text",
-      "content": "📌 Mengapa Pemeliharaan Itu Penting?"
+      "content": "📌<strong> Mengapa Pemeliharaan Itu Penting?</strong>"
     },
     {
       "type": "text",
@@ -18,11 +18,11 @@
     },
     {
       "type": "text",
-      "content": "⚙️ Langkah-Langkah Umum Pemeliharaan Rutin:"
+      "content": "<strong>⚙️ Langkah-Langkah Umum Pemeliharaan Rutin:</strong>"
     },
     {
       "type": "text",
-      "content": "Pemeriksaan Visual Harian"
+      "content": "<strong>1. Pemeriksaan Visual Harian</strong>"
     },
     {
       "type": "text",
@@ -30,7 +30,7 @@
     },
     {
       "type": "text",
-      "content": "Pengukuran Parameter"
+      "content": "<strong>2. Pengukuran Parameter</strong>"
     },
     {
       "type": "text",
@@ -38,7 +38,7 @@
     },
     {
       "type": "text",
-      "content": "Pembersihan Komponen"
+      "content": "<strong>3. Pembersihan Komponen</strong>"
     },
     {
       "type": "text",
@@ -46,7 +46,7 @@
     },
     {
       "type": "text",
-      "content": "Pelumasan"
+      "content": "<strong>4. Pelumasan</strong>"
     },
     {
       "type": "text",
@@ -54,7 +54,7 @@
     },
     {
       "type": "text",
-      "content": "Pengecekan Panel dan Sensor"
+      "content": "<strong>5. Pengecekan Panel dan Sensor</strong>"
     },
     {
       "type": "text",
@@ -62,11 +62,11 @@
     },
     {
       "type": "text",
-      "content": "🔄 Jadwal Umum"
+      "content": "<strong>🔄 Jadwal Umum</strong>"
     },
     {
       "type": "text",
-      "content": "Jadwal Harian"
+      "content": "<strong>1. Jadwal Harian</strong>"
     },
     {
       "type": "text",
@@ -74,7 +74,7 @@
     },
     {
       "type": "text",
-      "content": "Jadwal Mingguan"
+      "content": "<strong>2. Jadwal Mingguan</strong>"
     },
     {
       "type": "text",
@@ -82,7 +82,7 @@
     },
     {
       "type": "text",
-      "content": "Jadwal Bulanan"
+      "content": "<strong>3. Jadwal Bulanan</strong>"
     },
     {
       "type": "text",
@@ -90,7 +90,7 @@
     },
     {
       "type": "text",
-      "content": "Jadwal Tahunan"
+      "content": "<strong>4. Jadwal Tahunan</strong>"
     },
     {
       "type": "text",
@@ -98,11 +98,11 @@
     },
     {
       "type": "text",
-      "content": "🔹 Jenis-Jenis Pemeliharaan Sistem Pembangkit"
+      "content": "<strong>🔹 Jenis-Jenis Pemeliharaan Sistem Pembangkit</strong>"
     },
     {
       "type": "text",
-      "content": "🛠️ Preventive Maintenance (Pemeliharaan Pencegahan)"
+      "content": "<strong>🛠️ Preventive Maintenance (Pemeliharaan Pencegahan)</strong>"
     },
     {
       "type": "text",
@@ -182,15 +182,15 @@
     },
     {
       "type": "text",
-      "content": "🔹 Prinsip dan Penerapan Pemeliharaan Efisien"
+      "content": "<strong>🔹 Prinsip dan Penerapan Pemeliharaan Efisien</strong>"
     },
     {
       "type": "text",
-      "content": "⚖️ Prinsip Dasar:"
+      "content": "<strong>⚖️ Prinsip Dasar:</strong>"
     },
     {
       "type": "text",
-      "content": "Efisiensi"
+      "content": "<strong>1. Efisiensi</strong>"
     },
     {
       "type": "text",
@@ -198,7 +198,7 @@
     },
     {
       "type": "text",
-      "content": "Keamanan"
+      "content": "<strong>2. Keamanan</strong>"
     },
     {
       "type": "text",
@@ -206,7 +206,7 @@
     },
     {
       "type": "text",
-      "content": "Dokumentasi"
+      "content": "<strong>3. Dokumentasi</strong>"
     },
     {
       "type": "text",
@@ -214,11 +214,11 @@
     },
     {
       "type": "text",
-      "content": "🔧 Strategi Penerapan:"
+      "content": "<strong>🔧 Strategi Penerapan:</strong>"
     },
     {
       "type": "text",
-      "content": "Integrasi IoT atau sensor pintar"
+      "content": "<strong>1. Integrasi IoT atau sensor pintar</strong>"
     },
     {
       "type": "text",
@@ -226,7 +226,7 @@
     },
     {
       "type": "text",
-      "content": "Sistem Alarm Otomatis"
+      "content": "<strong>2. Sistem Alarm Otomatis</strong>"
     },
     {
       "type": "text",
@@ -234,7 +234,7 @@
     },
     {
       "type": "text",
-      "content": "Digitalisasi Riwayat Pemeliharaan"
+      "content": "<strong>3. Digitalisasi Riwayat Pemeliharaan</strong>"
     },
     {
       "type": "text",
@@ -242,23 +242,23 @@
     },
     {
       "type": "text",
-      "content": "💡 Tips Efisiensi:"
+      "content": "<strong>💡 Tips Efisiensi:</strong>"
     },
     {
       "type": "text",
-      "content": "Selalu gunakan komponen OEM (original)"
+      "content": "1. Selalu gunakan komponen OEM (original)"
     },
     {
       "type": "text",
-      "content": "Jadwalkan downtime saat beban minimum"
+      "content": "2. Jadwalkan downtime saat beban minimum"
     },
     {
       "type": "text",
-      "content": "Evaluasi performa tiap bulan menggunakan KPI teknis: MTBF (Mean Time Between Failure), MTTR (Mean Time to Repair)"
+      "content": "3. Evaluasi performa tiap bulan menggunakan KPI teknis: MTBF (Mean Time Between Failure), MTTR (Mean Time to Repair)"
     },
     {
       "type": "text",
-      "content": "📚 Kesimpulan Bab"
+      "content": "<strong>📚 Kesimpulan Bab</strong>"
     },
     {
       "type": "text",

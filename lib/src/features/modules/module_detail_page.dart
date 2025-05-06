@@ -146,18 +146,12 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                                   const EdgeInsets.symmetric(vertical: 16.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: CachedNetworkImage(
-                                    imageUrl: content.content,
-                                    width: double.infinity,
-                                    height: 200,
-                                    fit: BoxFit.cover,
-                                    errorWidget: (context, error, stackTrace) =>
-                                        Image.asset(
-                                          content.content,
-                                          width: double.infinity,
-                                          height: 200,
-                                          fit: BoxFit.cover,
-                                        )),
+                                child: Image.asset(
+                                  content.content,
+                                  width: double.infinity,
+                                  height: 200,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             );
                           } else if (content.type == 'video') {
@@ -195,18 +189,8 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                   ],
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle previous navigation
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[200],
-                        foregroundColor: Colors.black,
-                      ),
-                      child: const Icon(Icons.arrow_back),
-                    ),
                     ElevatedButton(
                       onPressed: () {
                         // Handle next navigation

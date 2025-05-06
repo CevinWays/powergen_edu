@@ -121,14 +121,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final inProgressModules =
           modules.where((data) => (data.pointPostTest ?? 0) > 0);
       final lastModule = modules.lastWhere(
-        (data) => data.isFinish == false && data.isLocked == false,
+        (data) => data.idModule == (totalProgress / 25) + 1,
         orElse: () {
           return ModuleModel(
-              idModule: 0,
-              title: 'No Module',
-              description: 'No Description',
+              idModule: 5,
+              title: 'Silahkan upload dokumen praktikum',
+              description: '',
               estimatedHours: 0,
-              isLocked: true,
+              isLocked: false,
               isFinish: false);
         },
       );
