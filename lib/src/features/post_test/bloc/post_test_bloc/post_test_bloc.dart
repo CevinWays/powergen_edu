@@ -1378,9 +1378,10 @@ class PostTestBloc extends Cubit<PostTestState> {
           correctAnswers++;
         }
       });
+
       /// Sum score post test
       int score = 0;
-      if(moduleId == '4'){
+      if (moduleId == '4') {
         score = (correctAnswers * 2.5).round();
       } else {
         score = correctAnswers * 5;
@@ -1433,7 +1434,7 @@ class PostTestBloc extends Cubit<PostTestState> {
 
           if (userSnapshot.exists) {
             transaction.update(userRef, {
-              'point_post_test': score,
+              'point_post_test_module_$moduleId': score,
               'total_progress': userSnapshot.data()?['total_progress'] + 25,
             });
             await prefs.setInt(
@@ -1450,7 +1451,7 @@ class PostTestBloc extends Cubit<PostTestState> {
 
           if (userSnapshot.exists) {
             transaction.update(userRef, {
-              'point_post_test': score,
+              'point_post_test_module_$moduleId': score,
               'total_progress': userSnapshot.data()?['total_progress'],
             });
             await prefs.setInt(

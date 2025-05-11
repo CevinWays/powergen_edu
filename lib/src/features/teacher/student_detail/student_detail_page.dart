@@ -81,7 +81,38 @@ class StudentDetailPage extends StatelessWidget {
                     const SizedBox(height: 16),
                     ListTile(
                       title: const Text('Progress'),
-                      subtitle: Text('${student.progressPercentage}%'),
+                      subtitle: Text(
+                          '${student.progressPercentage?.toStringAsFixed(0)}%'),
+                      leading: const Icon(Icons.assessment),
+                    ),
+                    ListTile(
+                      title: const Text('Nilai Pretest'),
+                      subtitle:
+                          Text('${student.pointPretest?.toStringAsFixed(0)}'),
+                      leading: const Icon(Icons.assessment),
+                    ),
+                    ListTile(
+                      title: const Text('Nilai Post test modul 1'),
+                      subtitle: Text(
+                          '${student.pointPostTestModul1?.toStringAsFixed(0)}'),
+                      leading: const Icon(Icons.assessment),
+                    ),
+                    ListTile(
+                      title: const Text('Nilai Post test modul 2'),
+                      subtitle: Text(
+                          '${student.pointPostTestModul2?.toStringAsFixed(0)}'),
+                      leading: const Icon(Icons.assessment),
+                    ),
+                    ListTile(
+                      title: const Text('Nilai Post test modul 3'),
+                      subtitle: Text(
+                          '${student.pointPostTestModul3?.toStringAsFixed(0)}'),
+                      leading: const Icon(Icons.assessment),
+                    ),
+                    ListTile(
+                      title: const Text('Nilai Post test modul 4'),
+                      subtitle: Text(
+                          '${student.pointPostTestModul4?.toStringAsFixed(0)}'),
                       leading: const Icon(Icons.assessment),
                     ),
                   ],

@@ -5,6 +5,11 @@ class StudentProgress {
   final String? fullName;
   final double? progressPercentage;
   final bool isTeacher;
+  final double? pointPretest;
+  final double? pointPostTestModul1;
+  final double? pointPostTestModul2;
+  final double? pointPostTestModul3;
+  final double? pointPostTestModul4;
 
   StudentProgress({
     required this.id,
@@ -13,6 +18,11 @@ class StudentProgress {
     this.fullName,
     this.progressPercentage,
     this.isTeacher = false,
+    this.pointPretest,
+    this.pointPostTestModul1,
+    this.pointPostTestModul2,
+    this.pointPostTestModul3,
+    this.pointPostTestModul4,
   });
 }
 
@@ -29,7 +39,6 @@ class Student {
     this.className,
     this.fullName,
     this.nis,
-
   });
 }
 

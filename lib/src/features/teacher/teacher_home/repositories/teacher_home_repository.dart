@@ -13,14 +13,22 @@ class TeacherHomeRepository {
       return snapshot.docs.map((doc) {
         final data = doc.data();
         return StudentProgress(
-          id: data['uid'] as String,
-          nis: data['nis'] as String,
-          fullName: data['fullName'] as String?,
-          studentName: data['username'] as String,
-          isTeacher: data['isTeacher'] as bool,
-          progressPercentage:
-              (data['total_progress'] as num?)?.toDouble() ?? 0.0,
-        );
+            id: data['uid'] as String,
+            nis: data['nis'] as String,
+            fullName: data['fullName'] as String?,
+            studentName: data['username'] as String,
+            isTeacher: data['isTeacher'] as bool,
+            progressPercentage:
+                (data['total_progress'] as num?)?.toDouble() ?? 0.0,
+            pointPretest: (data['point_pretest'] as num?)?.toDouble() ?? 0.0,
+            pointPostTestModul1:
+                (data['point_post_test_module_1'] as num?)?.toDouble() ?? 0.0,
+            pointPostTestModul2:
+                (data['point_post_test_module_2'] as num?)?.toDouble() ?? 0.0,
+            pointPostTestModul3:
+                (data['point_post_test_module_3'] as num?)?.toDouble() ?? 0.0,
+            pointPostTestModul4:
+                (data['point_post_test_module_4'] as num?)?.toDouble() ?? 0.0);
       }).toList();
     } catch (e) {
       throw Exception('Failed to fetch student progress: $e');
