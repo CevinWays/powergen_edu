@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:powergen_edu/src/features/modules/bloc/module_bloc.dart';
 import 'package:powergen_edu/src/features/modules/bloc/module_state.dart';
+import 'package:powergen_edu/src/features/modules/preview_image.dart';
 import 'package:powergen_edu/src/features/post_test/post_test_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -141,16 +142,26 @@ class _ModuleDetailPageState extends State<ModuleDetailPage> {
                               child: HtmlWidget(content.content),
                             );
                           } else if (content.type == 'image') {
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 16.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  content.content,
-                                  width: double.infinity,
-                                  height: 200,
-                                  fit: BoxFit.cover,
+                            return GestureDetector(
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PreviewImage(
+                                    image: content.content,
+                                  ),
+                                ),
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 16.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    content.content,
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             );
